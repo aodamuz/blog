@@ -279,7 +279,7 @@ class CreatePostTest extends TestCase {
 		return array_merge([
 			'title'       => 'Post Title',
 			'body'        => 'My first post',
-			'description' => Str::random(160),
+			'description' => 'Lorem ipsum dolor sit, amet consectetur, adipisicing elit.',
 		], $overwrite);
 	}
 }
