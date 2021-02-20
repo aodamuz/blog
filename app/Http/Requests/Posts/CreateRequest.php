@@ -25,6 +25,7 @@ class CreateRequest extends FormRequest {
 			'title'       => 'required|string|min:3|max:60',
 			'body'        => 'required|string|min:10',
 			'description' => 'required|string|min:10|max:160',
+			'category_id' => 'nullable|integer|exists:categories,id',
 		];
 	}
 

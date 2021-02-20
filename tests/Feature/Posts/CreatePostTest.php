@@ -4,6 +4,7 @@ namespace Tests\Feature\Posts;
 
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
@@ -11,6 +12,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreatePostTest extends TestCase {
 	use RefreshDatabase;
+
+	// protected function setUp(): void {
+	// 	parent::setUp();
+
+	// 	// $this->defaultCategory = Category::factory()->create();
+	// }
 
 	/*
 	|--------------------------------------------------------------------------
@@ -62,6 +69,30 @@ class CreatePostTest extends TestCase {
 
 		$this->assertDatabaseHas('posts', $this->data([
 			'user_id' => $user->id,
+		]));
+	}
+
+	/** @test */
+	public function a_created_post_must_have_a_category() {
+		// $this->withoutExceptionHandling();
+		$user = User::factory()->create();
+
+		// Create additional categories to ensure
+		// that the post category is as expected.
+		Category::factory(2)->create();
+
+		$category = Category::factory()->create();
+
+		$this
+			->actingAs($user)
+			->post(route('posts.store'), $this->data([
+				'category_id' => $category->id
+			]))
+		;
+
+		$this->assertDatabaseHas('posts', $this->data([
+			'user_id'     => $user->id,
+			'category_id' => $category->id,
 		]));
 	}
 
