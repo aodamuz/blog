@@ -14,6 +14,22 @@ class Post extends Base {
 	 */
 	protected $guarded = [];
 
+	/*
+	|--------------------------------------------------------------------------
+	| Relationships
+	|--------------------------------------------------------------------------
+	*/
+
+	public function category() {
+		return $this->belongsTo(Category::class);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| Helpers
+	|--------------------------------------------------------------------------
+	*/
+
 	/**
 	 * Return the sluggable configuration array for this model.
 	 *

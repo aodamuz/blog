@@ -2,6 +2,4 @@
 
 namespace {{ namespace }};
 
-class {{ class }} extends Base {
-	use HasFactory;
-}
+class {{ class }} extends Base {}

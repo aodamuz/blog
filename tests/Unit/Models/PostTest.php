@@ -23,14 +23,16 @@ class PostTest extends TestCase {
 		$this->assertClassUsesTrait(Sluggable::class, Post::class);
 	}
 
-	// /** @test */
-	// public function a_post_belongs_to_a_category() {
-	// 	$category = Category::factory()->create();
+	/** @test */
+	public function a_post_belongs_to_a_category() {
+		$category = Category::factory()->create();
 
-	// 	$post = Post::factory()->create([
-	// 		'category_id' => $category->id,
-	// 	]);
+		$post = Post::factory()->create([
+			'category_id' => $category->id,
+		]);
 
-	// 	$this->assertInstanceOf(Category::class, $post->category);
-	// }
+		$this->assertInstanceOf(Category::class, $post->category);
+
+		$this->assertEquals(Category::first()->id, $post->category->id);
+	}
 }
