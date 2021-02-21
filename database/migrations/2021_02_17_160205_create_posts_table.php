@@ -4,31 +4,35 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration {
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up() {
-		Schema::create('posts', function (Blueprint $table) {
-			$table->id();
-			$table->string('title');
-			$table->string('slug')->unique();
-			$table->string('description')->nullable();
-			$table->longText('body');
-			$table->unsignedBigInteger('user_id');
-			$table->unsignedBigInteger('category_id')->default(1);
-			$table->timestamps();
-		});
-	}
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->longText('body');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id')->default(1);
+            $table->timestamp('published_at')->nullable();
+            $table->timestamps();
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down() {
-		Schema::dropIfExists('posts');
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
 }

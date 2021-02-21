@@ -2,18 +2,20 @@
 
 namespace {{ namespace }};
 
-use {{ namespacedUserModel }};
 use Illuminate\Auth\Access\HandlesAuthorization;
+use {{ namespacedUserModel }};
 
-class {{ class }} {
-	use HandlesAuthorization;
+class {{ class }}
+{
+    use HandlesAuthorization;
 
-	/**
-	 * Create a new policy instance.
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-		//
-	}
+    /**
+     * Create a new policy instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
 }

@@ -4,13 +4,15 @@ namespace {{ namespace }};
 
 use PHPUnit\Framework\TestCase;
 
-class {{ class }} extends TestCase {
-	/**
-	 * A basic unit test example.
-	 *
-	 * @return void
-	 */
-	public function test_example() {
-		$this->assertTrue(true);
-	}
+class {{ class }} extends TestCase
+{
+    /**
+     * A basic unit test example.
+     *
+     * @return void
+     */
+    public function test_example()
+    {
+        $this->assertTrue(true);
+    }
 }

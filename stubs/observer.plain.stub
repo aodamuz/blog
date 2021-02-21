@@ -2,6 +2,7 @@
 
 namespace {{ namespace }};
 
-class {{ class }} {
-	//
+class {{ class }}
+{
+    //
 }
