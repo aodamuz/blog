@@ -38,10 +38,10 @@ class UserFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (User $user) {
-            $user->option()->create(['items' => [
+            $user->option->set([
                 'first_name' => $this->faker->firstName,
                 'last_name'  => $this->faker->lastName,
-            ]]);
+            ]);
         });
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Scopes\PublishedScope;
+use App\Support\Enum\PostStatus;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Base
@@ -10,26 +10,10 @@ class Post extends Base
     use Sluggable;
 
     /*
-    |--------------------------------------------------------------------------
-    | Set Up
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
+    | Query Scopes
+    |-------------------------------------------------------------------------
     */
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'published_at' => 'datetime',
-    ];
 
     /**
      * Scope a query to include only published posts.
@@ -39,13 +23,35 @@ class Post extends Base
      */
     public function scopePublished($query)
     {
-        return $query->where('published_at', '>=', now());
+        return $query->where('status', PostStatus::PUBLISHED);
+    }
+
+    /**
+     * Scope a query to include only private posts.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePrivate($query)
+    {
+        return $query->where('status', PostStatus::HIDDEN);
+    }
+
+    /**
+     * Scope a query to include only review posts.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeReview($query)
+    {
+        return $query->where('status', PostStatus::REVIEW);
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Relationships
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     public function user()
@@ -59,14 +65,39 @@ class Post extends Base
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Helpers
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
-    public function isItPublic()
+    /**
+     * Check if the given post is published.
+     *
+     * @return boolean
+     */
+    public function isPublished()
     {
-        return !is_null($this->published_at) && $this->published_at->isPast();
+        return $this->status === PostStatus::PUBLISHED;
+    }
+
+    /**
+     * Check if the given post is private.
+     *
+     * @return boolean
+     */
+    public function isPrivate()
+    {
+        return $this->status === PostStatus::HIDDEN;
+    }
+
+    /**
+     * Check if the given post is under review.
+     *
+     * @return boolean
+     */
+    public function isReview()
+    {
+        return $this->status === PostStatus::REVIEW;
     }
 
     /**

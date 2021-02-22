@@ -14,6 +14,12 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Cachable, HasOptions, HasFactory, SoftDeletes, Notifiable;
 
+    /*
+    |-------------------------------------------------------------------------
+    | Set Up
+    |-------------------------------------------------------------------------
+    */
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -58,6 +64,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
     ];
 
+    /*
+    |-------------------------------------------------------------------------
+    | Relationships
+    |-------------------------------------------------------------------------
+    */
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /*
+    |-------------------------------------------------------------------------
+    | Accessors & Mutators
+    |-------------------------------------------------------------------------
+    */
+
     /**
      * Get the user's full name.
      *
@@ -65,8 +88,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getNameAttribute()
     {
-    	$opt = $this->option;
+        $o = $this->option;
 
-        return "{$opt->get('first_name')} {$opt->get('last_name')}";
+        return "{$o->get('first_name')} {$o->get('last_name')}";
     }
 }

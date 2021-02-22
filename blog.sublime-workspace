@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"publ",
+				"published_at"
+			],
+			[
+				"is_n",
+				"is_null"
+			],
+			[
+				"asstt",
+				"assertTrue"
+			],
+			[
 				"save",
 				"saveData"
 			],
@@ -86,10 +102,6 @@
 			[
 				"das",
 				"dashboard"
-			],
-			[
-				"for",
-				"foreach\tblade-foreach"
 			],
 			[
 				"has",
@@ -502,30 +514,17 @@
 			[
 				"firs",
 				"first-of-type"
-			],
-			[
-				"classL",
-				"classList"
-			],
-			[
-				"Toa",
-				"Toasted"
-			],
-			[
-				"To",
-				"Toasted"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/laragon/www/tibi/config.local.php",
+			"file": "tests/Unit/Traits/HasOptionsTest.php",
 			"settings":
 			{
-				"buffer_size": 605,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 3036,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -607,155 +606,183 @@
 	},
 	"expanded_folders":
 	[
-		"/H/Tibia/4"
+		"/C/laragon/www/blog",
+		"/C/laragon/www/blog/tests",
+		"/C/laragon/www/blog/tests/Unit",
+		"/C/laragon/www/blog/tests/Unit/Traits"
 	],
 	"file_history":
 	[
-		"/C/Users/jmmen/Downloads/TIBIA/theforgottenserver-v1.2-win64/config.lua",
-		"/C/Users/jmmen/Downloads/TIBIA/config.lua",
-		"/C/Users/jmmen/Desktop/install-android.docker.sh",
-		"/C/laragon/www/v-tibia/index.php",
-		"/C/laragon/www/v-tibia/system/login.php",
-		"/C/Users/jmmen/Downloads/client-editor-windows-v1.3/otserv_rsa.key",
-		"/C/Users/jmmen/Downloads/Tibia Client 12.61/Tibia 12.61/bin/client.exe",
-		"/C/laragon/www/v-tibia/config.php",
-		"/C/laragon/www/v-tibia/plugins/gesior-shop-system.json",
-		"/C/laragon/www/v-tibia/config2.local.php",
-		"/C/laragon/www/v-tibia/config.local.php",
-		"/G/Tibia/Tibia Client 12.61/Tibia 12.61/assets.json",
-		"/G/Tibia/Tibia Client 12.61/Tibia 12.61/conf/gpublacklist.json",
-		"/G/Tibia/Tibia Client 12.61/Tibia 12.61/conf/clientoptions.json",
-		"/G/Tibia/Tibia Client 12.61/Tibia 12.61/bin/qt.conf",
-		"/C/laragon/www/znote/config.php",
-		"/C/laragon/www/znote/buypoints.php",
-		"/C/laragon/www/znote/engine/function/general.php",
-		"/C/Users/jmmen/Downloads/znote_schema.sql",
-		"/C/Users/jmmen/Desktop/projects/tibia/docker-compose.yaml",
-		"/C/Users/jmmen/Desktop/projects/tibia/Dockerfile",
-		"/C/Users/jmmen/Desktop/projects/tibia/nginx/default.conf",
-		"/C/Users/jmmen/AppData/Local/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json",
-		"/C/laragon/www/vtibia/app/Support/Hashing/Sha1Hasher.php",
-		"/C/laragon/www/vtibia/config/app.php",
-		"/C/laragon/www/vtibia/config/hashing.php",
-		"/C/laragon/www/vtibia/database/factories/AccountFactory.php",
-		"/C/laragon/www/vtibia/app/Support/Hashing/HashManager.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Contracts/Hashing/Hasher.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Hashing/AbstractHasher.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Support/Facades/Hash.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Hashing/ArgonHasher.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php",
-		"/C/laragon/www/vtibia/app/Providers/HashServiceProvider.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Hashing/HashManager.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Hashing/HashServiceProvider.php",
-		"/C/laragon/www/vtibia/app/Providers/SHAHashServiceProviderTwo.php",
-		"/C/laragon/www/vtibia/app/Support/Libraries/SHAHasher.php",
-		"/C/laragon/www/vtibia/app/Providers/SHAHashServiceProvider.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Support/Manager.php",
-		"/C/laragon/www/vtibia/app/Http/Controllers/Auth/RegisteredAccountController.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/AuthenticationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/RegistrationTest.php",
-		"/C/laragon/www/vtibia/database/migrations/2014_10_12_000000_create_accounts_table.php",
-		"/C/laragon/www/vtibia/composer.json",
-		"/C/laragon/www/vtibia/storage/logs/laravel.log",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithAuthentication.php",
-		"/C/laragon/www/vtibia/phpunit.xml",
-		"/C/laragon/www/admin/phpunit.xml",
-		"/C/laragon/www/vtibia/routes/auth.php",
-		"/C/laragon/www/vtibia/database/seeders/DatabaseSeeder.php",
-		"/C/laragon/www/vtibia/resources/views/auth/register.blade.php",
-		"/C/laragon/www/vtibia/config/auth.php",
-		"/C/laragon/www/vtibia/resources/views/auth/login.blade.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/EmailVerificationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/PasswordConfirmationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/PasswordResetTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/Auth/Registration.php",
-		"/C/laragon/www/vtibia/app/Models/User.php",
-		"/C/laragon/www/vtibia/.env",
-		"/C/laragon/www/vtibia/app/Models/Account.php",
-		"/C/laragon/www/vtibia/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HidesAttributes.php",
-		"/C/laragon/www/vtibia/resources/views/auth/register2.blade",
-		"/C/vcpkg/otservbr-global/config.lua",
-		"/C/laragon/www/vtibia/app/Http/Controllers/Auth/RegisteredUserController.php",
-		"/C/laragon/www/vtibia/vendor/laravel/breeze/stubs/App/Http/Requests/Auth/LoginRequest.php",
-		"/C/laragon/www/vtibia/app/Http/Requests/Auth/LoginRequest.php",
-		"/C/laragon/www/vtibia/database/factories/UserFactory.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php",
-		"/C/laragon/www/vtibia/vendor/filp/whoops/src/Whoops/Resources/js/clipboard.min.js",
-		"/C/laragon/www/vtibia/app/Support/Countries.php",
-		"/G/Job/laravel-nova/src/Fields/Country.php",
-		"/C/laragon/www/vtibia/config/geoip.php",
-		"/C/laragon/www/vtibia/routes/web.php",
-		"/C/laragon/www/vtibia/resources/views/components/input.blade.php",
-		"/C/laragon/www/vtibia/resources/views/layouts/navigation.blade.php",
-		"/C/laragon/www/v-tibia/system/pages/admin/accounts.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
-		"/C/laragon/www/vtibia/resources/views/layouts/app.blade.php",
-		"/C/laragon/www/vtibia/resources/views/layouts/guest.blade.php",
-		"/C/laragon/www/vtibia/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithExceptionHandling.php",
-		"/C/laragon/www/vtibia/tests/Feature/AuthenticationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/CreatePostTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/EmailVerificationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/PasswordConfirmationTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/PasswordResetTest.php",
-		"/C/laragon/www/vtibia/tests/Feature/RegistrationTest.php",
-		"/C/laragon/www/admin/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/laragon/www/v-tibia/templates/tibiacom/basic.css",
-		"/C/laragon/www/vtibia/resources/js/bootstrap.js",
-		"/C/laragon/www/tibia/templates/tibiacom/index.php",
-		"/C/laragon/www/v-tibia/system/functions.php",
-		"/C/laragon/www/v-tibia/system/libs/pot/OTS_ServerInfo.php",
-		"/C/laragon/www/v-tibia/system/status.php",
-		"/C/laragon/www/v-tibia/templates/tibiacom/index.php",
-		"/C/laragon/www/v-tibia/system/libs/pot/OTS_Buffer.php",
-		"/C/Users/jmmen/AppData/Local/Temp/Rar$DIa3044.190/Tibia Client 12.txt",
-		"/C/vcpkg/otservbr-global/src/luascript.h",
-		"/C/vcpkg/otservbr-global/src/configmanager.cpp",
-		"/C/vcpkg/otservbr-global/vc14/release.props",
-		"/C/Users/jmmen/Downloads/TIBIA/OTSERVER 10.98/SERVER/Otxserver-Testing-master/config.lua",
-		"/C/Users/jmmen/Downloads/TIBIA/OTSERVER 10.98/TOOLS/Simple Port/Guia.txt",
-		"/C/laragon/www/tibia2/config2.local.php",
-		"/C/Users/jmmen/Documents/El Mejor Baul De La Salsa/List.txt",
-		"/C/Users/jmmen/Downloads/TIBIA/Ot 7.60 Para o tibiaking/config.lua",
-		"/C/Users/jmmen/Downloads/TIBIA/OTSERVER 10.98/SERVER/Otxserver-Testing-master/CMakeLists.txt",
-		"/C/Users/jmmen/Downloads/TIBIA/OTSERVER 10.98/SERVER/Compatible.txt",
-		"/C/Users/jmmen/Downloads/TIBIA/SERVIDOR TIBIA/SERVIDOR TIBIA/Mythological/config.lua",
-		"/C/Users/jmmen/Downloads/TIBIA/SERVIDOR TIBIA/SERVIDOR TIBIA/Mythological/config1.lua",
-		"/C/Users/jmmen/Downloads/TIBIA/Ot 7.60 Para o tibiaking/mods/annihilator.xml",
-		"/C/laragon/www/cart/app/Http/Controllers/RecipeController.php",
-		"/C/Users/jmmen/Downloads/Global by LepiigorTV-updatev1.0.0/schema.sql",
-		"/C/laragon/www/tibia/config/config.php",
-		"/C/laragon/www/tibia/pages/adminpanel.php",
-		"/C/laragon/www/tibia/pages/whoisonline.php",
-		"/C/laragon/www/tibia/config/namesblocked.php",
-		"/C/Users/jmmen/Downloads/OTXServer/config.lua",
-		"/C/Users/jmmen/Downloads/OTX Server/config.lua",
-		"/C/laragon/www/admin/resources/tailwindcss/config.js",
-		"/C/laragon/www/admin/resources/views/dashboard2.blade.php",
-		"/C/laragon/www/admin/resources/views/dashboard.blade.php",
-		"/C/Users/jmmen/Downloads/Website/pages/adminpanel.php",
-		"/C/laragon/www/test.php",
-		"/C/Users/jmmen/Documents/My Games/Age of Empires 3/Savegame/LastHomeCityY.xml",
-		"/C/Users/jmmen/Pictures/Conversacion Norelis 21-07-2012/Ultimos mensajes en face.txt"
+		"/C/Users/Johan/Desktop/app/docker-compose.yml",
+		"/C/Users/Johan/Desktop/app/src/static/js/app.js",
+		"/C/laragon/www/blog/vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php",
+		"/C/laragon/www/blog/app/Models/Post.php",
+		"/C/laragon/www/blog/tests/Unit/Models/PostTest.php",
+		"/C/laragon/www/blog/tests/Unit/Models/UserTest.php",
+		"/C/Users/Johan/Desktop/app/src/persistence/index.js",
+		"/C/Users/Johan/Desktop/app/Dockerfile",
+		"/C/laragon/www/blog/.env",
+		"/C/laragon/www/shop/.env",
+		"/C/laragon/www/myshop/.env",
+		"/C/laragon/www/blog/tests/Unit/Traits/HasOptionsTest.php",
+		"/C/laragon/www/blog/app/Console/Kernel.php",
+		"/C/laragon/www/blog/app/Exceptions/Handler.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/ConfirmablePasswordController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/EmailVerificationNotificationController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/EmailVerificationPromptController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/NewPasswordController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/PasswordResetLinkController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/RegisteredUserController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/VerifyEmailController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/CategoryController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Controller.php",
+		"/C/laragon/www/blog/app/Http/Controllers/PostController.php",
+		"/C/laragon/www/blog/app/Http/Kernel.php",
+		"/C/laragon/www/blog/app/Http/Middleware/Authenticate.php",
+		"/C/laragon/www/blog/app/Http/Middleware/EncryptCookies.php",
+		"/C/laragon/www/blog/app/Http/Middleware/PreventRequestsDuringMaintenance.php",
+		"/C/laragon/www/blog/app/Http/Middleware/RedirectIfAuthenticated.php",
+		"/C/laragon/www/blog/app/Http/Middleware/TrimStrings.php",
+		"/C/laragon/www/blog/app/Http/Middleware/TrustHosts.php",
+		"/C/laragon/www/blog/app/Http/Middleware/TrustProxies.php",
+		"/C/laragon/www/blog/app/Http/Middleware/VerifyCsrfToken.php",
+		"/C/laragon/www/blog/app/Http/Requests/Auth/LoginRequest.php",
+		"/C/laragon/www/blog/app/Http/Requests/Auth/RegisterRequest.php",
+		"/C/laragon/www/blog/app/Http/Requests/Posts/CreateRequest.php",
+		"/C/laragon/www/blog/app/Models/Base.php",
+		"/C/laragon/www/blog/app/Models/Category.php",
+		"/C/laragon/www/blog/app/Models/Option.php",
+		"/C/laragon/www/blog/app/Models/User.php",
+		"/C/laragon/www/blog/app/Observers/UserObserver.php",
+		"/C/laragon/www/blog/app/Providers/AppServiceProvider.php",
+		"/C/laragon/www/blog/app/Providers/AuthServiceProvider.php",
+		"/C/laragon/www/blog/app/Providers/BroadcastServiceProvider.php",
+		"/C/laragon/www/blog/app/Providers/EventServiceProvider.php",
+		"/C/laragon/www/blog/app/Providers/RouteServiceProvider.php",
+		"/C/laragon/www/blog/app/Scopes/PublishedScope.php",
+		"/C/laragon/www/blog/app/Traits/HasOptions.php",
+		"/C/laragon/www/blog/app/Traits/InteractsWithFilesystem.php",
+		"/C/laragon/www/blog/app/Traits/InteractsWithFinder.php",
+		"/C/laragon/www/blog/app/Traits/InteractsWithJsonFiles.php",
+		"/C/laragon/www/blog/app/Traits/Makeable.php",
+		"/C/laragon/www/blog/app/View/Components/AppLayout.php",
+		"/C/laragon/www/blog/app/View/Components/GuestLayout.php",
+		"/C/laragon/www/blog/config/app.php",
+		"/C/laragon/www/blog/config/auth.php",
+		"/C/laragon/www/blog/config/broadcasting.php",
+		"/C/laragon/www/blog/config/cache.php",
+		"/C/laragon/www/blog/config/cors.php",
+		"/C/laragon/www/blog/config/database.php",
+		"/C/laragon/www/blog/config/filesystems.php",
+		"/C/laragon/www/blog/config/hashing.php",
+		"/C/laragon/www/blog/config/logging.php",
+		"/C/laragon/www/blog/config/mail.php",
+		"/C/laragon/www/blog/config/queue.php",
+		"/C/laragon/www/blog/config/services.php",
+		"/C/laragon/www/blog/config/session.php",
+		"/C/laragon/www/blog/config/view.php",
+		"/C/laragon/www/blog/database/factories/CategoryFactory.php",
+		"/C/laragon/www/blog/database/factories/PostFactory.php",
+		"/C/laragon/www/blog/database/factories/UserFactory.php",
+		"/C/laragon/www/blog/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/laragon/www/blog/database/migrations/2014_10_12_100000_create_password_resets_table.php",
+		"/C/laragon/www/blog/database/migrations/2019_08_19_000000_create_failed_jobs_table.php",
+		"/C/laragon/www/blog/database/migrations/2020_08_19_181228_create_options_table.php",
+		"/C/laragon/www/blog/database/migrations/2021_02_17_160205_create_posts_table.php",
+		"/C/laragon/www/blog/database/migrations/2021_02_19_222031_create_categories_table.php",
+		"/C/laragon/www/blog/database/seeders/CategorySeeder.php",
+		"/C/laragon/www/blog/database/seeders/DatabaseSeeder.php",
+		"/C/laragon/www/blog/database/seeders/PostSeeder.php",
+		"/C/laragon/www/blog/resources/views/auth/register.blade.php",
+		"/C/laragon/www/blog/routes/api.php",
+		"/C/laragon/www/blog/routes/auth.php",
+		"/C/laragon/www/blog/routes/channels.php",
+		"/C/laragon/www/blog/routes/console.php",
+		"/C/laragon/www/blog/storage/framework/views/1600bf03016e42bc8181d3b80d1c9aabcd988bad.php",
+		"/C/laragon/www/blog/storage/framework/views/28f9313af26c0f93fbf832707e35838d69873420.php",
+		"/C/laragon/www/blog/storage/framework/views/a4bc132f6a7fde13127ad31685602fdcacf6d5de.php",
+		"/C/laragon/www/blog/storage/framework/views/d4d91c62ac997b7c56be678e503daea23c49c54f.php",
+		"/C/laragon/www/blog/stubs/cast.stub",
+		"/C/laragon/www/blog/stubs/console.stub",
+		"/C/laragon/www/blog/stubs/controller.api.stub",
+		"/C/laragon/www/blog/stubs/controller.invokable.stub",
+		"/C/laragon/www/blog/stubs/controller.model.api.stub",
+		"/C/laragon/www/blog/stubs/controller.model.stub",
+		"/C/laragon/www/blog/stubs/controller.nested.api.stub",
+		"/C/laragon/www/blog/stubs/controller.nested.stub",
+		"/C/laragon/www/blog/stubs/controller.plain.stub",
+		"/C/laragon/www/blog/stubs/controller.stub",
+		"/C/laragon/www/blog/stubs/factory.stub",
+		"/C/laragon/www/blog/stubs/job.queued.stub",
+		"/C/laragon/www/blog/stubs/job.stub",
+		"/C/laragon/www/blog/stubs/middleware.stub",
+		"/C/laragon/www/blog/stubs/migration.create.stub",
+		"/C/laragon/www/blog/stubs/migration.stub",
+		"/C/laragon/www/blog/stubs/migration.update.stub",
+		"/C/laragon/www/blog/stubs/model.pivot.stub",
+		"/C/laragon/www/blog/stubs/observer.plain.stub",
+		"/C/laragon/www/blog/stubs/observer.stub",
+		"/C/laragon/www/blog/stubs/policy.plain.stub",
+		"/C/laragon/www/blog/stubs/policy.stub",
+		"/C/laragon/www/blog/stubs/request.stub",
+		"/C/laragon/www/blog/stubs/resource-collection.stub",
+		"/C/laragon/www/blog/stubs/resource.stub",
+		"/C/laragon/www/blog/stubs/rule.stub",
+		"/C/laragon/www/blog/stubs/seeder.stub",
+		"/C/laragon/www/blog/stubs/test.stub",
+		"/C/laragon/www/blog/stubs/test.unit.stub",
+		"/C/laragon/www/blog/tests/Assertion.php",
+		"/C/laragon/www/blog/tests/CreatesApplication.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/AuthenticationTest.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/EmailVerificationTest.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/PasswordConfirmationTest.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/PasswordResetTest.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/RegistrationTest.php",
+		"/C/laragon/www/blog/tests/Feature/Posts/CreatePostTest.php",
+		"/C/laragon/www/blog/tests/TestCase.php"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
 		"height": 132.0,
 		"where_history":
 		[
+			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\resources,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests"
 		]
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"\\",
+			"user->option",
+			"function",
+			"this->option",
+			"function",
+			"ublic function",
+			"public function",
+			"function",
+			") {",
+			"{",
+			" {",
+			"\t",
+			"private",
+			"PublishedScope",
+			"array",
+			"category",
+			"Category",
+			"category",
+			"Category",
+			"published_at",
+			"Sluggable",
+			"string",
+			"whitout",
+			"user"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -763,6 +790,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"    "
 		],
 		"reverse": false,
 		"show_context": true,
@@ -778,27 +806,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/laragon/www/tibi/config.local.php",
+					"file": "tests/Unit/Traits/HasOptionsTest.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 605,
+						"buffer_size": 3036,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								228,
-								228
+								696,
+								696
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 507.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -809,7 +839,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 45.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -854,7 +884,7 @@
 	"project": "blog.sublime-project",
 	"replace":
 	{
-		"height": 86.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -863,6 +893,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"Pos/Cre",
+				"app\\Http\\Requests\\Posts\\CreateRequest.php"
+			],
+			[
+				"PostCo",
+				"app\\Http\\Controllers\\PostController.php"
+			],
 			[
 				"Illuminate\\Contracts\\Hashing\\Hasher",
 				"vtibia\\vendor\\laravel\\framework\\src\\Illuminate\\Contracts\\Hashing\\Hasher.php"
@@ -1247,12 +1285,21 @@
 	"selected_group": 0,
 	"settings":
 	{
+		"phpunit._test_last":
+		{
+			"file": "tests\\Unit\\Models\\UserTest.php",
+			"options":
+			{
+				"filter": "::(an_authenticated_user_must_return_their_full_name)( with data set .+)?$"
+			},
+			"working_dir": "C:\\laragon\\www\\blog"
+		}
 	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 211.0,
+	"side_bar_width": 280.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Support\Arr;
+use App\Support\Config\ConfigKeys;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -41,13 +42,13 @@ class RegisteredUserController extends Controller
             Arr::only($data, ['password', 'email'])
         );
 
-        $user->option()->create(['items' => $data['option']]);
-
-        if (config('auth.auto_login_registered_user')) {
-            Auth::login($user);
-        }
+        $user->option->set($data['option']);
 
         event(new Registered($user));
+
+        if (config(ConfigKeys::AUTO_LOGIN)) {
+            Auth::login($user);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }

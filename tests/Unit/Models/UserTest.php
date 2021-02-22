@@ -3,6 +3,7 @@
 namespace Tests\Unit\Models;
 
 use Tests\TestCase;
+use App\Models\Post;
 use App\Models\User;
 use Tests\Assertion;
 use App\Traits\HasOptions;
@@ -68,6 +69,25 @@ class UserTest extends TestCase
         $this->assertEquals(
         	"{$opt->get('first_name')} {$opt->get('last_name')}",
         	$user->name
+        );
+    }
+
+    /** @test */
+    public function a_user_has_many_posts()
+    {
+        // Create additional users to make sure that
+        // the posts belong to the expected user.
+        User::factory()->times(3)->create();
+
+        $user = User::factory()->create();
+
+        $posts = Post::factory()->times(5)->create([
+            'user_id' => $user->id,
+        ]);
+
+        $this->assertEquals(
+            $posts->pluck('id')->toArray(),
+            $user->posts->pluck('id')->toArray()
         );
     }
 }

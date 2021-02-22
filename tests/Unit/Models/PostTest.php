@@ -30,6 +30,10 @@ class PostTest extends TestCase
     /** @test */
     public function a_post_belongs_to_a_category()
     {
+        // Create additional categories to ensure
+        // that the post category is as expected.
+        Category::factory()->times(3)->create();
+
         $category = Category::factory()->create();
 
         $post = Post::factory()->create([
@@ -38,12 +42,16 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(Category::class, $post->category);
 
-        $this->assertEquals(Category::first()->id, $post->category->id);
+        $this->assertEquals($category->id, $post->category->id);
     }
 
     /** @test */
     public function a_post_belongs_to_a_user()
     {
+        // Create additional users to ensure
+        // that the post user is as expected.
+        User::factory()->times(3)->create();
+
         $user = User::factory()->create();
 
         $post = Post::factory()->create([
@@ -52,40 +60,58 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(User::class, $post->user);
 
-        $this->assertEquals(User::first()->id, $post->user->id);
+        $this->assertEquals($user->id, $post->user->id);
     }
 
     /** @test */
-    public function a_post_can_be_public_or_private()
+    public function a_post_can_have_different_statuses()
     {
-        $post = Post::factory()->create([
-            'published_at' => null,
-        ]);
+        $post = Post::factory()->private()->create();
 
-        $this->assertFalse($post->isItPublic());
+        $this->assertFalse($post->isPublished());
+        $this->assertFalse($post->isReview());
+        $this->assertTrue($post->isPrivate());
 
-        $post = Post::factory()->create();
+        $post = Post::factory()->published()->create();
 
-        $this->assertTrue($post->isItPublic());
+        $this->assertTrue($post->isPublished());
+        $this->assertFalse($post->isReview());
+        $this->assertFalse($post->isPrivate());
+
+        $post = Post::factory()->review()->create();
+
+        $this->assertFalse($post->isPublished());
+        $this->assertTrue($post->isReview());
+        $this->assertFalse($post->isPrivate());
     }
 
     /** @test */
-    public function private_posts_cannot_be_displayed()
+    public function the_review_method_should_return_the_posts_under_review()
     {
-        $privates = Post::factory(3)->create([
-            'published_at' => null,
-        ]);
+        $posts = Post::factory()->times(3)->review()->create();
 
-        $published = Post::factory(3)->create();
+        Post::review()->get()->map(function($post) use ($posts) {
+            $this->assertTrue($posts->contains($post->id));
+        });
+    }
 
-        $all = Post::published()->get();
+    /** @test */
+    public function the_private_method_should_return_the_private_posts()
+    {
+        $posts = Post::factory()->times(3)->private()->create();
 
-        foreach ($privates->pluck('id') as $id) {
-            $this->assertFalse($all->contains($id));
-        }
+        Post::private()->get()->map(function($post) use ($posts) {
+            $this->assertTrue($posts->contains($post->id));
+        });
+    }
 
-        foreach ($published->pluck('id') as $id) {
-            $this->assertTrue($all->contains($id));
-        }
+    /** @test */
+    public function the_published_method_should_return_the_public_posts()
+    {
+        $posts = Post::factory()->times(3)->published()->create();
+
+        Post::published()->get()->map(function($post) use ($posts) {
+            $this->assertTrue($posts->contains($post->id));
+        });
     }
 }

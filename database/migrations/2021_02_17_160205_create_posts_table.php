@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\Enum\PostStatus;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -19,9 +20,16 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->longText('body');
+
+            $table->enum('status', [
+                PostStatus::REVIEW,
+                PostStatus::HIDDEN,
+                PostStatus::PUBLISHED,
+            ])->default(PostStatus::REVIEW);
+
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->default(1);
-            $table->timestamp('published_at')->nullable();
+
             $table->timestamps();
         });
     }

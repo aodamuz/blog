@@ -29,7 +29,7 @@
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
-                                value="password"
+                                value="Comando_37Modem==8"
                                 required autocomplete="current-password" />
             </div>
 

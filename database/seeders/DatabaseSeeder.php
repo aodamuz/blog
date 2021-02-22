@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory()->create([
-            'email' => 'admin@app.test'
+            'email' => 'admin@app.test',
+            'password' => bcrypt('Comando_37Modem==8'),
         ]);
     }
 }

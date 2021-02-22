@@ -10,6 +10,12 @@ class Base extends Model
 {
     use HasOptions, HasFactory;
 
+    /*
+    |-------------------------------------------------------------------------
+    | Set Up
+    |-------------------------------------------------------------------------
+    */
+
     /**
      * The attributes that aren't mass assignable.
      *

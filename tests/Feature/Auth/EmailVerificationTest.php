@@ -21,7 +21,7 @@ class EmailVerificationTest extends TestCase
             'email_verified_at' => null,
         ]);
 
-        $response = $this->actingAs($user)->get('/verify-email');
+        $response = $this->actingAs($user)->get(route('verification.notice'));
 
         $response->assertStatus(200);
     }
@@ -29,11 +29,11 @@ class EmailVerificationTest extends TestCase
     /** @test */
     public function email_can_be_verified()
     {
-        Event::fake();
-
         $user = User::factory()->create([
             'email_verified_at' => null,
         ]);
+
+        Event::fake();
 
         $verificationUrl = URL::temporarySignedRoute(
             'verification.verify',
@@ -44,8 +44,12 @@ class EmailVerificationTest extends TestCase
         $response = $this->actingAs($user)->get($verificationUrl);
 
         Event::assertDispatched(Verified::class);
+
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
+
+        $response->assertRedirect(
+            RouteServiceProvider::HOME . '?verified=1'
+        );
     }
 
     /** @test */

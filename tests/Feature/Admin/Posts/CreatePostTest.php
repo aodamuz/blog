@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Posts;
+namespace Tests\Feature\Admin\Posts;
 
 use Tests\TestCase;
 use App\Models\User;
@@ -15,9 +15,9 @@ class CreatePostTest extends TestCase
     use RefreshDatabase;
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Common
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     /** @test */
@@ -27,7 +27,7 @@ class CreatePostTest extends TestCase
             ->actingAs(
                 User::factory()->create()
             )
-            ->get(route('posts.create'))
+            ->get(route('admin.posts.create'))
             ->assertStatus(200)
         ;
     }
@@ -39,9 +39,9 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data())
-            ->assertSessionHas('success', trans('posts.created'))
-            ->assertRedirect(route('posts.index'))
+            ->post(route('admin.posts.store'), $this->data())
+            ->assertSessionHas('success', trans('admin.posts.created'))
+            ->assertRedirect(route('admin.posts.index'))
         ;
 
         $this->assertDatabaseHas('posts', $this->data());
@@ -51,7 +51,7 @@ class CreatePostTest extends TestCase
     public function guests_users_can_not_create_posts()
     {
         $this
-            ->post(route('posts.store'), $this->data())
+            ->post(route('admin.posts.store'), $this->data())
             ->assertRedirect(route('login'))
         ;
     }
@@ -63,7 +63,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data())
+            ->post(route('admin.posts.store'), $this->data())
         ;
 
         $this->assertDatabaseHas('posts', $this->data([
@@ -74,18 +74,18 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_created_post_must_have_a_category()
     {
-        // $this->withoutExceptionHandling();
-        $user = User::factory()->create();
-
         // Create additional categories to ensure
         // that the post category is as expected.
-        Category::factory(2)->create();
+        Category::factory(3)->create();
+
+        // $this->withoutExceptionHandling();
+        $user = User::factory()->create();
 
         $category = Category::factory()->create();
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'category_id' => $category->id
             ]))
         ;
@@ -103,7 +103,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data())
+            ->post(route('admin.posts.store'), $this->data())
         ;
 
         $this->assertDatabaseHas('posts', $this->data([
@@ -120,7 +120,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data())
+            ->post(route('admin.posts.store'), $this->data())
         ;
 
         $this->assertDatabaseHas('posts', $this->data([
@@ -131,7 +131,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data())
+            ->post(route('admin.posts.store'), $this->data())
         ;
 
         $this->assertDatabaseHas('posts', $this->data([
@@ -142,9 +142,9 @@ class CreatePostTest extends TestCase
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Title
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     /** @test */
@@ -154,7 +154,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'title' => Str::random(2)
             ]))
             ->assertSessionHasErrors('title')
@@ -168,7 +168,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'title' => Str::random(61)
             ]))
             ->assertSessionHasErrors('title')
@@ -182,7 +182,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'title' => null
             ]))
             ->assertSessionHasErrors('title')
@@ -196,7 +196,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'title' => 1234567890
             ]))
             ->assertSessionHasErrors('title')
@@ -204,9 +204,9 @@ class CreatePostTest extends TestCase
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Body
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     /** @test */
@@ -216,7 +216,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'body' => Str::random(9)
             ]))
             ->assertSessionHasErrors('body')
@@ -230,7 +230,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'body' => ''
             ]))
             ->assertSessionHasErrors('body')
@@ -244,7 +244,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'body' => 1234567890
             ]))
             ->assertSessionHasErrors('body')
@@ -252,9 +252,9 @@ class CreatePostTest extends TestCase
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Description
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     /** @test */
@@ -264,7 +264,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'description' => ''
             ]))
             ->assertSessionHasErrors('description')
@@ -278,7 +278,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'description' => 1234567890
             ]))
             ->assertSessionHasErrors('description')
@@ -292,7 +292,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'description' => Str::random(9)
             ]))
             ->assertSessionHasErrors('description')
@@ -306,7 +306,7 @@ class CreatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->post(route('posts.store'), $this->data([
+            ->post(route('admin.posts.store'), $this->data([
                 'description' => Str::random(161)
             ]))
             ->assertSessionHasErrors('description')
@@ -314,9 +314,9 @@ class CreatePostTest extends TestCase
     }
 
     /*
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     | Helpers
-    |--------------------------------------------------------------------------
+    |-------------------------------------------------------------------------
     */
 
     protected function data($overwrite = [])
