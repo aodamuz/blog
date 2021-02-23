@@ -23,11 +23,11 @@
             class="flex h-screen bg-gray-50 dark:bg-gray-900"
             :class="{ 'overflow-hidden': isSideMenuOpen }"
         >
-            @include('layouts.admin.desktop-sidebar')
-            @include('layouts.admin.mobile-sidebar')
+            @include('admin.layouts.desktop-sidebar')
+            @include('admin.layouts.mobile-sidebar')
 
             <div class="flex flex-col flex-1 w-full">
-                @include('layouts.admin.header')
+                @include('admin.layouts.header')
 
                 <main class="h-full overflow-y-auto">
                     <div class="container px-6 mx-auto grid">
