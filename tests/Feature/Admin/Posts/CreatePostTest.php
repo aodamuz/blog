@@ -4,11 +4,10 @@ namespace Tests\Feature\Admin\Posts;
 
 use App\Models\Tag;
 use Tests\TestCase;
-use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Illuminate\Http\Response;
+use App\Support\Response\Messages;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreatePostTest extends TestCase
@@ -29,7 +28,7 @@ class CreatePostTest extends TestCase
 
         $response = $this
             ->actingAs(
-                User::factory()->create()
+                $this->adminUser()
             )
             ->get(route('admin.posts.create'))
             ->assertStatus(200)
@@ -43,12 +42,10 @@ class CreatePostTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_create_posts()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data())
-            ->assertSessionHas('success', __('The publication has been created successfully.'))
+            ->assertSessionHas('success', __(Messages::POST_CREATED))
             ->assertRedirect(route('admin.posts.index'))
         ;
 
@@ -67,10 +64,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_created_post_must_have_an_author()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($user = $this->adminUser())
             ->post(route('admin.posts.store'), $this->data())
         ;
 
@@ -86,13 +81,10 @@ class CreatePostTest extends TestCase
         // that the post category is as expected.
         Category::factory(3)->create();
 
-        // $this->withoutExceptionHandling();
-        $user = User::factory()->create();
-
         $category = Category::factory()->create();
 
         $this
-            ->actingAs($user)
+            ->actingAs($user = $this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'category_id' => $category->id
             ]))
@@ -107,10 +99,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_slug_of_a_post_should_be_created_automatically()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data())
         ;
 
@@ -124,10 +114,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_created_post_must_have_a_unique_slug()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data())
         ;
 
@@ -137,10 +125,7 @@ class CreatePostTest extends TestCase
             ),
         ]));
 
-        $this
-            ->actingAs($user)
-            ->post(route('admin.posts.store'), $this->data())
-        ;
+        $this->post(route('admin.posts.store'), $this->data());
 
         $this->assertDatabaseHas('posts', $this->data([
             'slug' => Str::slug(
@@ -158,10 +143,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_post_title_requires_a_minimun_length()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'title' => Str::random(2)
             ]))
@@ -172,10 +155,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_title_of_a_post_requires_a_maximum_length()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'title' => Str::random(61)
             ]))
@@ -186,10 +167,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_post_requires_a_title()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'title' => null
             ]))
@@ -200,10 +179,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_title_of_a_post_must_be_a_string()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'title' => 1234567890
             ]))
@@ -220,10 +197,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_body_of_a_post_requires_a_minimum_length()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'body' => Str::random(9)
             ]))
@@ -234,10 +209,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function a_post_requires_a_body()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'body' => ''
             ]))
@@ -248,10 +221,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_body_of_a_post_must_be_a_string()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'body' => 1234567890
             ]))
@@ -268,10 +239,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_description_of_a_post_is_required()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'description' => ''
             ]))
@@ -282,10 +251,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_description_of_a_post_must_be_a_string()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'description' => 1234567890
             ]))
@@ -296,10 +263,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_description_of_a_post_requires_a_minimum_length()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'description' => Str::random(9)
             ]))
@@ -310,10 +275,8 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_description_of_a_post_requires_a_maximum_length()
     {
-        $user = User::factory()->create();
-
         $this
-            ->actingAs($user)
+            ->actingAs($this->adminUser())
             ->post(route('admin.posts.store'), $this->data([
                 'description' => Str::random(161)
             ]))

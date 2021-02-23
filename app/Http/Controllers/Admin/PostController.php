@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Support\Response\Messages;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Posts\CreateRequest;
@@ -49,9 +50,7 @@ class PostController extends Controller
 
         return redirect()
             ->route('admin.posts.index')
-            ->withSuccess(
-                __('The publication has been created successfully.')
-            );
+            ->withSuccess(__(Messages::POST_CREATED));
     }
 
     /**

@@ -3,8 +3,9 @@
 namespace Tests\Unit\Traits;
 
 use Tests\TestCase;
-use App\Models\Base;
 use App\Models\Option;
+use App\Traits\HasOptions;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class HasOptionsTest extends TestCase
@@ -102,4 +103,13 @@ class HasOptionsTest extends TestCase
 /**
  * Fake model
  */
-class ModelWithOption extends Base {}
+class ModelWithOption extends Model {
+    use HasOptions;
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+}

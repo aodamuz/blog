@@ -3,9 +3,7 @@
 namespace Tests\Feature\Admin;
 
 use Tests\TestCase;
-use App\Models\User;
 use Illuminate\Http\Response;
-use Database\Seeders\RoleSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AdminTest extends TestCase
@@ -22,17 +20,7 @@ class AdminTest extends TestCase
 
 	/** @test */
 	public function an_authenticated_user_without_access_cannot_see_the_admin_dashboard() {
-		$this->seed(RoleSeeder::class);
-
-		$user = User::factory()->create();
-
-		$user->assignRole('user');
-
-		$this->assertTrue($user->hasRole('user'));
-
-		$this->actingAs($user);
-
-		$this->assertAuthenticated();
+		$this->actingAs($this->user());
 
 		$this->get(route('admin.dashboard'))
 			->assertStatus(Response::HTTP_FORBIDDEN)
@@ -43,7 +31,7 @@ class AdminTest extends TestCase
     public function a_authenticated_user_with_access_can_see_the_admin_dashboard()
     {
         $this
-            ->actingAs(User::factory()->create())
+            ->actingAs($this->adminUser())
             ->get(route('admin.dashboard'))
             ->assertStatus(200)
         ;
