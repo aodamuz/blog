@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Admin\Posts;
 
+use App\Models\Tag;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Category;
@@ -23,13 +24,20 @@ class CreatePostTest extends TestCase
     /** @test */
     public function create_post_screen_can_be_rendered()
     {
-        $this
+        $tags = Tag::factory()->times(3)->create();
+        $categories = Category::factory()->times(3)->create();
+
+        $response = $this
             ->actingAs(
                 User::factory()->create()
             )
             ->get(route('admin.posts.create'))
             ->assertStatus(200)
+            ->assertViewIs('admin.posts.create')
         ;
+
+        $this->assertEquals($tags->pluck('title', 'id'), $response['tags']);
+        $this->assertEquals($categories->pluck('title', 'id'), $response['categories']);
     }
 
     /** @test */
@@ -40,7 +48,7 @@ class CreatePostTest extends TestCase
         $this
             ->actingAs($user)
             ->post(route('admin.posts.store'), $this->data())
-            ->assertSessionHas('success', trans('admin.posts.created'))
+            ->assertSessionHas('success', __('The publication has been created successfully.'))
             ->assertRedirect(route('admin.posts.index'))
         ;
 

@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use App\Support\Enum\PostStatus;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Base
 {
-    use Sluggable;
-
     /*
     |-------------------------------------------------------------------------
     | Query Scopes
@@ -59,6 +56,14 @@ class Post extends Base
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Get all the tags for the post.
+     */
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -98,19 +103,5 @@ class Post extends Base
     public function isReview()
     {
         return $this->status === PostStatus::REVIEW;
-    }
-
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
     }
 }

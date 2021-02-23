@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
+            $table->unsignedBigInteger('role_id')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

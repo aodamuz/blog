@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Category extends Base
+class Tag extends Base
 {
     /*
     |-------------------------------------------------------------------------
@@ -11,10 +11,10 @@ class Category extends Base
     */
 
     /**
-     * Get all of the posts that are assigned this category.
+     * Get all of the posts that are assigned this tag.
      */
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->morphedByMany(Post::class, 'taggable');
     }
 }

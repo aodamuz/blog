@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasRole;
 use App\Traits\HasOptions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Cachable, HasOptions, HasFactory, SoftDeletes, Notifiable;
+    use Cachable, HasRole, HasOptions, HasFactory, SoftDeletes, Notifiable;
 
     /*
     |-------------------------------------------------------------------------
@@ -52,7 +53,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $with = [
-        'option'
+        'role',
+        'option',
     ];
 
     /**

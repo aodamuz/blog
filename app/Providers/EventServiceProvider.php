@@ -27,8 +27,10 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \App\Models\User::observe(\App\Observers\UserObserver::class);
-        \App\Models\Post::observe(\App\Observers\PostObserver::class);
         \App\Models\Category::observe(\App\Observers\CategoryObserver::class);
+        \App\Models\Post::observe(\App\Observers\PostObserver::class);
+        \App\Models\Role::observe(\App\Observers\RoleObserver::class);
+        \App\Models\Tag::observe(\App\Observers\TagObserver::class);
+        \App\Models\User::observe(\App\Observers\UserObserver::class);
     }
 }

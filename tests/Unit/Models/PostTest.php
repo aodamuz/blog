@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Tag;
 use Tests\TestCase;
 use App\Models\Base;
 use App\Models\Post;
 use App\Models\User;
 use Tests\Assertion;
 use App\Models\Category;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostTest extends TestCase
@@ -22,9 +22,10 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function the_post_model_must_use_the_sluggable_trait()
-    {
-        $this->assertClassUsesTrait(Sluggable::class, Post::class);
+    public function a_post_morph_many_tags() {
+        $post = Post::factory()->hasTags()->create();
+
+        $this->assertInstanceOf(Tag::class, $post->tags->first());
     }
 
     /** @test */

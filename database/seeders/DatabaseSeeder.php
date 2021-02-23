@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,9 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->create([
-            'email' => 'admin@app.test',
-            'password' => bcrypt('Comando_37Modem==8'),
-        ]);
+        Cache::flush();
+
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(TagSeeder::class);
+        $this->call(PostSeeder::class);
     }
 }

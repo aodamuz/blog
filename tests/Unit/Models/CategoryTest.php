@@ -7,7 +7,6 @@ use App\Models\Base;
 use App\Models\Post;
 use Tests\Assertion;
 use App\Models\Category;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CategoryTest extends TestCase
@@ -18,12 +17,6 @@ class CategoryTest extends TestCase
     public function the_category_model_must_be_a_subclass_of_the_base_model()
     {
         $this->assertTrue(is_subclass_of(Category::class, Base::class));
-    }
-
-    /** @test */
-    public function the_category_model_must_use_the_sluggable_trait()
-    {
-        $this->assertClassUsesTrait(Sluggable::class, Category::class);
     }
 
     /** @test */

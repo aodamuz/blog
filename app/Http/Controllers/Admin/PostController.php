@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +29,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all()->pluck('title', 'id');
+        $categories = Category::all()->pluck('title', 'id');
+
+        return view('admin.posts.create', compact('tags', 'categories'));
     }
 
     /**
@@ -45,7 +50,7 @@ class PostController extends Controller
         return redirect()
             ->route('admin.posts.index')
             ->withSuccess(
-                trans('admin.posts.created')
+                __('The publication has been created successfully.')
             );
     }
 
@@ -68,7 +73,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**

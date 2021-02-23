@@ -6,7 +6,9 @@ use Tests\TestCase;
 use App\Models\Post;
 use App\Models\User;
 use Tests\Assertion;
+use App\Traits\HasRole;
 use App\Traits\HasOptions;
+use Database\Seeders\RoleSeeder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -28,6 +30,12 @@ class UserTest extends TestCase
     public function the_user_model_must_use_the_email_verification_interface()
     {
         $this->assertClassUsesInterface(MustVerifyEmail::class, User::class);
+    }
+
+    /** @test */
+    public function the_user_model_must_use_the_has_role_trait()
+    {
+        $this->assertClassUsesTrait(HasRole::class, User::class);
     }
 
     /** @test */
@@ -89,5 +97,16 @@ class UserTest extends TestCase
             $posts->pluck('id')->toArray(),
             $user->posts->pluck('id')->toArray()
         );
+    }
+
+    /** @test */
+    public function a_user_can_be_assigned_a_role() {
+        $this->seed(RoleSeeder::class);
+
+        $user = User::factory()->create();
+
+        $user->assignRole('user');
+
+        $this->assertTrue($user->hasRole('user'));
     }
 }
