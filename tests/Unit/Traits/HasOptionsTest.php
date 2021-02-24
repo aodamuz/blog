@@ -14,7 +14,7 @@ class HasOptionsTest extends TestCase
     {
         parent::setUp();
 
-        $this->model = User::factory()->create();
+        $this->model = User::factory()->create(['options' => []]);
 
         $this->options = [
             'bar' => 'any',
