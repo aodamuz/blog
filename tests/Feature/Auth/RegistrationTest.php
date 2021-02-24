@@ -22,6 +22,7 @@ class RegistrationTest extends TestCase
     /** @test */
     public function new_users_can_register()
     {
+        $this->withoutExceptionHandling();
         config([ConfigKeys::AUTO_LOGIN => true]);
 
         $this->post(
@@ -34,23 +35,9 @@ class RegistrationTest extends TestCase
         $this->assertAuthenticated();
     }
 
-    public function test_new_users_can_register()
-    {
-        $response = $this->post('/register', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
-
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
-    }
-
     protected function data($overwrite = [])
     {
         return array_merge([
-            'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
