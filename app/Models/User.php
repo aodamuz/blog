@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Traits\HasRole;
 use App\Traits\HasOptions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,13 +12,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Cachable, HasRole, HasOptions, HasFactory, SoftDeletes, Notifiable;
-
-    /*
-    |-------------------------------------------------------------------------
-    | Set Up
-    |-------------------------------------------------------------------------
-    */
+    use Cachable,
+        HasFactory,
+        HasOptions,
+        Notifiable,
+        SoftDeletes;
 
     /**
      * The attributes that aren't mass assignable.
@@ -44,38 +41,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
+        'options' => 'array',
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $with = [
-        'role',
-        'option',
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-        'name',
-    ];
-
-    /*
-    |-------------------------------------------------------------------------
-    | Relationships
-    |-------------------------------------------------------------------------
-    */
-
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
 
     /*
     |-------------------------------------------------------------------------
@@ -90,8 +58,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getNameAttribute()
     {
-        $o = $this->option;
-
-        return "{$o->get('first_name')} {$o->get('last_name')}";
+        return "{$this->get('first_name')} {$this->get('last_name')}";
     }
 }

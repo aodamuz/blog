@@ -17,13 +17,13 @@ class EmailVerificationTest extends TestCase
     /** @test */
     public function email_verification_screen_can_be_rendered()
     {
-        $user = User::factory()->create([
-            'email_verified_at' => null,
-        ]);
-
-        $response = $this->actingAs($user)->get(route('verification.notice'));
-
-        $response->assertStatus(200);
+        $this->actingAs(
+            User::factory()->create([
+                'email_verified_at' => null,
+            ])
+        )->get(
+            route('verification.notice')
+        )->assertStatus(200);
     }
 
     /** @test */

@@ -7,9 +7,9 @@ use Monolog\Handler\SyslogUdpHandler;
 return [
 
     /*
-    |-------------------------------------------------------------------------
+    |--------------------------------------------------------------------------
     | Default Log Channel
-    |-------------------------------------------------------------------------
+    |--------------------------------------------------------------------------
     |
     | This option defines the default log channel that gets used when writing
     | messages to the logs. The name specified in this option should match
@@ -20,9 +20,9 @@ return [
     'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
-    |-------------------------------------------------------------------------
+    |--------------------------------------------------------------------------
     | Log Channels
-    |-------------------------------------------------------------------------
+    |--------------------------------------------------------------------------
     |
     | Here you may configure the log channels for your application. Out of
     | the box, Laravel uses the Monolog PHP logging library. This gives

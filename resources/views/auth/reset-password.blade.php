@@ -26,7 +26,7 @@
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" required />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
             </div>
 
             <!-- Confirm Password -->
@@ -35,7 +35,7 @@
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
                                     type="password"
-                                    name="password_confirmation" autocomplete="new-password" required />
+                                    name="password_confirmation" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">

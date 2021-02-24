@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Cache;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,12 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Cache::flush();
-
-        $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(TagSeeder::class);
-        $this->call(PostSeeder::class);
+        // \App\Models\User::factory(10)->create();
     }
 }
