@@ -10,18 +10,30 @@ use Illuminate\Support\Facades\Schema;
 trait HasOptions
 {
     /**
-     * Get the specified item value.
+     * Get one or all of the options or set a new one.
      *
-     * @param  null|string $key
-     * @param  mixed       $default
+     * @param  null|array|string $key
+     * @param  mixed $default
      *
      * @return mixed
      */
-    public function get(string $key = null, $default = null)
+    public function option($key = null, $default = null)
     {
         $this->makeSureTheOptionsAreArray();
 
         $options = Arr::wrap($this->options);
+
+        if (is_array($key)) {
+            if (!empty($key)) {
+                foreach (Arr::dot($key) as $k => $v) {
+                    Arr::set($options, $k, $v);
+                }
+
+                $this->update(compact('options'));
+            }
+
+            return $this;
+        }
 
         if (empty($key))
             return $options;
@@ -30,48 +42,21 @@ trait HasOptions
     }
 
     /**
-     * Set a given item value.
-     *
-     * @param string|array $key
-     * @param mixed        $value
-     *
-     * @return $this
-     */
-    public function set($key, $value = null)
-    {
-        $this->makeSureTheOptionsAreArray();
-
-        $keys = is_array($key) ? $key : [$key => $value];
-
-        if (!empty($keys)) {
-            $options = $this->get();
-
-            foreach (Arr::dot($keys) as $key => $value) {
-                Arr::set($options, $key, $value);
-            }
-
-            $this->update(compact('options'));
-        }
-
-        return $this;
-    }
-
-    /**
      * Remove an item from the options.
      *
-     * @param mixed $key
+     * @param string|array $key
      *
      * @return $this
      */
-    public function forget($key)
+    public function forgetOption($key)
     {
-        $this->makeSureTheOptionsAreArray();
+        if ((is_array($key) || is_string($key)) && !empty($key)) {
+            $this->makeSureTheOptionsAreArray();
 
-        if (!empty($key)) {
             if ($key === '*') {
                 $this->options = [];
             } else {
-                $options = $this->get();
+                $options = $this->option();
 
                 Arr::forget($options, $key);
 
@@ -89,11 +74,9 @@ trait HasOptions
      *
      * @return $this
      */
-    public function flush()
+    public function flushOptions()
     {
-        $this->makeSureTheOptionsAreArray();
-
-        return $this->forget('*');
+        return $this->forgetOption('*');
     }
 
     public function makeSureTheOptionsAreArray()

@@ -17,7 +17,7 @@ class PasswordConfirmationTest extends TestCase
             User::factory()->create()
         )->get(
             route('password.confirm')
-        )->assertStatus(200);
+        )->assertOk();
     }
 
     /** @test */

@@ -3,7 +3,10 @@
 namespace Tests\Unit\Models;
 
 use Tests\TestCase;
+use App\Models\Role;
 use App\Models\User;
+use App\Traits\HasRole;
+use Database\Seeders\RoleSeeder;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -26,6 +29,7 @@ class UserTest extends TestCase
                 'password',
                 'remember_token',
                 'options',
+                'role_id',
                 'created_at',
                 'updated_at',
                 'deleted_at',
@@ -69,6 +73,12 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function the_user_model_must_use_the_has_roles_trait()
+    {
+        $this->assertClassUsesTrait(HasRole::class, User::class);
+    }
+
+    /** @test */
     public function a_user_must_return_their_full_name()
     {
         $user = User::factory()->create([
@@ -84,8 +94,48 @@ class UserTest extends TestCase
         );
 
         $this->assertEquals(
-            "{$user->get('first_name')} {$user->get('last_name')}",
+            "{$user->option('first_name')} {$user->option('last_name')}",
             $user->name
+        );
+    }
+
+    /** @test */
+    public function a_user_must_belong_to_a_role() {
+        $this->assertInstanceOf(Role::class, $this->user()->role);
+    }
+
+    /** @test */
+    public function a_user_can_have_a_role() {
+        $this->seed(RoleSeeder::class);
+
+        $this->assertFalse(
+            User::factory()
+                ->create()
+                ->assignRole('user')
+                ->isAdmin()
+        );
+
+        $this->assertTrue(
+            User::factory()
+                ->create()
+                ->assignRole('admin')
+                ->isAdmin()
+        );
+
+        $this->assertTrue(
+            User::factory()
+                ->create()
+                ->assignRole('global')
+                ->isSuperAdmin()
+        );
+    }
+
+    /** @test */
+    public function a_user_can_have_permissions_through_their_role() {
+        $user = $this->authorUser();
+
+        $this->assertTrue(
+            $user->hasPermission('post_manager')
         );
     }
 }

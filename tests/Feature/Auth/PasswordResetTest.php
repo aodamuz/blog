@@ -17,7 +17,7 @@ class PasswordResetTest extends TestCase
     {
         $this->get(
             route('password.request')
-        )->assertStatus(200);
+        )->assertOk();
     }
 
     /** @test */
@@ -49,7 +49,7 @@ class PasswordResetTest extends TestCase
             function ($notification) {
                 $this
                     ->get('/reset-password/' . $notification->token)
-                    ->assertStatus(200)
+                    ->assertOk()
                 ;
 
                 return true;

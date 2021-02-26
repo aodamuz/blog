@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class HasSlug
+trait HasSlug
 {
     use Sluggable;
 

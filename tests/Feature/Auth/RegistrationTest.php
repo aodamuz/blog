@@ -18,7 +18,7 @@ class RegistrationTest extends TestCase
     {
         $this->get(
             route('register')
-        )->assertStatus(200);
+        )->assertOk();
     }
 
     /** @test */

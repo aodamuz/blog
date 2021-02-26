@@ -14,7 +14,7 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function login_screen_can_be_rendered()
     {
-        $this->get(route('login'))->assertStatus(200);
+        $this->get(route('login'))->assertOk();
     }
 
     /** @test */

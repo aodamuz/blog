@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasRole;
 use App\Traits\HasOptions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Cachable,
+    use HasRole,
+        Cachable,
         HasFactory,
         HasOptions,
         Notifiable,
@@ -31,8 +33,18 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
+        'role_id',
         'password',
         'remember_token',
+    ];
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = [
+        'role'
     ];
 
     /**
@@ -58,6 +70,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getNameAttribute()
     {
-        return "{$this->get('first_name')} {$this->get('last_name')}";
+        return "{$this->option('first_name')} {$this->option('last_name')}";
     }
 }

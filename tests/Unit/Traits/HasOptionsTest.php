@@ -32,60 +32,51 @@ class HasOptionsTest extends TestCase
     /** @test */
     public function a_model_can_store_an_array_of_options()
     {
-        $this->model->set($this->options);
+        $this->model->option($this->options);
 
-        $this->assertEquals($this->options, $this->model->get());
+        $this->assertEquals($this->options, $this->model->option());
     }
 
     /** @test */
     public function the_options_of_a_model_can_be_getted_from_a_key()
     {
-        $this->model->set($this->options);
+        $this->model->option($this->options);
 
-        $this->assertEquals($this->options, $this->model->get());
+        $this->assertEquals($this->options, $this->model->option());
 
-        $this->assertEquals('any', $this->model->get('bar'));
-        $this->assertEquals(['any'], $this->model->get('baz'));
-        $this->assertEquals('any', $this->model->get('foo.ass.bar'));
-        $this->assertEquals('any', $this->model->get('foo.ass.baz'));
-        $this->assertEquals('any', $this->model->get('foo.ass.foo'));
+        $this->assertEquals('any', $this->model->option('bar'));
+        $this->assertEquals(['any'], $this->model->option('baz'));
+        $this->assertEquals('any', $this->model->option('foo.ass.bar'));
+        $this->assertEquals('any', $this->model->option('foo.ass.baz'));
+        $this->assertEquals('any', $this->model->option('foo.ass.foo'));
 
-        $this->assertTrue(is_array($this->model->get('baz')));
-        $this->assertTrue(is_array($this->model->get('foo.ass')));
-
-        $this->model->set('dot.bar.baz.far.foo', 'any');
-
-        $this->assertEquals('any', $this->model->get('dot.bar.baz.far.foo'));
-
-        $this->assertTrue(is_array($this->model->get('dot')));
-        $this->assertTrue(is_array($this->model->get('dot.bar')));
-        $this->assertTrue(is_array($this->model->get('dot.bar.baz')));
-        $this->assertTrue(is_array($this->model->get('dot.bar.baz.far')));
+        $this->assertTrue(is_array($this->model->option('baz')));
+        $this->assertTrue(is_array($this->model->option('foo.ass')));
     }
 
     /** @test */
     public function an_option_can_be_deleted_from_a_key()
     {
-        $this->model->set($this->options);
+        $this->model->option($this->options);
 
-        $this->assertEquals($this->options, $this->model->get());
+        $this->assertEquals($this->options, $this->model->option());
 
-        $this->assertEquals('any', $this->model->get('bar'));
+        $this->assertEquals('any', $this->model->option('bar'));
 
-        $this->model->forget('bar');
+        $this->model->forgetOption('bar');
 
-        $this->assertNull($this->model->get('bar'));
+        $this->assertNull($this->model->option('bar'));
     }
 
     /** @test */
     public function all_options_can_be_deleted()
     {
-        $this->model->set($this->options);
+        $this->model->option($this->options);
 
-        $this->assertEquals($this->options, $this->model->get());
+        $this->assertEquals($this->options, $this->model->option());
 
-        $this->model->flush();
+        $this->model->flushOptions();
 
-        $this->assertEquals([], $this->model->get());
+        $this->assertEquals([], $this->model->option());
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Illuminate\Support\Arr;
 use App\Support\Config\ConfigKeys;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +20,13 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        return view('blog.auth.register');
     }
 
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Auth\RegisterRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -38,9 +37,7 @@ class RegisteredUserController extends Controller
 
         $data['password'] = Hash::make($data['password']);
 
-        $user = User::create(
-            Arr::only($data, ['password', 'email', 'options'])
-        );
+        $user = User::create($data);
 
         event(new Registered($user));
 

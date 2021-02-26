@@ -23,7 +23,7 @@ class EmailVerificationTest extends TestCase
             ])
         )->get(
             route('verification.notice')
-        )->assertStatus(200);
+        )->assertOk();
     }
 
     /** @test */

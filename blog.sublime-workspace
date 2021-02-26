@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"va",
+				"values"
+			],
+			[
+				"wit",
+				"withAccess"
+			],
+			[
+				"to",
+				"toArray"
+			],
+			[
+				"ar",
+				"in_array"
+			],
+			[
+				"role",
+				"role_id"
+			],
+			[
+				"f",
+				"f\tfactory"
+			],
+			[
 				"get",
 				"getTable"
 			],
@@ -102,10 +126,6 @@
 			[
 				"con",
 				"container_name"
-			],
-			[
-				"ar",
-				"array_keys"
 			],
 			[
 				"coun",
@@ -290,10 +310,6 @@
 			[
 				"is",
 				"is_array"
-			],
-			[
-				"va",
-				"variables"
 			],
 			[
 				"un",
@@ -498,59 +514,34 @@
 			[
 				"x-",
 				"x-checkbox"
-			],
-			[
-				"dir",
-				"directory"
-			],
-			[
-				"dire",
-				"directories"
-			],
-			[
-				"array",
-				"array_map"
-			],
-			[
-				"margin",
-				"margin-right\tproperty"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "tests/Unit/Models/UserTest.php",
+			"file": "app/Http/Controllers/Admin/PostController.php",
 			"settings":
 			{
-				"buffer_size": 2322,
+				"buffer_size": 2370,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Models/User.php",
+			"file": "tests/Feature/Admin/Posts/CreatePostTest.php",
 			"settings":
 			{
-				"buffer_size": 1024,
+				"buffer_size": 8412,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Traits/HasOptions.php",
+			"file": "app/Models/Post.php",
 			"settings":
 			{
-				"buffer_size": 2766,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "tests/Unit/Traits/HasOptionsTest.php",
-			"settings":
-			{
-				"buffer_size": 3136,
+				"buffer_size": 2521,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -658,26 +649,92 @@
 	},
 	"expanded_folders":
 	[
-		"/C/laragon/www/blog",
-		"/C/laragon/www/blog/app",
-		"/C/laragon/www/blog/app/Exceptions",
-		"/C/laragon/www/blog/app/Models",
-		"/C/laragon/www/blog/app/Traits"
 	],
 	"file_history":
 	[
+		"/C/laragon/www/blog/database/seeders/RoleSeeder.php",
+		"/C/laragon/www/blog/tests/TestCase.php",
+		"/C/laragon/www/blog/config/permissions.php",
+		"/C/laragon/www/blog/database/seeders/RoleSeeder2.php",
+		"/C/laragon/www/blog/app/Providers/RouteServiceProvider.php",
+		"/C/laragon/www/blog/app/Http/Middleware/AccessMiddleware.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
+		"/C/laragon/www/blog/app/Traits/HasRole.php",
+		"/C/laragon/www/blog/app/Models/User.php",
+		"/C/laragon/www/blog/database/seeders/UserSeeder.php",
+		"/C/laragon/www/blog/routes/web.php",
+		"/C/laragon/www/blog/app/Models/Role.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Collections/Enumerable.php",
+		"/C/laragon/www/laravel-permission/tests/RouteTest.php",
+		"/C/laragon/www/laravel-permission/phpunit.xml",
+		"/C/laragon/www/blog/laravel-permission-master/src/Traits/HasRoles.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+		"/C/laragon/www/blog/laravel-permission-master/src/PermissionRegistrar.php",
+		"/C/laragon/www/blog/app/Policies/PostPolicy.php",
+		"/C/Users/Johan/Documents/References/laravel-permission-master/src/Traits/HasRoles.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsTo.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
+		"/C/laragon/www/blog/tests/Unit/Models/UserTest.php",
+		"/C/laragon/www/blog/.env.dusk.local",
+		"/C/laragon/www/blog/tests/Browser/ExampleTest.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Seeder.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/AdminTest.php",
+		"/C/laragon/www/blog/vendor/symfony/http-foundation/Response.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php",
+		"/C/laragon/www/blog/storage/logs/laravel.log",
+		"/C/laragon/www/blog/package.json",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/RegisteredUserController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/AuthenticatedSessionController.php",
+		"/C/laragon/www/blog/resources/views/blog/auth/register.blade.php",
+		"/C/laragon/www/blog/app/View/Components/AppLayout.php",
+		"/C/laragon/www/blog/app/View/Components/GuestLayout.php",
+		"/C/laragon/www/blog/resources/views/auth/login.blade.php",
+		"/C/laragon/www/blog/resources/views/auth/register.blade.php",
+		"/C/laragon/www/blog/tests/Unit/Traits/HasOptionsTest.php",
+		"/C/laragon/www/blog/app/Traits/HasOptions.php",
+		"/C/laragon/www/blog/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/laragon/www/blog/app/Providers/AppServiceProvider.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Support/Str.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php",
+		"/C/laragon/www/blog/vendor/facade/ignition/src/Support/StringComparator.php",
+		"/C/laragon/www/blog/app/Traits/HasSlug.php",
+		"/C/laragon/www/blog/app/Models/Permission.php",
+		"/C/laragon/www/blog/tests/Unit/Models/PermissionTest.php",
+		"/C/laragon/www/blog/tests/Unit/Models/RoleTest.php",
+		"/C/laragon/www/blog/app/Observers/Observer.php",
+		"/C/laragon/www/blog/app/Providers/EventServiceProvider.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/VerifyEmailController.php",
+		"/C/laragon/www/blog/database/factories/RoleFactory.php",
+		"/C/laragon/www/blog/database/factories/PermissionFactory.php",
+		"/C/laragon/www/blog/database/seeders/DatabaseSeeder.php",
+		"/C/laragon/www/blog/database/migrations/2021_02_24_071235_create_roles_table.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Admin/RoleController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/PasswordResetLinkController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/NewPasswordController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/EmailVerificationPromptController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/EmailVerificationNotificationController.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Auth/ConfirmablePasswordController.php",
+		"/C/laragon/www/blog/tests/Feature/Auth/RegistrationTest.php",
+		"/C/laragon/www/blog/stubs/model.stub",
+		"/C/laragon/www/blog/app/Http/Requests/Auth/RegisterRequest.php",
+		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/RegistrationTest.php",
+		"/C/laragon/www/blog/.github/workflows/laravel.yml",
+		"/C/Users/Johan/Documents/sublime/Data/Packages/User/snippets/laravel/factory.sublime-snippet",
+		"/C/laragon/www/blog/database/factories/UserFactory.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php",
 		"/C/laragon/www/blog/vendor/cviebrock/eloquent-sluggable/tests/TestServiceProvider.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Contracts/Container/BindingResolutionException.php",
 		"/C/laragon/www/blog/vendor/symfony/console/Exception/InvalidArgumentException.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php",
 		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/UserTest.php",
-		"/C/laragon/www/blog/database/migrations/2014_10_12_000000_create_users_table.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
 		"/C/laragon/www/blog/tests/Unit/Models/OptionTest.php",
 		"/C/laragon/www/blog/app/Models/Option.php",
 		"/C/Users/Johan/Documents/References/blog2/app/Models/Option.php",
-		"/C/laragon/www/blog/stubs/model.stub",
 		"/C/laragon/www/blog/stubs/migration.stub",
 		"/C/laragon/www/blog/stubs/migration.update.stub",
 		"/C/laragon/www/blog/database/migrations/2019_08_19_000000_create_failed_jobs_table.php",
@@ -688,12 +745,7 @@
 		"/C/laragon/www/blog/tests/Unit/Models/BaseTest.php",
 		"/C/laragon/www/blog/app/Models/Base.php",
 		"/C/laragon/www/blog/vendor/fakerphp/faker/src/Faker/Provider/Base.php",
-		"/C/laragon/www/blog/app/Traits/HasSlug.php",
-		"/C/laragon/www/blog/app/Models/User.php",
 		"/C/laragon/www/blog/.env",
-		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/RegistrationTest.php",
-		"/C/laragon/www/blog/tests/Feature/Auth/RegistrationTest.php",
-		"/C/laragon/www/blog/tests/TestCase.php",
 		"/C/laragon/www/blog/phpunit.xml",
 		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/PasswordResetTest.php",
 		"/C/laragon/www/blog/tests/Feature/Auth/PasswordResetTest.php",
@@ -707,93 +759,27 @@
 		"/C/laragon/www/blog/tailwind-admin.config.js",
 		"/C/laragon/www/blog/tailwind.config.js",
 		"/C/laragon/www/blog/resources/views/blog/layouts/app.blade.php",
-		"/C/laragon/www/blog/tests/Unit/Models/UserTest.php",
-		"/C/laragon/www/blog/.github/workflows/laravel.yml",
 		"/C/laragon/www/blog/app/View/Components/AdminLayout.php",
-		"/C/laragon/www/blog/app/View/Components/GuestLayout.php",
-		"/C/laragon/www/blog/app/View/Components/AppLayout.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/RegisteredUserController.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/PasswordResetLinkController.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/NewPasswordController.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/EmailVerificationPromptController.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/ConfirmablePasswordController.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Auth/AuthenticatedSessionController.php",
 		"/C/laragon/www/blog/resources/views/admin/layouts/app.blade.php",
-		"/C/laragon/www/blog/app/Http/Middleware/AccessMiddleware.php",
-		"/C/laragon/www/blog/tests/Unit/Traits/HasOptionsTest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/AdminTest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
 		"/C/laragon/www/blog/tests/Feature/Admin/Posts/UpdatePostTest.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
 		"/C/laragon/www/blog/app/Support/Response/Messages.php",
-		"/C/laragon/www/blog/app/Models/Role.php",
 		"/C/laragon/www/blog/routes/admin.php",
 		"/C/laragon/www/blog/config/debugbar.php",
-		"/C/laragon/www/blog/app/Providers/RouteServiceProvider.php",
-		"/C/laragon/www/blog/app/Traits/HasRole.php",
 		"/C/Users/Johan/Desktop/otserv/otservbr-global/data/stages.lua",
 		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/tests/Feature/AdminPanelTest.php",
-		"/C/laragon/www/blog/storage/logs/laravel.log",
 		"/C/laragon/www/blog/app/Http/Kernel.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithDatabase.php",
-		"/C/laragon/www/blog/app/Providers/AppServiceProvider.php",
 		"/C/Users/Johan/Documents/sublime/Data/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Johan/Documents/sublime/Data/Packages/PHPUnitKit/Preferences.sublime-settings",
 		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/app/Providers/AppServiceProvider.php",
 		"/C/laragon/www/blog/app/Http/Middleware/RoleMiddleware.php",
 		"/C/laragon/www/blog/app/Http/Middleware/PermissionMiddleware.php",
 		"/C/laragon/www/blog/app/Http/Middleware/RoleMiddleware2.php",
-		"/C/laragon/www/blog/vendor/symfony/http-foundation/Response.php",
 		"/C/laragon/www/blog/app/Http/Middleware/PermissionMiddleware2.php",
-		"/C/laragon/www/blog/database/seeders/UserSeeder.php",
 		"/C/laragon/www/blog/config/database.php",
-		"/C/laragon/www/blog/tests/Unit/Models/PermissionTest.php",
-		"/C/laragon/www/blog/tests/Unit/Models/RoleTest.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php",
 		"/C/laragon/www/blog/app/Observers/TagObserver.php",
-		"/C/laragon/www/blog/app/Providers/EventServiceProvider.php",
-		"/C/laragon/www/blog/app/Observers/RoleObserver.php",
-		"/C/laragon/bin/composer/composer-setup.php",
-		"/C/laragon/www/blog/resources/views/auth/login.blade.php",
-		"/C/laragon/www/blog/database/factories/RoleFactory.php",
-		"/C/laragon/www/blog/database/seeders/RoleSeeder.php",
-		"/C/laragon/www/blog/database/seeders/DatabaseSeeder.php",
-		"/C/laragon/www/blog/database/factories/UserFactory.php",
-		"/C/laragon/www/blog/app/Traits/ConvertToModels.php",
-		"/C/Users/Johan/Documents/sublime/Data/Packages/User/goTranslate.sublime-settings",
-		"/C/Users/Johan/Documents/sublime/Data/Packages/Inline Google Translate/goTranslate.sublime-settings",
-		"/C/laragon/www/blog/database/migrations/2014_10_12_200000_create_roles_table.php",
-		"/C/laragon/www/blog/tests/Unit/Models/TagTest.php",
-		"/C/laragon/www/blog/tests/Unit/Models/PostTest.php",
-		"/C/laragon/www/blog/tests/Unit/Models/CategoryTest.php",
-		"/C/laragon/www/blog/app/Models/Tag.php",
-		"/C/laragon/www/blog/app/Models/Post.php",
-		"/C/laragon/www/blog/app/Models/Category.php",
-		"/C/laragon/www/blog/app/Models/Permission.php",
-		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/app/Models/Permission.php",
-		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/app/Models/Role.php",
-		"/C/laragon/www/blog/database/factories/PermissionFactory.php",
-		"/C/laragon/www/blog/database/seeders/PermissionSeeder.php",
-		"/C/laragon/www/blog/config/permissions.php",
-		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/database/seeds/PermissionsTableSeeder.php",
-		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/app/Traits/HasRole.php",
-		"/C/Users/Johan/Documents/References/laravel-perfect-start-master/database/factories/RoleFactory.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
-		"/C/laragon/www/blog/resources/views/admin/posts/edit.blade.php",
-		"/C/laragon/www/blog/resources/views/admin/posts/create.blade.php",
-		"/C/Users/Johan/Documents/sublime/Data/Packages/User/snippets/laravel/without-exception-handling.sublime-snippet",
-		"/C/laragon/www/blog/tests/Unit/Traits/HasTagsTest.php",
-		"/C/laragon/www/blog/app/Traits/HasTags.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php",
-		"/C/laragon/www/blog/database/migrations/2021_02_19_222031_create_categories_table.php",
-		"/C/laragon/www/blog/database/migrations/2021_02_22_102551_create_tags_table.php",
-		"/C/laragon/www/blog/database/factories/TagFactory.php",
-		"/C/laragon/www/blog/database/factories/CategoryFactory.php",
-		"/C/Windows.old/Users/jmmen/Documents/My Games/Age of Empires 3/Savegame/LastHomeCityY.xml",
-		"/C/Windows.old/Users/jmmen/Documents/Harry Cardenas.txt",
-		"/C/Windows.old/Users/jmmen/CurrentSong.txt",
-		"/C/Windows.old/Users/jmmen/Documents/My Games/Age of Empires 3/Savegame/HomeCity_age314.xml",
-		"/C/laragon/www/tibi/system/functions.php"
+		"/C/laragon/www/blog/app/Observers/RoleObserver.php"
 	],
 	"find":
 	{
@@ -804,6 +790,13 @@
 		"height": 132.0,
 		"where_history":
 		[
+			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\tests",
+			"C:\\laragon\\www\\blog\\tests",
+			"C:\\Users\\Johan\\Documents\\References\\nova\\src",
+			"C:\\Users\\Johan\\Documents\\References\\vanguard\\app",
+			"C:\\laragon\\www\\blog\\resources\\js",
+			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\resources,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests",
+			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\public,C:\\laragon\\www\\blog\\resources,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\resources\\views\\blog",
 			"C:\\laragon\\www\\blog\\tests\\Unit\\Models",
 			"C:\\laragon\\www\\tibi",
@@ -819,6 +812,118 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Request",
+			"Messages",
+			"CreateRequest",
+			"Auth",
+			"   ",
+			"=>",
+			"author",
+			"'access'",
+			"permissions.acces",
+			"'access'",
+			" \\ ",
+			"access_key",
+			"'access'",
+			"email",
+			"@email",
+			"@",
+			"admin",
+			"roleClass",
+			"getRoleClass",
+			"account",
+			"editor",
+			"translator",
+			"editor",
+			"translator",
+			"removable",
+			"filterPermissionsBasedOnResource",
+			"value",
+			"user",
+			"description",
+			"title",
+			"public",
+			"all",
+			"first",
+			"admin",
+			"'access' =>",
+			"'access' => false,",
+			"false",
+			"removable",
+			"Editor",
+			"permissions",
+			"this",
+			">this",
+			"this",
+			"createPermissions",
+			"value",
+			"users",
+			"tags",
+			"categories",
+			"    ",
+			"=>",
+			"permissions",
+			"Editor",
+			"$permissions",
+			"categor",
+			"Response",
+			"assertStatus",
+			"Response::HTTP_FORBIDDEN",
+			"isForbidden",
+			"403",
+			"LIKE",
+			"translator",
+			"Translator",
+			"REsponse",
+			":);",
+			"/** @test */",
+			"cssnano",
+			"commitizen",
+			"Arr",
+			"option",
+			"RoleSeeder",
+			"option",
+			"option[",
+			"forget",
+			"forgetOption",
+			"get",
+			">set(",
+			"get",
+			">get(",
+			"get",
+			"role",
+			"value",
+			"\"",
+			"resource",
+			"ability",
+			"Ability",
+			"value",
+			"delete",
+			"\n\n",
+			"actual",
+			"Event",
+			"Role",
+			"Auth",
+			"post",
+			"string",
+			"options",
+			"MustVerifyEmail",
+			"Cachable",
+			"\t",
+			"'/",
+			"'option.",
+			"'option'",
+			"    ",
+			"=>",
+			"option",
+			"ConfigKeys",
+			"FIRST",
+			"class",
+			"option->",
+			"->option",
+			"Model",
+			"HasOptions",
+			"Option",
 			"loadMigrations",
 			"$database",
 			"\"",
@@ -834,119 +939,7 @@
 			"all",
 			"commentable",
 			"value",
-			"string",
-			"key",
-			"id",
-			"Notifiable",
-			"SoftDeletes",
-			"Cachable",
-			"REDIS_CLIENT",
-			"Cachable",
-			"    ",
-			"=>",
-			"credentials",
-			"@include",
-			"layouts",
-			"admin",
-			"RoleSeeder",
-			"RefreshDatabase",
-			"Response",
-			"Str",
-			"Arr",
-			"Category",
-			"User",
-			"ConfigKeys",
-			"$user = User::factory()->create();",
-			"factory",
-			"removable",
-			"assignPermissions",
-			"User",
-			"RoleSeeder",
-			"user",
-			"admin",
-			"Base",
-			"option",
-			"assertAuthenticated",
-			"Response",
-			"role",
-			"permission",
-			"Editor",
-			"$role",
-			"Role",
-			"Post",
-			"User",
-			"class",
-			"\\App\\Models\\",
-			"bcrypt('demo')",
-			"bcrypt('demo'),",
-			"global",
-			"test",
-			"demo",
-			"RoleSeeder",
-			"RoleSeederSeeder",
-			"unsigned",
-			"bigInteger",
-			"Str",
-			"Auth",
-			"role",
-			"roles",
-			"use Cviebrock\\EloquentSluggable\\Sluggable;",
-			"Sluggable",
-			"name",
-			"faker",
-			"class",
-			"display_name",
-			"name",
-			"display_name",
-			"name",
-			"display_name",
-			"random",
-			"Str",
-			"name",
-			"Name",
-			"display_name",
-			"name",
-			"faker",
-			"the_user_model_must_use_the_HasRole_trait",
-			"name",
-			"Tag",
-			"tags",
-			"Category",
-			"categories",
-			"id",
-			"post",
-			"hello",
-			"User",
-			"option",
-			"Option",
-			"post",
-			"hasAttached",
-			"tags",
-			"create",
-			"category",
-			"Category",
-			"\"",
-			"'",
-			"title",
-			"setSession",
-			"get_browser_real_ip",
-			"str_replace_first",
-			"config.lua",
-			"lua",
-			"checkout",
-			";",
-			"\"./assets",
-			"desktop",
-			"app",
-			"now",
-			"email_verified_at",
-			"create",
-			"'/",
-			"namespace",
-			"dashboard",
-			"PostController",
-			"dashboard",
-			"FunctionName"
+			"string"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -968,53 +961,84 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "tests/Unit/Models/UserTest.php",
+					"file": "app/Http/Controllers/Admin/PostController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2322,
+						"buffer_size": 2370,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								876,
-								591
+								102,
+								110
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 156.0,
+						"translation.y": 468.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/Models/User.php",
+					"file": "tests/Feature/Admin/Posts/CreatePostTest.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1024,
+						"buffer_size": 8412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								474,
-								474
+								1138,
+								1138
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Models/Post.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								126,
+								126
 							]
 						],
 						"settings":
@@ -1027,67 +1051,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/Traits/HasOptions.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2766,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								87,
-								87
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 39.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "tests/Unit/Traits/HasOptionsTest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3136,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								780,
-								780
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 169.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1150,6 +1114,22 @@
 		"selected_items":
 		[
 			[
+				"w",
+				"blog\\routes\\web.php"
+			],
+			[
+				"PostCo",
+				"blog\\app\\Http\\Controllers\\Admin\\PostController.php"
+			],
+			[
+				"web",
+				"blog\\routes\\web.php"
+			],
+			[
+				"Supp/Str",
+				"blog\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Str.php"
+			],
+			[
 				"Model",
 				"blog\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
 			],
@@ -1182,10 +1162,6 @@
 				"app\\Http\\Requests\\Posts\\CreateRequest.php"
 			],
 			[
-				"PostCo",
-				"app\\Http\\Controllers\\PostController.php"
-			],
-			[
 				"Illuminate\\Contracts\\Hashing\\Hasher",
 				"vtibia\\vendor\\laravel\\framework\\src\\Illuminate\\Contracts\\Hashing\\Hasher.php"
 			],
@@ -1216,10 +1192,6 @@
 			[
 				"Repos",
 				"livewire\\vendor\\laravel\\framework\\src\\Illuminate\\Config\\Repository.php"
-			],
-			[
-				"web",
-				"livewire\\routes\\web.php"
 			],
 			[
 				"RegisteredUserController",
@@ -1256,10 +1228,6 @@
 			[
 				"logo",
 				"views\\partials\\logo.blade.php"
-			],
-			[
-				"w",
-				"filesystem\\routes\\web.php"
 			],
 			[
 				"Illuminate\\Foundation\\Console\\stubs\\test.unit.stub",
@@ -1563,10 +1531,10 @@
 	{
 		"phpunit._test_last":
 		{
-			"file": "tests\\Unit\\Traits\\HasOptionsTest.php",
+			"file": "tests\\Feature\\Admin\\Posts\\CreatePostTest.php",
 			"options":
 			{
-				"filter": "::(a_model_can_store_an_array_of_options)( with data set .+)?$"
+				"filter": "::(a_user_with_permissions_can_create_posts)( with data set .+)?$"
 			},
 			"working_dir": "C:\\laragon\\www\\blog"
 		}
