@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Models\Role;
 use App\Models\User;
 use App\Traits\HasRole;
+use App\Traits\HasOptions;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Notifications\Notifiable;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class UserTest extends TestCase
@@ -79,6 +81,18 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function the_user_model_must_use_the_has_options_trait()
+    {
+        $this->assertClassUsesTrait(HasOptions::class, User::class);
+    }
+
+    /** @test */
+    public function the_user_model_must_use_the_has_factory_trait()
+    {
+        $this->assertClassUsesTrait(HasFactory::class, User::class);
+    }
+
+    /** @test */
     public function a_user_must_return_their_full_name()
     {
         $user = User::factory()->create([
@@ -135,7 +149,7 @@ class UserTest extends TestCase
         $user = $this->authorUser();
 
         $this->assertTrue(
-            $user->hasPermission('post_manager')
+            $user->hasPermission('post-manager')
         );
     }
 }

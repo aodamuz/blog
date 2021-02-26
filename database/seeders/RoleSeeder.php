@@ -16,18 +16,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $separator = config('sluggable.separator');
-
-        config(['sluggable.separator' => '_']);
-
         $this->createRoles();
         $this->createPermissions();
 
         $this->assignAccessPermissions();
         $this->assignPermissionsToTheAdminRole();
         $this->assignPermissionsToTheWriterRole();
-
-        config(['sluggable.separator' => $separator]);
     }
 
     protected function createRoles()
@@ -42,8 +36,8 @@ class RoleSeeder extends Seeder
         $description = 'Permission to access the administration panel.';
 
         Permission::create([
-            'slug' => config('permissions.access_key'),
-            'title' => 'Administration access',
+            'slug'        => config('permissions.access_key'),
+            'title'       => 'Administration access',
             'description' => $description,
         ]);
 
@@ -100,7 +94,7 @@ class RoleSeeder extends Seeder
             ->collapse()
             ->pluck('title')
             ->map(function($title) {
-                return Str::slug($title, '_');
+                return Str::slug($title);
             })
             ->toArray()
         ;

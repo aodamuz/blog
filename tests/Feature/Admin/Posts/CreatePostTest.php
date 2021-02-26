@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Admin\Posts;
 
+use App\Models\Tag;
 use Tests\TestCase;
 use App\Models\Category;
 use Illuminate\Support\Arr;
@@ -16,12 +17,20 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_screen_for_creating_posts_can_be_rendered()
     {
-        // dd($this->authorUser()->toArray());
-        $this->actingAs(
-            $this->authorUser()
-        )->get(
-            route('admin.posts.create')
-        )->assertOk();
+        $tags = Tag::factory()->times(3)->create();
+        $categories = Category::factory()->times(3)->create();
+
+        $response = $this
+            ->actingAs(
+                $this->authorUser()
+            )
+            ->get(route('admin.posts.create'))
+            ->assertOk()
+            ->assertViewIs('admin.posts.create')
+        ;
+
+        $this->assertEquals($tags->pluck('title', 'id'), $response['tags']);
+        $this->assertEquals($categories->pluck('title', 'id'), $response['categories']);
     }
 
     /** @test */

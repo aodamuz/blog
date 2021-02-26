@@ -6,31 +6,31 @@ use App\Traits\HasSlug;
 
 class Permission extends Base
 {
-	use HasSlug;
+    use HasSlug;
 
-	/*
-	|--------------------------------------------------------------------------
-	| Set Up
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Set Up
+    |--------------------------------------------------------------------------
+    */
 
-	/**
-	 * Indicates if the model should be timestamped.
-	 *
-	 * @var bool
-	 */
-	public $timestamps = false;
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
-	/*
-	|--------------------------------------------------------------------------
-	| Relations
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Relations
+    |--------------------------------------------------------------------------
+    */
 
-	/**
-	 * The roles that belong to the permission.
-	 */
-	public function roles() {
-		return $this->belongsToMany(Role::class);
-	}
+    /**
+     * The roles that belong to the permission.
+     */
+    public function roles() {
+        return $this->belongsToMany(Role::class);
+    }
 }

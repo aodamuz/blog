@@ -10,11 +10,35 @@ use App\Models\User;
 use Tests\Assertion;
 use App\Traits\HasSlug;
 use App\Models\Category;
+use App\Traits\HasOptions;
+use App\Traits\HasPostStatus;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostTest extends TestCase
 {
     use RefreshDatabase, Assertion;
+
+    /** @test  */
+    public function posts_database_has_expected_columns()
+    {
+        $this->assertTrue(
+            Schema::hasColumns('posts', [
+                'title',
+                'slug',
+                'description',
+                'body',
+                'status',
+                'user_id',
+                'category_id',
+                'options',
+                'created_at',
+                'updated_at',
+                'deleted_at',
+            ])
+        );
+    }
 
     /** @test */
     public function the_post_model_must_be_a_subclass_of_the_base_model()
@@ -23,8 +47,25 @@ class PostTest extends TestCase
     }
 
     /** @test */
+    public function the_post_model_must_use_the_has_post_status_trait() {
+        $this->assertClassUsesTrait(HasPostStatus::class, Post::class);
+    }
+
+    /** @test */
     public function the_post_model_must_use_the_has_slug_trait() {
         $this->assertClassUsesTrait(HasSlug::class, Tag::class);
+    }
+
+    /** @test */
+    public function the_post_model_must_use_the_soft_deletes_trait()
+    {
+        $this->assertClassUsesTrait(SoftDeletes::class, Post::class);
+    }
+
+    /** @test */
+    public function the_post_model_must_use_the_has_options_trait()
+    {
+        $this->assertClassUsesTrait(HasOptions::class, Post::class);
     }
 
     /** @test */

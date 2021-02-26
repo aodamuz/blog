@@ -10,7 +10,8 @@ use App\Models\Permission;
 use App\Traits\ConvertToModels;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class PermissionTest extends TestCase {
+class PermissionTest extends TestCase
+{
     use RefreshDatabase;
 
     /** @test */
@@ -24,13 +25,13 @@ class PermissionTest extends TestCase {
         $this->assertClassUsesTrait(HasSlug::class, Permission::class);
     }
 
-	/** @test */
-	public function a_permission_belongs_to_many_roles() {
-		$role = Role::factory()->create();
-		$permission = Permission::factory()->create();
+    /** @test */
+    public function a_permission_belongs_to_many_roles() {
+        $role = Role::factory()->create();
+        $permission = Permission::factory()->create();
 
-		$role->assignPermissions($permission);
+        $role->assignPermissions($permission);
 
-		$this->assertInstanceOf(Role::class, $permission->roles->first());
-	}
+        $this->assertInstanceOf(Role::class, $permission->roles->first());
+    }
 }

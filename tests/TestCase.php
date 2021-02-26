@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Models\User;
 use Database\Seeders\RoleSeeder;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -12,17 +13,17 @@ abstract class TestCase extends BaseTestCase
 
     public function user(array $attributes = [])
     {
-    	return $this->newUser('user', $attributes);
+        return $this->newUser('user', $attributes);
     }
 
     public function globalUser(array $attributes = [])
     {
-    	return $this->newUser('global', $attributes);
+        return $this->newUser('global', $attributes);
     }
 
     public function adminUser(array $attributes = [])
     {
-    	return $this->newUser('admin', $attributes);
+        return $this->newUser('admin', $attributes);
     }
 
     public function authorUser(array $attributes = [])

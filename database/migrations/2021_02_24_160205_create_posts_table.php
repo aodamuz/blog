@@ -30,7 +30,10 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();
 
+            $table->longText('options')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

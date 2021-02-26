@@ -31,14 +31,12 @@ class CategoryTest extends TestCase
         // the posts belong to the expected category.
         Category::factory()->times(3)->create();
 
-        $category = Category::factory()->create();
-
-        $posts = Post::factory()->times(5)->create([
-            'category_id' => $category->id,
-        ]);
+        $category = Category::factory()
+            ->hasPosts(3)
+            ->create();
 
         $this->assertEquals(
-            $posts->pluck('id')->toArray(),
+            Post::pluck('id')->toArray(),
             $category->posts->pluck('id')->toArray()
         );
     }

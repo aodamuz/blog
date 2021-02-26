@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermission(['post_manager', 'create_posts']);
+        return $user->hasPermission(['post-manager', 'create-posts']);
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->hasPermission(['post_manager', 'update_posts']);
+        return $user->hasPermission(['post-manager', 'update-posts']);
     }
 
     /**
