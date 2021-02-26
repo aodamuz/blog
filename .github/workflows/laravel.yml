@@ -36,4 +36,6 @@ jobs:
         QUEUE_DRIVER: sync
       run: php artisan test
     - name: Execute tests via Laravel Dusk
+      env:
+        APP_URL: http://127.0.0.1:8000
       run: php artisan dusk
