@@ -4,6 +4,7 @@ namespace Tests\Feature\Auth;
 
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Support\Str;
 use App\Support\Config\ConfigKeys;
 use App\Providers\RouteServiceProvider;
@@ -232,6 +233,7 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
+            'country_id' => Country::factory()->create()->id,
             'options' => [
                 'first_name' => 'FIRST',
                 'last_name' => 'LAST',

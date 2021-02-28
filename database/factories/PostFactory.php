@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Support\Arr;
 use App\Support\Enum\PostStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -29,8 +30,12 @@ class PostFactory extends Factory
             'body'        => $this->faker->text(),
             'description' => $this->faker->text(155),
             'user_id'     => User::factory()->create(),
-            'category_id' => Category::factory()->create(),
             'options'     => [],
+            'status'      => Arr::random([
+                PostStatus::REVIEW,
+                PostStatus::HIDDEN,
+                PostStatus::PUBLISHED,
+            ]),
         ];
     }
 

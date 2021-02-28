@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"border-le",
+				"border-left-width\tproperty"
+			],
+			[
+				"que",
+				"querySelectorAll\t( selectors: DOMString ): NodeList Element"
+			],
+			[
+				"labe",
+				"labelClass"
+			],
+			[
+				"cla",
+				"classList"
+			],
+			[
+				"emp",
+				"empty"
+			],
+			[
+				"Post",
+				"PostStatus"
+			],
+			[
+				"Cache",
+				"Cache::flush\tRemove all items from the cache."
+			],
+			[
+				"set",
+				"setUp"
+			],
+			[
 				"se",
 				"separator"
 			],
@@ -238,10 +270,6 @@
 			[
 				"r",
 				"required\tAttr"
-			],
-			[
-				"que",
-				"queryAll\t( relativeSelectors: DOMString ): Elements Element"
 			],
 			[
 				"prim",
@@ -486,44 +514,53 @@
 			[
 				"bdb",
 				"border-bottom\tproperty"
-			],
-			[
-				"nav",
-				"navbar"
-			],
-			[
-				"no",
-				"not-allowed\tcursor"
-			],
-			[
-				"back",
-				"background-color\tproperty"
-			],
-			[
-				"text-gray",
-				"text-gray-500"
-			],
-			[
-				"ur",
-				"url()\tbackground-image"
-			],
-			[
-				"sw",
-				"switch\tswitch …"
-			],
-			[
-				"Session",
-				"Session::has\tDetermin if an Item Exists in the Session"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "resources/views/admin/layouts/header.blade.php",
+			"file": "app/Http/Controllers/Admin/PostController.php",
 			"settings":
 			{
-				"buffer_size": 14312,
+				"buffer_size": 2756,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Requests/Posts/CreateRequest.php",
+			"settings":
+			{
+				"buffer_size": 2079,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "tests/Feature/Admin/Posts/CreatePostTest.php",
+			"settings":
+			{
+				"buffer_size": 8368,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/seeders/RoleSeeder.php",
+			"settings":
+			{
+				"buffer_size": 3051,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/admin/posts/create.blade.php",
+			"settings":
+			{
+				"buffer_size": 2156,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -630,36 +667,81 @@
 	},
 	"expanded_folders":
 	[
+		"/C/Users/Johan/Desktop/app",
+		"/C/Users/Johan/Desktop/app/src",
+		"/C/Users/Johan/Desktop/app/src/persistence",
+		"/C/Users/Johan/Desktop/app/src/routes",
+		"/C/Users/Johan/Desktop/app/src/static",
+		"/C/Users/Johan/Desktop/app/src/static/css",
+		"/C/Users/Johan/Desktop/app/src/static/js"
 	],
 	"file_history":
 	[
+		"/C/laragon/www/blog/tests/TestCase.php",
+		"/C/laragon/www/blog/app/Traits/HasRole.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Collections/Arr.php",
+		"/C/laragon/www/blog/storage/logs/laravel.log",
+		"/C/laragon/www/blog/database/factories/PostFactory.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
+		"/C/laragon/www/blog/app/Support/Enum/PostStatus.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/Posts/EditPostTest.php",
+		"/C/laragon/www/blog/database/migrations/2021_02_24_160205_create_posts_table.php",
+		"/C/laragon/www/blog/app/Http/Requests/Posts/CreateRequest.php",
+		"/C/laragon/www/blog/resources/js/admin/editor.js",
+		"/C/laragon/www/blog/resources/css/admin/editor.css",
+		"/C/laragon/www/blog/webpack.mix.js",
+		"/C/laragon/www/blog/public/admin/app.css",
+		"/C/laragon/www/blog/resources/js/admin/quill.js",
+		"/C/laragon/www/blog/resources/views/components/card.blade.php",
+		"/C/laragon/www/blog/resources/css/admin/quill.css",
+		"/C/laragon/www/blog/resources/js/admin/app.js",
+		"/C/laragon/www/blog/resources/views/components/form-textarea.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-input.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/posts/create.blade.php",
+		"/C/laragon/www/shop/.env",
+		"/C/laragon/www/blog/resources/views/admin/layouts/app.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/layouts/header.blade.php",
+		"/C/laragon/www/blog/node_modules/tailwindcss/stubs/defaultConfig.stub.js",
+		"/C/laragon/www/blog/config/view.php",
+		"/C/laragon/www/blog/config/app.php",
+		"/C/laragon/www/blog/app/Providers/ViewServiceProvider.php",
+		"/C/laragon/www/blog/app/View/Compilers/BladeCompiler.php",
+		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
+		"/C/laragon/www/blog/blog.sublime-project",
+		"/C/laragon/www/blog/resources/views/components/input.blade.php",
+		"/C/laragon/www/blog/app/Traits/HasOptions.php",
+		"/C/laragon/www/blog/app/Traits/HasPostStatus.php",
+		"/C/laragon/www/blog/app/Models/Post.php",
+		"/C/laragon/www/blog/tests/Unit/Models/PostTest.php",
+		"/C/laragon/www/blog/.github/workflows/laravel.yml",
+		"/C/laragon/www/blog/.github/workflows/laravel-dusk.yml",
+		"/C/laragon/www/blog/tests/Unit/Models/PermissionTest.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/AdminTest.php",
+		"/C/laragon/www/blog/app/Traits/ConvertToModels.php",
+		"/C/laragon/www/blog/app/Observers/RoleObserver.php",
+		"/C/laragon/www/blog/app/Models/Permission.php",
+		"/C/laragon/www/blog/app/Console/Kernel.php",
+		"/C/laragon/www/blog/tests/Unit/Models/UserTest.php",
+		"/C/laragon/www/blog/app/Models/User.php",
+		"/C/laragon/www/blog/app/Traits/PostStatus.php",
+		"/C/laragon/www/blog/vendor/phpunit/phpunit/src/Framework/Assert.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php",
 		"/C/laragon/www/blog/app/Policies/PostPolicy.php",
 		"/C/laragon/www/blog/database/factories/UserFactory.php",
 		"/C/laragon/www/blog/database/seeders/DatabaseSeeder.php",
 		"/C/laragon/www/blog/database/seeders/RoleSeeder.php",
-		"/C/laragon/www/blog/tests/Unit/Models/UserTest.php",
 		"/C/laragon/www/blog/database/factories/CategoryFactory.php",
 		"/C/laragon/www/blog/database/factories/PermissionFactory.php",
 		"/C/laragon/www/blog/tests/Unit/Models/CategoryTest.php",
-		"/C/laragon/www/blog/database/factories/PostFactory.php",
 		"/C/laragon/www/blog/database/factories/RoleFactory.php",
 		"/C/laragon/www/blog/database/factories/TagFactory.php",
-		"/C/laragon/www/blog/app/Models/Post.php",
-		"/C/laragon/www/blog/tests/Unit/Models/PostTest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
 		"/C/laragon/www/blog/tests/Feature/Admin/Posts/UpdatePostTest.php",
 		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/PostTest.php",
-		"/C/laragon/www/blog/database/migrations/2021_02_24_160205_create_posts_table.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
 		"/C/laragon/www/blog/vendor/symfony/http-foundation/Response.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/EditPostTest.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Cache/RateLimiting/Limit.php",
 		"/C/laragon/www/blog/app/Http/Requests/Auth/LoginRequest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/AdminTest.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
-		"/C/laragon/www/blog/app/Models/User.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Auth/MustVerifyEmail.php",
-		"/C/laragon/www/blog/app/Traits/HasRole.php",
 		"/C/laragon/www/blog/tests/Unit/Models/TagTest.php",
 		"/C/laragon/www/blog/tests/Feature/Auth/AuthenticationTest.php",
 		"/C/laragon/www/blog/tests/Feature/Auth/EmailVerificationTest.php",
@@ -670,12 +752,8 @@
 		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/TagTest.php",
 		"/C/laragon/www/blog/app/Models/Tag.php",
 		"/C/laragon/www/blog/app/Models/Category.php",
-		"/C/laragon/www/blog/tests/Unit/Models/PermissionTest.php",
-		"/C/laragon/www/blog/app/Traits/HasOptions.php",
 		"/C/laragon/www/blog/tests/Unit/Traits/HasOptionsTest.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Collections/Arr.php",
 		"/C/laragon/www/blog/config/permissions.php",
-		"/C/laragon/www/blog/tests/TestCase.php",
 		"/C/laragon/www/blog/app/Models/Role.php",
 		"/C/laragon/www/blog/database/seeders/RoleSeeder2.php",
 		"/C/laragon/www/blog/app/Providers/RouteServiceProvider.php",
@@ -697,7 +775,6 @@
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Seeder.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/BelongsToMany.php",
-		"/C/laragon/www/blog/storage/logs/laravel.log",
 		"/C/laragon/www/blog/package.json",
 		"/C/laragon/www/blog/app/Http/Controllers/Auth/RegisteredUserController.php",
 		"/C/laragon/www/blog/app/Http/Controllers/Auth/AuthenticatedSessionController.php",
@@ -712,7 +789,6 @@
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php",
 		"/C/laragon/www/blog/vendor/facade/ignition/src/Support/StringComparator.php",
 		"/C/laragon/www/blog/app/Traits/HasSlug.php",
-		"/C/laragon/www/blog/app/Models/Permission.php",
 		"/C/laragon/www/blog/tests/Unit/Models/RoleTest.php",
 		"/C/laragon/www/blog/app/Observers/Observer.php",
 		"/C/laragon/www/blog/app/Providers/EventServiceProvider.php",
@@ -727,40 +803,8 @@
 		"/C/laragon/www/blog/stubs/model.stub",
 		"/C/laragon/www/blog/app/Http/Requests/Auth/RegisterRequest.php",
 		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/RegistrationTest.php",
-		"/C/laragon/www/blog/.github/workflows/laravel.yml",
 		"/C/Users/Johan/Documents/sublime/Data/Packages/User/snippets/laravel/factory.sublime-snippet",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php",
-		"/C/laragon/www/blog/vendor/cviebrock/eloquent-sluggable/tests/TestServiceProvider.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Contracts/Container/BindingResolutionException.php",
-		"/C/laragon/www/blog/vendor/symfony/console/Exception/InvalidArgumentException.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/UserTest.php",
-		"/C/laragon/www/blog/tests/Unit/Models/OptionTest.php",
-		"/C/laragon/www/blog/app/Models/Option.php",
-		"/C/Users/Johan/Documents/References/blog2/app/Models/Option.php",
-		"/C/laragon/www/blog/stubs/migration.stub",
-		"/C/laragon/www/blog/stubs/migration.update.stub",
-		"/C/laragon/www/blog/database/migrations/2019_08_19_000000_create_failed_jobs_table.php",
-		"/C/laragon/www/blog/database/migrations/2014_10_12_100000_create_password_resets_table.php",
-		"/C/laragon/www/blog/database/migrations/2014_10_11_000000_create_options_table.php",
-		"/C/laragon/www/blog/vendor/phpunit/phpunit/src/Framework/Assert.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php",
-		"/C/laragon/www/blog/tests/Unit/Models/BaseTest.php",
-		"/C/laragon/www/blog/vendor/fakerphp/faker/src/Faker/Provider/Base.php",
-		"/C/laragon/www/blog/.env",
-		"/C/laragon/www/blog/phpunit.xml",
-		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/PasswordResetTest.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/PasswordConfirmationTest.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/EmailVerificationTest.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Feature/Auth/AuthenticationTest.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/TestCase.php",
-		"/C/laragon/www/blog/tailwind-admin.config.js",
-		"/C/laragon/www/blog/tailwind.config.js",
-		"/C/laragon/www/blog/resources/views/blog/layouts/app.blade.php",
-		"/C/laragon/www/blog/app/View/Components/AdminLayout.php",
-		"/C/laragon/www/blog/resources/views/admin/layouts/app.blade.php",
-		"/C/laragon/www/blog/app/Support/Response/Messages.php"
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php"
 	],
 	"find":
 	{
@@ -771,6 +815,7 @@
 		"height": 132.0,
 		"where_history":
 		[
+			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\tests",
@@ -794,6 +839,54 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Arr",
+			"Manager",
+			"'",
+			"REVIEW",
+			"['status' => PostStatus::REVIEW]",
+			"quill",
+			".ql-toolbar.ql-snow",
+			"currentColor;*/",
+			"#444;",
+			"#",
+			"border",
+			"border: 1px solid rgb(128, 128, 128, 0.5);",
+			"border",
+			"border-color: rgb(128, 128, 128, 0.5);",
+			"border:",
+			"\tborder:",
+			"rgb(128, 128, 128, 0.5)",
+			"#06c;",
+			"#ccc",
+			"#ccc;",
+			"128",
+			"editor",
+			"quill",
+			"section",
+			"Body",
+			"css",
+			" :placeholder=\"__('Title...')\"",
+			"', '",
+			" ",
+			"description",
+			"Description",
+			"', '",
+			" ",
+			"img",
+			"DEFAULT",
+			"form-input",
+			"isset",
+			"Name",
+			"Johan",
+			"\t",
+			"    ",
+			"PostStatus",
+			"HasPostStatus",
+			"PostStatus",
+			"cats",
+			"casts",
+			"->save()",
+			"forceFill",
 			"_",
 			"' . config('permissions.separator') . '",
 			"_",
@@ -873,55 +966,7 @@
 			"false",
 			"removable",
 			"Editor",
-			"permissions",
-			"this",
-			">this",
-			"this",
-			"createPermissions",
-			"value",
-			"users",
-			"tags",
-			"categories",
-			"    ",
-			"=>",
-			"permissions",
-			"Editor",
-			"$permissions",
-			"categor",
-			"Response",
-			"assertStatus",
-			"Response::HTTP_FORBIDDEN",
-			"isForbidden",
-			"403",
-			"LIKE",
-			"translator",
-			"Translator",
-			"REsponse",
-			":);",
-			"/** @test */",
-			"cssnano",
-			"commitizen",
-			"Arr",
-			"option",
-			"RoleSeeder",
-			"option",
-			"option[",
-			"forget",
-			"forgetOption",
-			"get",
-			">set(",
-			"get",
-			">get(",
-			"get",
-			"role",
-			"value",
-			"\"",
-			"resource",
-			"ability",
-			"Ability",
-			"value",
-			"delete",
-			"\n\n"
+			"permissions"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -929,6 +974,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"', '",
 			"->authorUser",
 			"assertOk()",
 			"option",
@@ -946,37 +992,157 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/admin/layouts/header.blade.php",
-					"semi_transient": true,
+					"file": "app/Http/Controllers/Admin/PostController.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14312,
+						"buffer_size": 2756,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1950,
+								1963
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 637.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Requests/Posts/CreateRequest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2079,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1696,
+								1696
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 117.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "tests/Feature/Admin/Posts/CreatePostTest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8368,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7794,
+								7794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3432.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "database/seeders/RoleSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1814,
+								1814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1068.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resources/views/admin/posts/create.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2156,
+								2156
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1029,7 +1195,7 @@
 	"project": "blog.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1039,16 +1205,20 @@
 		"selected_items":
 		[
 			[
+				"Po",
+				"blog\\app\\Http\\Controllers\\Admin\\PostController.php"
+			],
+			[
+				"U",
+				"blog\\app\\Models\\User.php"
+			],
+			[
 				"Post",
 				"blog\\app\\Http\\Controllers\\Admin\\PostController.php"
 			],
 			[
 				"cre_posts",
 				"blog\\database\\migrations\\2021_02_24_160205_create_posts_table.php"
-			],
-			[
-				"U",
-				"blog\\app\\Models\\User.php"
 			],
 			[
 				"w",
@@ -1464,9 +1634,10 @@
 	{
 		"phpunit._test_last":
 		{
-			"file": null,
+			"file": "tests\\Feature\\Admin\\Posts\\CreatePostTest.php",
 			"options":
 			{
+				"filter": "::(dynamic_status)( with data set .+)?$"
 			},
 			"working_dir": "C:\\laragon\\www\\blog"
 		}
@@ -1475,7 +1646,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 391.0,
+	"side_bar_width": 300.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

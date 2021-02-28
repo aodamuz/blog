@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         Cache::flush();
 
+        $this->call(CountrySeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(PostSeeder::class);

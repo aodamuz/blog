@@ -69,6 +69,19 @@ window.data = function () {
 
 /***/ }),
 
+/***/ "./resources/css/admin/quill.css":
+/*!***************************************!*\
+  !*** ./resources/css/admin/quill.css ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -143,6 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/admin/app.js"],
+/******/ 			["./resources/css/admin/quill.css"],
 /******/ 			["./resources/css/app.css"]
 /******/ 		];
 /******/ 		// no chunk on demand loading

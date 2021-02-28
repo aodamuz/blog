@@ -7,6 +7,7 @@ use Tests\TestCase;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use App\Support\Enum\PostStatus;
 use App\Support\Response\Messages;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -17,6 +18,7 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_screen_for_creating_posts_can_be_rendered()
     {
+        $statuses = PostStatus::all();
         $tags = Tag::factory()->times(3)->create();
         $categories = Category::factory()->times(3)->create();
 
@@ -29,6 +31,8 @@ class CreatePostTest extends TestCase
             ->assertViewIs('admin.posts.create')
         ;
 
+        $this->assertEquals(PostStatus::DEFAULT, $response['defaultStatus']);
+        $this->assertEquals($statuses, $response['statuses']);
         $this->assertEquals($tags->pluck('title', 'id'), $response['tags']);
         $this->assertEquals($categories->pluck('title', 'id'), $response['categories']);
     }
@@ -257,6 +261,32 @@ class CreatePostTest extends TestCase
                 'description' => Str::random(161)
             ]))
             ->assertSessionHasErrors('description')
+        ;
+    }
+
+    /**
+     * A post will be created with the default status if
+     * the current user is not a post manager.
+     *
+     * @test
+     */
+    public function dynamic_status() {
+        $this
+            ->actingAs($this->authorUser())
+            ->post(route('admin.posts.store'), $this->data([
+                'status' => PostStatus::PUBLISHED
+            ]))
+            ->assertSessionHasErrors('status')
+        ;
+
+        $this->artisan('migrate:fresh')->run();
+
+        $this
+            ->actingAs($this->adminUser())
+            ->post(route('admin.posts.store'), $this->data([
+                'status' => PostStatus::PUBLISHED
+            ]))
+            ->assertSessionHasNoErrors('status')
         ;
     }
 

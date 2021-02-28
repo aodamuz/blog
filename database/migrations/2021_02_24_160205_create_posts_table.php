@@ -25,7 +25,7 @@ class CreatePostsTable extends Migration
                 PostStatus::REVIEW,
                 PostStatus::HIDDEN,
                 PostStatus::PUBLISHED,
-            ])->default(PostStatus::REVIEW);
+            ])->default(PostStatus::DEFAULT);
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();

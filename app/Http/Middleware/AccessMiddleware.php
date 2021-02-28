@@ -19,7 +19,7 @@ class AccessMiddleware
     {
         if (
             $request->user() &&
-            $request->user()->hasPermission(config('permissions.access_key'))
+            $request->user()->canAccess()
         ) {
             return $next($request);
         }

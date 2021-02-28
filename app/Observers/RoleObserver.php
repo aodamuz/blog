@@ -10,7 +10,7 @@ class RoleObserver extends Observer
      * Handle the role "deleting" event.
      *
      * @param  \App\Models\Role $role
-     * @return boolean
+     * @return bool
      */
     public function deleting(Role $role)
     {

@@ -7,6 +7,7 @@ class PostStatus
     const PUBLISHED = 'published';
     const HIDDEN = 'hidden';
     const REVIEW = 'review';
+    const DEFAULT = 'review';
 
     public static function all()
     {

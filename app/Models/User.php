@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasRole;
+use App\Traits\HasCountry;
 use App\Traits\HasOptions;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasRole,
         Cachable,
+        HasCountry,
         HasFactory,
         HasOptions,
         Notifiable,

@@ -4,6 +4,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Automatic Blade Optimizations
+    |--------------------------------------------------------------------------
+    |
+    | This option enables minification of the blade views as they are
+    | compiled. These optimizations have little impact on php processing time
+    | as the optimizations are only applied once and are cached.
+    |
+    | Default: true
+    |
+    */
+
+    'minified' => env('VIEW_MINIFIED', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | View Storage Paths
     |--------------------------------------------------------------------------
     |

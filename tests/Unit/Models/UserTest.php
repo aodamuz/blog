@@ -5,7 +5,9 @@ namespace Tests\Unit\Models;
 use Tests\TestCase;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Country;
 use App\Traits\HasRole;
+use App\Traits\HasCountry;
 use App\Traits\HasOptions;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Support\Facades\Schema;
@@ -75,7 +77,13 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    public function the_user_model_must_use_the_has_roles_trait()
+    public function the_user_model_must_use_the_has_country_trait()
+    {
+        $this->assertClassUsesTrait(HasCountry::class, User::class);
+    }
+
+    /** @test */
+    public function the_user_model_must_use_the_has_role_trait()
     {
         $this->assertClassUsesTrait(HasRole::class, User::class);
     }
@@ -119,6 +127,15 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function a_user_must_belong_to_a_country() {
+        $country = Country::factory()->create();
+        $user = $this->user(['country_id' => $country->id]);
+
+        $this->assertEquals($country->id, $user->id);
+        $this->assertInstanceOf(Country::class, $user->country);
+    }
+
+    /** @test */
     public function a_user_can_have_a_role() {
         $this->seed(RoleSeeder::class);
 
@@ -149,7 +166,7 @@ class UserTest extends TestCase
         $user = $this->authorUser();
 
         $this->assertTrue(
-            $user->hasPermission('post-manager')
+            $user->hasPermission('view-posts')
         );
     }
 }

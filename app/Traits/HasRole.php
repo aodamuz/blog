@@ -73,7 +73,7 @@ trait HasRole
      *
      * @param mixed $roles
      *
-     * @return boolean
+     * @return bool
      */
     public function hasRole($roles)
     {
@@ -87,11 +87,21 @@ trait HasRole
     }
 
     /**
+     * Check if the given user can access the admin panel.
+     *
+     * @return bool
+     */
+    public function canAccess()
+    {
+        return $this->hasPermission(config('permissions.access_key'));
+    }
+
+    /**
      * Check if this user has the given permissions.
      *
      * @param mixed $permissions
      *
-     * @return boolean
+     * @return bool
      */
     public function hasPermission($permissions)
     {
@@ -108,7 +118,7 @@ trait HasRole
     /**
      * Verify if the user is an administrator.
      *
-     * @return boolean
+     * @return bool
      */
     public function isAdmin()
     {
@@ -118,7 +128,7 @@ trait HasRole
     /**
      * Verify if the user is a global administrator.
      *
-     * @return boolean
+     * @return bool
      */
     public function isSuperAdmin()
     {
@@ -128,7 +138,7 @@ trait HasRole
     /**
      * Verify if the user is any of the administrators.
      *
-     * @return boolean
+     * @return bool
      */
     public function isAnyAdmin()
     {
