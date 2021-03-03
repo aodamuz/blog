@@ -1,1 +1,3 @@
-window.Quill = require('quill/dist/quill')
+import Quill from 'quill/quill'
+
+window.Quill = Quill

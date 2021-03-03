@@ -20,11 +20,11 @@ class CountrySeeder extends Seeder
         if (file_exists(
             $path = base_path('vendor/mledoze/countries/countries.json')
         )) {
-            $countries = $this->readJson($path);
+            $data = $this->readJson($path);
 
-            $this->command->info("{$countries->count()} countries were found.");
+            $this->command->info("{$data->count()} countries were found.");
 
-            $countries->map(function($country) {
+            $data->sortBy('name.common')->map(function($country) {
                 Country::create([
                     'title' => $country['name']['common'],
                 ])->option($country);

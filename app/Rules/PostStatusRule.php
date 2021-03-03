@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use App\Models\Post;
 use Illuminate\Contracts\Validation\Rule;
 
 class PostStatusRule implements Rule
@@ -27,7 +28,7 @@ class PostStatusRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->user->hasPermission('post-manager');
+        return $this->user->can('setStatus', new Post);
     }
 
     /**

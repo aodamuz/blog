@@ -1,6 +1,6 @@
 {
+    "/editor.js": "/editor.js",
     "/app.js": "/app.js",
-    "/quill.js": "/quill.js",
-    "/app.css": "/app.css",
-    "/quill.css": "/quill.css"
+    "/editor.css": "/editor.css",
+    "/app.css": "/app.css"
 }

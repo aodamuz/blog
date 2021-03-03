@@ -73,6 +73,19 @@ class PostPolicy
     }
 
     /**
+     * Determine if the user can set the state of the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
+     * @return mixed
+     */
+    public function setStatus(User $user, Post $post)
+    {
+        return $user->isAnyAdmin() ||
+               $user->hasPermission('post-manager');
+    }
+
+    /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
@@ -93,6 +106,6 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post)
     {
-        return $user->isAnyAdmin();
+        return $user->isSuperAdmin();
     }
 }

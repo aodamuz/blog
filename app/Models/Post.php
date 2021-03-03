@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasSlug;
 use App\Traits\HasOptions;
 use App\Traits\HasPostStatus;
+use App\Presenters\PostPresenter;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Base
@@ -48,5 +49,16 @@ class Post extends Base
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /*
+    |-------------------------------------------------------------------------
+    | Helpers
+    |-------------------------------------------------------------------------
+    */
+
+    public function present()
+    {
+        return new PostPresenter($this);
     }
 }

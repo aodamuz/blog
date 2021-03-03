@@ -1,4 +1,4 @@
-@props(['disabled' => false, 'labelClass' => null, 'label' => null])
+@props(['disabled' => false, 'labelClass' => [], 'label' => null])
 
 @php
 	$labelClass = !empty($labelClass) ? $labelClass : [];

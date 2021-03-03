@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
-use App\Support\Enum\PostStatus;
 use App\Support\Response\Messages;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreateRequest;
@@ -39,14 +38,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $statuses      = PostStatus::all();
-        $defaultStatus = PostStatus::DEFAULT;
-        $tags          = Tag::all()->pluck('title', 'id');
-        $categories    = Category::all()->pluck('title', 'id');
+        $post = new Post;
 
-        return view('admin.posts.create', compact(
-            'statuses', 'defaultStatus', 'tags', 'categories'
-        ));
+        return view('admin.posts.create', compact('post'));
     }
 
     /**
@@ -57,8 +51,8 @@ class PostController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        Post::create(
-            $request->getValidData()
+        $request->user()->posts()->create(
+            $request->validated()
         );
 
         return redirect()
@@ -85,14 +79,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $statuses      = PostStatus::all();
-        $defaultStatus = PostStatus::DEFAULT;
-        $tags          = Tag::all()->pluck('title', 'id');
-        $categories    = Category::all()->pluck('title', 'id');
-
-        return view('admin.posts.edit', compact(
-            'post', 'statuses', 'defaultStatus', 'tags', 'categories'
-        ));
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**

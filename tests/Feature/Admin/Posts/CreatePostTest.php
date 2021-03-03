@@ -18,11 +18,7 @@ class CreatePostTest extends TestCase
     /** @test */
     public function the_screen_for_creating_posts_can_be_rendered()
     {
-        $statuses = PostStatus::all();
-        $tags = Tag::factory()->times(3)->create();
-        $categories = Category::factory()->times(3)->create();
-
-        $response = $this
+        $this
             ->actingAs(
                 $this->authorUser()
             )
@@ -30,11 +26,6 @@ class CreatePostTest extends TestCase
             ->assertOk()
             ->assertViewIs('admin.posts.create')
         ;
-
-        $this->assertEquals(PostStatus::DEFAULT, $response['defaultStatus']);
-        $this->assertEquals($statuses, $response['statuses']);
-        $this->assertEquals($tags->pluck('title', 'id'), $response['tags']);
-        $this->assertEquals($categories->pluck('title', 'id'), $response['categories']);
     }
 
     /** @test */

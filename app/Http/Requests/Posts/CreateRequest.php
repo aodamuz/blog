@@ -25,6 +25,7 @@ class CreateRequest extends FormRequest
      */
     public function rules()
     {
+        dd($this->all());
         $msg = 'You do not have permission to assign the status of this post.';
 
         return [
@@ -41,19 +42,5 @@ class CreateRequest extends FormRequest
                 'in:' . implode(',', array_keys(PostStatus::all())),
             ],
         ];
-    }
-
-    /**
-     * Get the validated data of the request including the authenticated user.
-     *
-     * @return array
-     */
-    public function getValidData()
-    {
-        $data = $this->validated();
-
-        $data['user_id'] = $this->user()->id;
-
-        return $data;
     }
 }

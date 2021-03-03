@@ -3,6 +3,7 @@
 namespace Tests\Unit\Models;
 
 use Tests\TestCase;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Country;
@@ -119,6 +120,15 @@ class UserTest extends TestCase
             "{$user->option('first_name')} {$user->option('last_name')}",
             $user->name
         );
+    }
+
+    /** @test */
+    public function a_user_has_many_posts() {
+        $user = User::factory()
+            ->hasPosts(3)
+            ->create();
+
+        $this->assertInstanceOf(Post::class, $user->posts->first());
     }
 
     /** @test */
