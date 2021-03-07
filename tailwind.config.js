@@ -21,5 +21,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require( 'tailwind-css-variables' )(),
+        require( './resources/js/admin/forms' ),
+    ],
 };

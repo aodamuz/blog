@@ -748,6 +748,30 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
+*,
+    ::before,
+    ::after {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.dark *,
+    .dark ::before,
+    .dark ::after {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+        ::before,
+        ::after {
+    transition: none !important;
+  }
+}
+
 .container {
   width: 100%;
 }

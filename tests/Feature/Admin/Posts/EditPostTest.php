@@ -25,7 +25,7 @@ class EditPostTest extends TestCase
             ->actingAs($user)
             ->get(route('admin.posts.edit', $post))
             ->assertOk()
-            ->assertViewIs('admin.posts.edit')
+            ->assertViewIs('admin.posts.create-edit')
         ;
     }
 }

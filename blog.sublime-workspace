@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"rb",
+				"rbs\treturn-back-success"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"queryS",
+				"querySelector"
+			],
+			[
+				"co",
+				"color\tproperty"
+			],
+			[
+				"bdc",
+				"border-color\tproperty"
+			],
+			[
 				"if",
 				"if\tif …"
 			],
@@ -392,10 +412,6 @@
 				"mixin\t@mixin"
 			],
 			[
-				"queryS",
-				"querySelectorAll\t( selectors: DOMString ): NodeList Element"
-			],
-			[
 				"ali",
 				"align-items\tproperty"
 			],
@@ -498,51 +514,16 @@
 			[
 				"Ele",
 				"ElementManager"
-			],
-			[
-				"Manager",
-				"ElementManager"
-			],
-			[
-				"fc",
-				"flex-direction\tproperty"
-			],
-			[
-				"getE",
-				"getElementById\t( elementId: DOMString ): Element Document"
-			],
-			[
-				"ease-in",
-				"ease-in-out\ttransition-timing-function"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "resources/views/admin/posts/create.blade.php",
+			"file": "tests/Feature/Admin/AdminTest.php",
 			"settings":
 			{
-				"buffer_size": 2572,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/Http/Requests/Posts/CreateRequest.php",
-			"settings":
-			{
-				"buffer_size": 1314,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/components/form-checkbox.blade.php",
-			"settings":
-			{
-				"buffer_size": 900,
-				"encoding": "UTF-8",
+				"buffer_size": 865,
 				"line_ending": "Unix"
 			}
 		}
@@ -650,35 +631,88 @@
 	"expanded_folders":
 	[
 		"/C/laragon/www/blog",
-		"/C/laragon/www/blog/resources",
-		"/C/laragon/www/blog/resources/views",
-		"/C/laragon/www/blog/resources/views/admin",
-		"/C/laragon/www/blog/resources/views/admin/posts",
-		"/C/laragon/www/blog/resources/views/components"
+		"/C/laragon/www/blog/tests",
+		"/C/laragon/www/blog/tests/Feature",
+		"/C/laragon/www/blog/tests/Feature/Admin"
 	],
 	"file_history":
 	[
+		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
+		"/C/Users/Johan/Documents/sublime/Data/Packages/PHPUnitKit/Preferences.sublime-settings",
+		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
+		"/C/laragon/www/blog/tests/Feature/Admin/Posts/EditPostTest.php",
+		"/C/Users/Johan/Documents/sublime/Data/Packages/User/Preferences.sublime-settings",
+		"/C/laragon/www/blog/resources/views/admin/posts/create-edit.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/posts/form.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/posts/index.blade.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Console/StorageLinkCommand.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php",
+		"/C/laragon/www/blog/app/Models/Post.php",
+		"/C/laragon/www/blog/app/Presenters/PostPresenter.php",
+		"/C/laragon/www/blog/resources/views/components/actions.blade.php",
+		"/C/laragon/www/blog/app/Http/Requests/Posts/CreateRequest.php",
+		"/C/laragon/www/blog/app/Http/Requests/Posts/UpdateRequest.php",
+		"/C/laragon/www/blog/app/Support/Response/Messages.php",
+		"/C/laragon/www/blog/resources/css/admin/editor.css",
+		"/C/laragon/www/blog/public/admin/editor.css",
+		"/C/Users/Johan/Desktop/otserv/release-3d4/config.lua",
+		"/C/laragon/www/blog/resources/views/vendor/pagination/tailwind2.blade.php",
+		"/C/laragon/www/blog/resources/views/vendor/pagination/tailwind.blade.php",
+		"/C/laragon/www/blog/resources/views/vendor/pagination/tailwind1.blade.php",
+		"/C/laragon/www/blog/resources/js/admin/editor.js",
+		"/C/laragon/www/blog/app/Support/Config/ConfigKeys.php",
+		"/C/laragon/www/blog/config/app.php",
 		"/C/laragon/www/blog/resources/views/components/form-select.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-textarea.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-input.blade.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/View/Component.php",
+		"/C/laragon/www/blog/app/View/Components/Form.php",
+		"/C/laragon/www/blog/app/View/Components/FormInput.php",
+		"/C/laragon/www/blog/app/View/Components/FormSelect.php",
+		"/C/laragon/www/blog/resources/views/components/form-input0.blade.php",
+		"/C/laragon/www/blog/resources/views/components/button.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/layouts/desktop-sidebar.blade.php",
+		"/C/laragon/www/blog/resources/js/admin/forms.js",
+		"/C/laragon/www/blog/resources/views/admin/layouts/header.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/layouts/mobile-sidebar.blade.php",
+		"/C/laragon/www/blog/tailwind-admin.config.js",
+		"/C/laragon/www/blog/resources/views/components/form-checkbox.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-input1.blade.php",
+		"/C/laragon/www/blog/resources/views/components/input.blade.php",
+		"/C/laragon/www/blog/resources/views/components/nav-link.blade.php",
+		"/C/laragon/www/blog/resources/views/components/responsive-nav-link.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-container.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-checkbox2.blade.php",
+		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/View/ComponentAttributeBag.php",
+		"/C/laragon/www/blog/resources/views/components/form-input2.blade.php",
+		"/C/laragon/www/blog/resources/views/components/form-select2.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/layouts/app.blade.php",
+		"/C/laragon/www/blog/tailwind.config.js",
+		"/C/laragon/www/blog/node_modules/tailwindcss/stubs/defaultConfig.stub.js",
+		"/C/laragon/www/blog/webpack.mix.js",
+		"/C/laragon/www/blog/resources/js/app.js",
+		"/C/laragon/www/blog/resources/views/components/card.blade.php",
+		"/C/laragon/www/blog/public/admin/app.css",
+		"/C/laragon/www/admin/resources/tailwindcss/config.js",
+		"/C/laragon/www/blog/resources/views/components/card2.blade.php",
+		"/C/laragon/www/blog/resources/views/admin/posts/create2.blade.php",
+		"/C/laragon/www/blog/package.json",
+		"/C/laragon/www/blog/resources/css/app.css",
+		"/C/laragon/www/blog/resources/views/admin/posts/create.blade.php",
+		"/C/laragon/www/blog/.env",
+		"/C/laragon/www/blog/resources/css/editor.css",
 		"/C/laragon/www/blog/database/seeders/TagSeeder.php",
 		"/C/laragon/www/blog/database/seeders/DatabaseSeeder.php",
 		"/C/laragon/www/blog/resources/js/admin/app.js",
 		"/C/laragon/www/blog/resources/views/components/form-multiselect.blade.php",
 		"/C/Users/Johan/Desktop/index.html",
 		"/C/laragon/www/blog/database/seeders/CategorySeeder.php",
-		"/C/laragon/www/blog/.env",
 		"/C/laragon/www/blog/database/migrations/2014_10_11_000000_create_sessions_table.php",
-		"/C/laragon/www/blog/resources/views/components/form-input.blade.php",
-		"/C/laragon/www/blog/app/Presenters/PostPresenter.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/CreatePostTest.php",
-		"/C/laragon/www/blog/app/Http/Controllers/Admin/PostController.php",
-		"/C/laragon/www/blog/app/Models/Post.php",
 		"/C/laragon/www/blog/app/View/Compilers/BladeCompiler.php",
 		"/C/laragon/www/admin-larave/app/View/Compilers/BladeCompiler.php",
 		"/C/laragon/www/blog/app/Presenters/Presenter.php",
 		"/C/laragon/www/blog/storage/logs/laravel.log",
 		"/C/laragon/www/blog/app/Policies/PostPolicy.php",
-		"/C/laragon/www/blog/app/Http/Requests/Posts/CreateRequest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/EditPostTest.php",
 		"/C/laragon/www/blog/app/Rules/PostStatusRule.php",
 		"/C/laragon/www/blog/app/Repositories/Repository.php",
 		"/C/laragon/www/blog/app/Models/User.php",
@@ -689,14 +723,10 @@
 		"/C/laragon/www/blog/database/migrations/2021_02_24_160205_create_posts_table.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php",
 		"/C/laragon/www/blog/routes/admin.php",
-		"/C/laragon/www/blog/resources/views/admin/posts/create.blade.php",
 		"/C/laragon/www/blog/database/seeders/CountrySeeder.php",
 		"/C/laragon/www/blog/app/Http/Controllers/Admin/UploadController.php",
-		"/C/laragon/www/blog/webpack.mix.js",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php",
-		"/C/laragon/www/blog/resources/js/admin/editor.js",
 		"/C/laragon/www/blog/public/admin/ckeditor/skins/moono-dark/editor.css",
-		"/C/laragon/www/blog/resources/css/admin/editor.css",
 		"/C/laragon/www/blog/tests/Unit/Models/CountryTest.php",
 		"/C/laragon/www/blog/app/Models/Country.php",
 		"/C/laragon/www/blog/app/Traits/InteractsWithJsonFiles.php",
@@ -734,58 +764,7 @@
 		"/C/laragon/www/blog/database/factories/PostFactory.php",
 		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php",
 		"/C/laragon/www/blog/app/Support/Enum/PostStatus.php",
-		"/C/laragon/www/blog/public/admin/app.css",
-		"/C/laragon/www/blog/resources/js/admin/quill.js",
-		"/C/laragon/www/blog/resources/views/components/card.blade.php",
-		"/C/laragon/www/blog/resources/css/admin/quill.css",
-		"/C/laragon/www/blog/resources/views/components/form-textarea.blade.php",
-		"/C/laragon/www/shop/.env",
-		"/C/laragon/www/blog/resources/views/admin/layouts/app.blade.php",
-		"/C/laragon/www/blog/resources/views/admin/layouts/header.blade.php",
-		"/C/laragon/www/blog/node_modules/tailwindcss/stubs/defaultConfig.stub.js",
-		"/C/laragon/www/blog/config/view.php",
-		"/C/laragon/www/blog/config/app.php",
-		"/C/laragon/www/blog/app/Providers/ViewServiceProvider.php",
-		"/C/laragon/www/blog/blog.sublime-project",
-		"/C/laragon/www/blog/resources/views/components/input.blade.php",
-		"/C/laragon/www/blog/app/Traits/HasOptions.php",
-		"/C/laragon/www/blog/app/Traits/HasPostStatus.php",
-		"/C/laragon/www/blog/.github/workflows/laravel.yml",
-		"/C/laragon/www/blog/.github/workflows/laravel-dusk.yml",
-		"/C/laragon/www/blog/tests/Unit/Models/PermissionTest.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/AdminTest.php",
-		"/C/laragon/www/blog/app/Traits/ConvertToModels.php",
-		"/C/laragon/www/blog/app/Models/Permission.php",
-		"/C/laragon/www/blog/app/Console/Kernel.php",
-		"/C/laragon/www/blog/app/Traits/PostStatus.php",
-		"/C/laragon/www/blog/vendor/phpunit/phpunit/src/Framework/Assert.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php",
-		"/C/laragon/www/blog/database/factories/CategoryFactory.php",
-		"/C/laragon/www/blog/database/factories/PermissionFactory.php",
-		"/C/laragon/www/blog/tests/Unit/Models/CategoryTest.php",
-		"/C/laragon/www/blog/database/factories/RoleFactory.php",
-		"/C/laragon/www/blog/database/factories/TagFactory.php",
-		"/C/laragon/www/blog/tests/Feature/Admin/Posts/UpdatePostTest.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/PostTest.php",
-		"/C/laragon/www/blog/vendor/symfony/http-foundation/Response.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Cache/RateLimiting/Limit.php",
-		"/C/laragon/www/blog/app/Http/Requests/Auth/LoginRequest.php",
-		"/C/laragon/www/blog/vendor/laravel/framework/src/Illuminate/Auth/MustVerifyEmail.php",
-		"/C/laragon/www/blog/tests/Unit/Models/TagTest.php",
-		"/C/laragon/www/blog/tests/Feature/Auth/AuthenticationTest.php",
-		"/C/laragon/www/blog/tests/Feature/Auth/EmailVerificationTest.php",
-		"/C/laragon/www/blog/tests/Feature/Auth/PasswordConfirmationTest.php",
-		"/C/laragon/www/blog/tests/Feature/Auth/PasswordResetTest.php",
-		"/C/laragon/www/blog/app/Models/Base.php",
-		"/C/Users/Johan/Documents/References/blog2/tests/Unit/Models/TagTest.php",
-		"/C/laragon/www/blog/app/Models/Tag.php",
-		"/C/laragon/www/blog/app/Models/Category.php",
-		"/C/laragon/www/blog/tests/Unit/Traits/HasOptionsTest.php",
-		"/C/laragon/www/blog/app/Models/Role.php",
-		"/C/laragon/www/blog/database/seeders/RoleSeeder2.php",
-		"/C/laragon/www/blog/app/Providers/RouteServiceProvider.php",
-		"/C/laragon/www/blog/database/seeders/UserSeeder.php",
-		"/C/laragon/www/blog/routes/web.php"
+		"/C/laragon/www/blog/resources/js/admin/quill.js"
 	],
 	"find":
 	{
@@ -796,6 +775,10 @@
 		"height": 132.0,
 		"where_history":
 		[
+			"C:\\laragon\\www\\blog\\vendor\\laravel\\framework\\src\\Illuminate",
+			"C:\\laragon\\www\\blog\\resources\\views\\admin",
+			"C:\\laragon\\www\\blog\\resources\\views\\components",
+			"C:\\laragon\\www\\blog\\resources\\views\\admin",
 			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\resources,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\app,C:\\laragon\\www\\blog\\bootstrap,C:\\laragon\\www\\blog\\config,C:\\laragon\\www\\blog\\database,C:\\laragon\\www\\blog\\routes,C:\\laragon\\www\\blog\\storage,C:\\laragon\\www\\blog\\stubs,C:\\laragon\\www\\blog\\tests",
 			"C:\\laragon\\www\\blog\\tests",
@@ -821,6 +804,125 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"storage:link",
+			"rounded",
+			"border",
+			"text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800",
+			"Illuminate\\Http\\Request",
+			"publication",
+			"html_text",
+			"attributes",
+			"thead",
+			"width",
+			"Uncategorized",
+			"name",
+			"red",
+			"green",
+			"gray",
+			"ring-gray-300",
+			"ring-gray-30",
+			"focus:border-primary-300",
+			"border",
+			"relative",
+			"disabled",
+			"bg-",
+			" bg-",
+			"text",
+			" hover:text-gray-400 ",
+			"blue",
+			" border-gray-300 ",
+			" active:text-gray-500 ",
+			" active:bg-gray-100 ",
+			" active:text-gray-700 ",
+			"text-sm ",
+			" hover:text-gray-500 ",
+			" text-gray-700 ",
+			" text-gray-500 ",
+			"text-gray-",
+			" bg-white",
+			"between",
+			"rel=\"",
+			"bg-",
+			"purple",
+			"Next",
+			"previous",
+			"Actions",
+			"Date",
+			"Title",
+			"Status",
+			"slug",
+			"Amount",
+			"body",
+			"description",
+			"false",
+			"CODE_BLOCK_IN_EDITOR_ENABLED",
+			"setBody",
+			"description",
+			"0",
+			"Description",
+			"lg",
+			"lg:",
+			" ",
+			"guest",
+			"layouts",
+			"title",
+			"button",
+			"category",
+			"integer",
+			"categories",
+			"x-card",
+			"indigo",
+			"correntColor",
+			"indigo",
+			"primary",
+			"primary[",
+			"colors.",
+			"colors.gray",
+			"blue",
+			"white",
+			"svgToDataUri",
+			"border",
+			"name",
+			"attributes->get('name')",
+			"labelClass",
+			"name",
+			"labelClass",
+			"label",
+			"id",
+			"div",
+			"', '",
+			" ",
+			"$id ?? ",
+			"error",
+			"danger",
+			"label",
+			"labelClass",
+			"placeholder",
+			"purple",
+			"border-color",
+			"border",
+			"border-(gray|red|orange|green|teal|blue|indigo|purple)",
+			"//",
+			"div",
+			"shadow",
+			"sd",
+			"', '",
+			" ",
+			"dark",
+			"',",
+			" ",
+			"dark",
+			"theme-",
+			"dark",
+			"multi",
+			".ql-snow ",
+			"transparent",
+			"current",
+			"textarea",
+			".map",
+			"js",
+			"editor",
+			"Quill",
 			"labelClass",
 			"name",
 			"label",
@@ -829,126 +931,7 @@
 			"array",
 			"category_id",
 			"selected",
-			"category_id",
-			"Category",
-			"block",
-			"Multiselect",
-			"\" ",
-			" \"",
-			"selectedValuesMultiselect",
-			"isOpen(",
-			" \"",
-			"togg",
-			"dropdown",
-			"statuses",
-			"Category",
-			"name",
-			"element",
-			"', '",
-			" ",
-			"true",
-			"APP_DEBUG",
-			"#",
-			"post",
-			"PostStatus",
-			"role",
-			"post_id",
-			"unsignedBigInteger",
-			"category_id",
-			"string",
-			"nullable",
-			"description",
-			" ",
-			"chrome",
-			"404040",
-			"595959",
-			"23252f",
-			"595959",
-			"posts",
-			"body",
-			"editor",
-			"common",
-			"countries",
-			"$countries",
-			"country_code",
-			"title",
-			"slug",
-			"\": \"",
-			"ZW",
-			"\": \"",
-			"en_US",
-			"country",
-			"contents",
-			"path",
-			"common",
-			"name\"",
-			"common",
-			"Saint Vincent and the Grenadines",
-			"countries",
-			"\n    {",
-			"country",
-			"Country",
-			"title",
-			"random",
-			"Str",
-			"roles",
-			"role",
-			"Role",
-			"name",
-			"post",
-			"Post",
-			"Category",
-			"category",
-			"Category",
-			"json",
-			"josn",
-			"PresentableUser",
-			"@return boolean",
-			"canAccess",
-			"hasPermission(config('permissions.access_key'))",
-			"edit",
-			"post",
-			"create",
-			"isSuperAdmin",
-			"Send",
-			"use",
-			"Str",
-			"Arr",
-			"Manager",
-			"'",
-			"REVIEW",
-			"['status' => PostStatus::REVIEW]",
-			"quill",
-			".ql-toolbar.ql-snow",
-			"currentColor;*/",
-			"#444;",
-			"#",
-			"border",
-			"border: 1px solid rgb(128, 128, 128, 0.5);",
-			"border",
-			"border-color: rgb(128, 128, 128, 0.5);",
-			"border:",
-			"\tborder:",
-			"rgb(128, 128, 128, 0.5)",
-			"#06c;",
-			"#ccc",
-			"#ccc;",
-			"128",
-			"editor",
-			"quill",
-			"section",
-			"Body",
-			"css",
-			" :placeholder=\"__('Title...')\"",
-			"', '",
-			" ",
-			"description",
-			"Description",
-			"', '",
-			" ",
-			"img",
-			"DEFAULT",
-			"form-input"
+			"category_id"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -956,6 +939,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"primary",
+			"', '",
+			"indigo",
 			"', '",
 			"@return bool",
 			"', '",
@@ -976,89 +962,29 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/admin/posts/create.blade.php",
-					"semi_transient": false,
+					"file": "tests/Feature/Admin/AdminTest.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2572,
+						"buffer_size": 865,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1571,
-								1571
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/Requests/Posts/CreateRequest.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1314,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								526,
-								526
+								865,
+								865
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/components/form-checkbox.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 900,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								603,
-								603
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1128,6 +1054,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"StorageLin",
+				"blog\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\StorageLinkCommand.php"
+			],
+			[
+				"CreateR",
+				"blog\\app\\Http\\Requests\\Posts\\CreateRequest.php"
+			],
 			[
 				".env",
 				"blog\\.env"
@@ -1573,7 +1507,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 395.0,
+	"side_bar_width": 284.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

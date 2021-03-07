@@ -24,7 +24,7 @@ class CreatePostTest extends TestCase
             )
             ->get(route('admin.posts.create'))
             ->assertOk()
-            ->assertViewIs('admin.posts.create')
+            ->assertViewIs('admin.posts.create-edit')
         ;
     }
 

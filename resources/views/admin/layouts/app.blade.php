@@ -16,11 +16,11 @@
 
         @stack('css')
     </head>
-    <body x-data="data()" :class="{ 'theme-dark': dark }">
+    <body x-data="data()" :class="{ dark }">
         @stack('before')
 
         <div
-            class="flex h-screen bg-gray-50 dark:bg-gray-900"
+            class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200"
             :class="{ 'overflow-hidden': isSideMenuOpen }"
         >
             @include('admin.layouts.desktop-sidebar')
@@ -32,7 +32,7 @@
                 <main class="h-full overflow-y-auto">
                     <div class="container px-6 mx-auto grid">
                         <h2
-                            class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+                            class="my-6 text-2xl font-semibold"
                         >
                             @yield('title', __('Dashboard'))
                         </h2>

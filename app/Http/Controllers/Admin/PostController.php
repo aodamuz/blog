@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Support\Response\Messages;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Posts\CreateRequest;
+use App\Http\Requests\Posts\UpdateRequest;
 
 class PostController extends Controller
 {
@@ -28,7 +29,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::paginate();
+
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -40,7 +43,7 @@ class PostController extends Controller
     {
         $post = new Post;
 
-        return view('admin.posts.create', compact('post'));
+        return view('admin.posts.create-edit', compact('post'));
     }
 
     /**
@@ -79,19 +82,23 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.create-edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Posts\UpdateRequest  $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdateRequest $request, Post $post)
     {
-        //
+        $post->update(
+            $request->validated()
+        );
+
+        return back()->withSuccess(__(Messages::POST_UPDATED));
     }
 
     /**

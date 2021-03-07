@@ -1,40 +1,40 @@
-@props(['disabled' => false, 'labelClass' => [], 'label' => null])
+@props([
+    'help' => null,
+    'label' => null,
+    'containerClass' => [],
+])
 
 @php
-	$labelClass = !empty($labelClass) ? $labelClass : [];
+    if (is_array($containerClass) || is_string($containerClass)) {
+        $containerClass = is_string($containerClass) ? explode(' ', $containerClass) : $containerClass;
+    } else {
+        $containerClass = [];
+    }
 
-	if (!is_array($labelClass)) {
-		$labelClass = explode(' ', $labelClass);
-	}
-
-	$labelClass[] = 'flex';
-
-	$classList = [
-		'block',
-		'dark:bg-gray-700',
-		'dark:border-gray-600',
-		'dark:focus:shadow-outline-gray',
-		'dark:text-gray-300',
-		'focus:border-purple-400',
-		'focus:outline-none',
-		'focus:shadow-outline-purple',
-		'form-input',
-		'lg:mt-0',
-		'mt-1',
-		'text-sm',
-		'w-full',
-	];
+    $classList = [
+        'bg-white',
+        'block',
+        'dark:bg-gray-700',
+        'dark:border-gray-600',
+        'dark:focus:ring-gray-400',
+        'dark:text-gray-300',
+        'focus:border-primary-500',
+        'focus:outline-none',
+        'focus:ring-primary-500',
+        'mt-1',
+        'px-3',
+        'py-2',
+        'rounded-md',
+        'shadow-sm',
+        'sm:text-sm',
+        'w-full',
+    ];
 @endphp
 
-<label class="{{ implode(' ', $labelClass) }}">
-    @if (!empty($label))
-        <span class="dark:text-gray-400 flex font-semibold items-center lg:w-5/12 text-gray-700">
-        	{{ $label }}
-        </span>
-    @endif
-
-    <input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge([
-    	'placeholder' => $placeholder ?? $label ?? null,
-        'class' => implode(' ', $classList),
-    ]) !!}>
-</label>
+<x-form-container :help="$help" :name="$attributes->get('name')" :label="$label" class="{{ implode(' ', $containerClass) }}">
+    <input {{ $attributes->merge([
+        'id'    => $attributes->get('name'),
+        'type'  => 'text',
+        'class' => implode(' ', $classList)
+    ]) }}/>
+</x-form-container>

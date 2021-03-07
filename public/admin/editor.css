@@ -945,5 +945,44 @@
   border: 1px solid #ccc;
 }
 
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+}
 
+.ql-stroke {
+    stroke: currentColor !important;
+}
+
+.ql-fill {
+    fill: currentColor !important;
+}
+
+.ql-picker,
+.ql-picker-label::before,
+.ql-picker-item::before {
+    color: currentColor !important;
+}
+
+.dark .ql-picker-options {
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: inherit !important;
+    background-color: var(--color-gray-800) !important;
+}
+
+.dark .ql-toolbar {
+    background-color: var(--color-gray-900) !important;
+}
+
+.dark .ql-editor.ql-blank::before {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.dark .ql-editor {
+    min-height: 200px;
+    background-color: var(--color-gray-700) !important;
+}
 

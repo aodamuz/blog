@@ -1,36 +1,43 @@
 @props([
-    'label' => null,
-    'disabled' => false,
-    'labelClass' => null,
+	'label' => null,
+	'containerClass' => null,
 ])
 
 @php
-    if (is_array($labelClass) || is_string($labelClass)) {
-        $labelClass = is_string($labelClass) ? explode(' ', $labelClass) : $labelClass;
-    } else {
-        $labelClass = [];
-    }
+	$id = $attributes->get('id', str_replace(['[', ']'], '', $attributes->get('name')));
 
-    $labelClass[] = 'flex';
-    $labelClass[] = 'items-center';
-    $labelClass[] = 'dark:text-gray-400';
+	if (is_array($containerClass) || is_string($containerClass)) {
+		$containerClass = is_string($containerClass) ? explode(' ', $containerClass) : $containerClass;
+	} else {
+		$containerClass = [];
+	}
 
-    $classList = [
-        'dark:focus:shadow-outline-gray',
-        'focus:border-purple-400',
-        'focus:outline-none',
-        'focus:shadow-outline-purple',
-        'form-checkbox',
-        'text-purple-600',
-    ];
+	$containerClass[] = 'flex';
+	$containerClass[] = 'items-start';
+
+	$classList = [
+		'focus:ring-primary-500',
+		'h-4',
+		'rounded',
+		'text-primary-600',
+		'w-4',
+	];
 @endphp
 
-<label class="{{ implode(' ', $labelClass) }}">
-    <input type="checkbox" {{ $disabled ? 'disabled' : '' }} {{ $attributes->merge(['class' => implode(' ', $classList)]) }}>
+<div class="{{ implode(' ', $containerClass) }}">
+	<div class="flex items-center h-5">
+		<input {{ $attributes->merge([
+			'type'  => 'checkbox',
+			'id'    => $id,
+			'class' => implode(' ', $classList),
+		]) }}>
+	</div>
 
-    @if (!empty($label))
-    <span class="ml-2">
-        {{ $label }}
-    </span>
-    @endif
-</label>
+	<div class="ml-3 text-sm">
+		<label for="{{ $id }}" class="block font-medium">{{ $label }}</label>
+
+	    @isset($help)
+	        <div class="text-sm text-gray-500 bt-1">{{ $help }}</div>
+	    @endisset
+	</div>
+</div>

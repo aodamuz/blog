@@ -30,6 +30,7 @@ if ( process.env.npm_config_admin ) {
 		.css( 'resources/css/admin/editor.css', 'public/admin' )
 		.js( 'resources/js/admin/editor.js', 'public/admin' )
 		.js( 'resources/js/admin/app.js', 'public/admin' )
+
 		.postCss( 'resources/css/app.css', 'public/admin', [
 			require( 'postcss-import' ),
 			require( 'tailwindcss' )('tailwind-admin.config.js'),
