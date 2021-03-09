@@ -54,24 +54,11 @@ class PostController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $request->user()->posts()->create(
-            $request->validated()
-        );
+        $request->process();
 
         return redirect()
             ->route('admin.posts.index')
             ->withSuccess(__(Messages::POST_CREATED));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
     }
 
     /**
@@ -94,9 +81,7 @@ class PostController extends Controller
      */
     public function update(UpdateRequest $request, Post $post)
     {
-        $post->update(
-            $request->validated()
-        );
+        $request->process();
 
         return back()->withSuccess(__(Messages::POST_UPDATED));
     }

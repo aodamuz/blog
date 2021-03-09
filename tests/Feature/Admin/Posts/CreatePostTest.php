@@ -3,18 +3,17 @@
 namespace Tests\Feature\Admin\Posts;
 
 use App\Models\Tag;
-use Tests\TestCase;
+use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use App\Support\Enum\PostStatus;
+use Database\Seeders\RoleSeeder;
 use App\Support\Response\Messages;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreatePostTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test */
     public function the_screen_for_creating_posts_can_be_rendered()
     {
@@ -121,6 +120,29 @@ class CreatePostTest extends TestCase
             'user_id' => $user->id,
             'category_id' => $category->id,
         ]));
+
+        $this->assertInstanceOf(Category::class, Post::first()->category);
+    }
+
+    /** @test */
+    public function a_created_post_can_have_many_tags()
+    {
+        // Create additional categories to ensure
+        // that the post category is as expected.
+        Tag::factory(3)->create();
+
+        $tags = Tag::factory(3)->create();
+
+        $this
+            ->actingAs($this->authorUser())
+            ->post(route('admin.posts.store'), $this->data([
+                'tags' => $tags->pluck('id')->toArray(),
+            ]))
+        ;
+
+        Post::first()->tags->map(function($tag) use ($tags) {
+            $this->assertTrue($tags->pluck('id')->contains($tag->id));
+        });
     }
 
     /** @test */
@@ -262,31 +284,25 @@ class CreatePostTest extends TestCase
      * @test
      */
     public function dynamic_status() {
+        $this->seed(RoleSeeder::class);
+
+        $author = User::factory()->create()->assignRole('author');
+        $admin = User::factory()->create()->assignRole('admin');
+
         $this
-            ->actingAs($this->authorUser())
+            ->actingAs($author)
             ->post(route('admin.posts.store'), $this->data([
                 'status' => PostStatus::PUBLISHED
             ]))
             ->assertSessionHasErrors('status')
         ;
 
-        $this->artisan('migrate:fresh')->run();
-
         $this
-            ->actingAs($this->adminUser())
+            ->actingAs($admin)
             ->post(route('admin.posts.store'), $this->data([
                 'status' => PostStatus::PUBLISHED
             ]))
             ->assertSessionHasNoErrors('status')
         ;
-    }
-
-    protected function data($overwrite = [])
-    {
-        return array_merge([
-            'title' => 'Post Title',
-            'body' => 'My first post',
-            'description' => 'Lorem ipsum dolor sit, amet consectetur, adipisicing elit.',
-        ], $overwrite);
     }
 }

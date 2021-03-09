@@ -9,6 +9,11 @@ class PostStatus
     const REVIEW = 'review';
     const DEFAULT = 'review';
 
+    public static function keys()
+    {
+        return array_keys(self::all());
+    }
+
     public static function all()
     {
         return [

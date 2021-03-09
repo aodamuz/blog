@@ -17,29 +17,31 @@
         @stack('css')
     </head>
     <body x-data="data()" :class="{ dark }">
-        @stack('before')
+        <div x-cloak>
+            @stack('before')
 
-        <div
-            class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200"
-            :class="{ 'overflow-hidden': isSideMenuOpen }"
-        >
-            @include('admin.layouts.desktop-sidebar')
-            @include('admin.layouts.mobile-sidebar')
+            <div
+                class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200"
+                :class="{ 'overflow-hidden': isSideMenuOpen }"
+            >
+                @include('admin.layouts.desktop-sidebar')
+                @include('admin.layouts.mobile-sidebar')
 
-            <div class="flex flex-col flex-1 w-full">
-                @include('admin.layouts.header')
+                <div class="flex flex-col flex-1 w-full">
+                    @include('admin.layouts.header')
 
-                <main class="h-full overflow-y-auto">
-                    <div class="container px-6 mx-auto grid">
-                        <h2
-                            class="my-6 text-2xl font-semibold"
-                        >
-                            @yield('title', __('Dashboard'))
-                        </h2>
+                    <main class="h-full overflow-y-auto">
+                        <div class="container px-6 mx-auto grid">
+                            <h2
+                                class="my-6 text-2xl font-semibold"
+                            >
+                                @yield('title', __('Dashboard'))
+                            </h2>
 
-                        {{ $slot }}
-                    </div>
-                </main>
+                            {{ $slot }}
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>
 

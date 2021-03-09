@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace App\Policies\Admin;
 
 use App\Models\Post;
 use App\Models\User;
@@ -53,9 +53,9 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->hasPermission('post-manager') ||
+        return $user->hasPermission('post-manager') || (
                $user->hasPermission('edit-posts') &&
-               $post->user->id === $user->id;
+               $post->user->id === $user->id);
     }
 
     /**

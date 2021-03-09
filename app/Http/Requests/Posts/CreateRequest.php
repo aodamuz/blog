@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Posts;
 
+use Illuminate\Support\Arr;
 use App\Rules\PostStatusRule;
 use App\Support\Enum\PostStatus;
 use Illuminate\Foundation\Http\FormRequest;
@@ -43,5 +44,21 @@ class CreateRequest extends FormRequest
                 'in:' . implode(',', array_keys(PostStatus::all())),
             ],
         ];
+    }
+
+    public function process()
+    {
+        $data = $this->validated();
+
+        $this
+            ->user()
+            ->posts()
+            ->create(
+                Arr::except($data, 'tags')
+            )
+            ->tags()->attach(
+                $data['tags'] ?? []
+            )
+        ;
     }
 }

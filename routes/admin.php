@@ -8,4 +8,6 @@ Route::get('dashboard', DashboardController::class)->name('dashboard');
 
 Route::post('upload', [UploadController::class, '__invoke'])->name('upload');
 
-Route::resource('posts', PostController::class);
+Route::group(['prefix' => 'resources'], function() {
+    Route::resource('posts', PostController::class, ['except' => ['show']]);
+});
