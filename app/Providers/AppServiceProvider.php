@@ -36,12 +36,15 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function clearLogs() {
         if ($this->app->environment('testing')) {
-            $path      = storage_path('logs');
-            $files     = new Filesystem;
-            $gitignore = $files->get($path . '/.gitignore');
+            $files = new Filesystem;
+            $path  = storage_path('logs/.gitignore');
 
-            $files->cleanDirectory($path);
-            $files->put($path . '/.gitignore', $gitignore);
+            if ($files->exists($path)) {
+                $gitignore = $files->get($path);
+
+                $files->cleanDirectory($path);
+                $files->put($path, $gitignore);
+            }
         }
     }
 
