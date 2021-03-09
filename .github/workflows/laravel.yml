@@ -47,10 +47,15 @@ jobs:
       - name: Clear Config
         run: php artisan config:clear
 
-      - name: Create Database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
-
       - name: Test with phpunit
+        env:
+          APP_ENV: testing
+          BCRYPT_ROUNDS: 4
+          CACHE_DRIVER: array
+          DB_CONNECTION: sqlite
+          DB_DATABASE: :memory:
+          MAIL_MAILER: array
+          QUEUE_CONNECTION: sync
+          SESSION_DRIVER: array
+          TELESCOPE_ENABLED: false
         run: php artisan test --parallel
