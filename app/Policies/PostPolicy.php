@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies\Admin;
+namespace App\Policies;
 
 use App\Models\Post;
 use App\Models\User;
@@ -11,6 +11,20 @@ class PostPolicy
     use HandlesAuthorization;
 
     /**
+     * Perform pre-authorization checks.
+     *
+     * @param  \App\Models\User  $user
+     * @param  string  $ability
+     * @return void|bool
+     */
+    public function before(User $user, $ability)
+    {
+        if ($user->hasPermission('post-manager')) {
+            return true;
+        }
+    }
+
+    /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -18,7 +32,7 @@ class PostPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermission(['post-manager', 'view-posts']);
+        return $user->hasPermission('view-posts');
     }
 
     /**
@@ -30,7 +44,7 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return $user->hasPermission(['post-manager', 'view-posts']);
+        return $post->isPublished();
     }
 
     /**
@@ -41,7 +55,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermission(['post-manager', 'create-posts']);
+        return $user->hasPermission('create-posts');
     }
 
     /**
@@ -53,9 +67,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->hasPermission('post-manager') || (
-               $user->hasPermission('edit-posts') &&
-               $post->user->id === $user->id);
+        return $user->hasPermission('edit-posts') || $user->isAuthorOf($post);
     }
 
     /**
@@ -67,9 +79,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->hasPermission('post-manager') ||
-               $user->hasPermission('edit-posts') &&
-               $post->user->id === $user->id;
+        return $user->hasPermission('delete-posts') || $user->isAuthorOf($post);
     }
 
     /**
@@ -81,8 +91,7 @@ class PostPolicy
      */
     public function setStatus(User $user, Post $post)
     {
-        return $user->isAnyAdmin() ||
-               $user->hasPermission('post-manager');
+        return $user->hasPermission('set-post-status') && $user->isAuthorOf($post);
     }
 
     /**

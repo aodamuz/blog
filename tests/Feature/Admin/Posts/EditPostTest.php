@@ -31,11 +31,10 @@ class EditPostTest extends TestCase
     /** @test */
     public function a_user_without_permission_cannot_edit_posts()
     {
-        $user = $this->user()->assignPermissions('access');
-        $post = Post::factory()->for($user)->create();
-
-        $this->actingAs($user)->put(
-            route('admin.posts.update', $post)
+        $this->actingAs(
+            $this->user()->assignPermissions('access')
+        )->put(
+            route('admin.posts.update', Post::factory()->create())
         )->assertForbidden();
     }
 

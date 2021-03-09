@@ -88,4 +88,21 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return "{$this->option('first_name')} {$this->option('last_name')}";
     }
+
+    /*
+    |-------------------------------------------------------------------------
+    | Helpers
+    |-------------------------------------------------------------------------
+    */
+
+    /**
+     * Check if the user is the author of a given post.
+     *
+     * @param \App\Models\Post $post
+     * @return bool
+     */
+    public function isAuthorOf(Post $post)
+    {
+        return $this->id === $post->user->id;
+    }
 }
