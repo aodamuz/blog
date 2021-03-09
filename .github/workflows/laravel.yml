@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         operating-system: [ubuntu-latest, windows-latest, macos-latest]
-        php-versions: ['7.2', '7.3', '7.4']
+        php-versions: [7.3', '7.4', '8.0']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -41,4 +41,13 @@ jobs:
       - name: Clear Config
         run: php artisan config:clear
       - name: Test with phpunit
-        run: vendor/bin/phpunit --coverage-text
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
+          BCRYPT_ROUNDS: 4
+          CACHE_DRIVER: array
+          MAIL_MAILER: array
+          QUEUE_CONNECTION: sync
+          SESSION_DRIVER: array
+          TELESCOPE_ENABLED: false
+        run: php artisan test --parallel
