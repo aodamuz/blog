@@ -65,29 +65,6 @@ class CreatePostTest extends TestCase
     }
 
     /** @test */
-    public function a_created_post_must_have_a_unique_slug()
-    {
-        $this
-            ->actingAs($this->authorUser())
-            ->post(route('admin.posts.store'), $this->data())
-        ;
-
-        $this->assertDatabaseHas('posts', $this->data([
-            'slug' => Str::slug(
-                Arr::get($this->data(), 'title')
-            ),
-        ]));
-
-        $this->post(route('admin.posts.store'), $this->data());
-
-        $this->assertDatabaseHas('posts', $this->data([
-            'slug' => Str::slug(
-                Arr::get($this->data(), 'title')
-            ) . '-1',
-        ]));
-    }
-
-    /** @test */
     public function a_created_post_must_have_an_author()
     {
         $this
