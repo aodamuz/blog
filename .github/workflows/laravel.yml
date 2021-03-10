@@ -49,9 +49,7 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
 
       - name: Create Database
-        run: |
-          mkdir -p database
-          touch database/database.sqlite
+        run: php -r "file_exists('database/database.sqlite') || file_put_contents('database/database.sqlite', null, 0);"
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
