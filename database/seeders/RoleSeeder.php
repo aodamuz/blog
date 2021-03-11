@@ -75,11 +75,11 @@ class RoleSeeder extends Seeder
             "tags",
             "posts",
             "categories",
-        ], true, [
+        ], [
             'post-manager',
             'category-manager',
             'tag-manager',
-        ]);
+        ], true);
 
         Role::whereSlug('author')
             ->first()
@@ -90,7 +90,7 @@ class RoleSeeder extends Seeder
         ;
     }
 
-    protected function filterPermissions(array $resources, $withAccess = false, $except = null)
+    protected function filterPermissions(array $resources, $except = null, $withAccess = false)
     {
         $values = collect(config('permissions.permissions'))
             ->only($resources)
