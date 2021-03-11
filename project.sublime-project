@@ -6,9 +6,6 @@
 		},
 		{
 			"path": "."
-		},
-		{
-			"path": "resources\\views"
 		}
 	]
 }
