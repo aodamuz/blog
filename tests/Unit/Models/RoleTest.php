@@ -14,10 +14,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class RoleTest extends TestCase {
     use RefreshDatabase;
 
+    /** @test  */
+    public function roles_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('roles', [
+            'id',
+            'title',
+            'slug',
+            'description',
+            'removable',
+            'created_at',
+            'updated_at',
+        ]);
+    }
+
     /** @test */
     public function the_role_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Role::class, Base::class));
+        $this->assertSubclassOf(Role::class, Base::class);
     }
 
     /** @test */

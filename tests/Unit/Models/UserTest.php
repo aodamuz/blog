@@ -45,9 +45,7 @@ class UserTest extends TestCase
     /** @test */
     public function the_user_model_must_be_an_authenticatable_user_subclass()
     {
-        $this->assertTrue(
-            is_subclass_of(User::class, Authenticatable::class)
-        );
+        $this->assertSubclassOf(User::class, Authenticatable::class);
     }
 
     /** @test */

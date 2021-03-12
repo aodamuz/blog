@@ -3,6 +3,7 @@
 namespace Tests;
 
 use ReflectionClass;
+use Illuminate\Support\Facades\Schema;
 
 trait Assertion
 {
@@ -83,6 +84,25 @@ trait Assertion
         $this->assertTrue(
             $reflection->isAbstract(),
             "The \"{$class}\" class must be an abstract class."
+        );
+    }
+
+    /**
+     * Assert that a table contains the given columns.
+     *
+     * @param string $table
+     * @param array $columns
+     *
+     * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
+     * @throws ExpectationFailedException
+     */
+    public function assertDatabaseHasColumns(string $table, array $columns)
+    {
+        $cols = implode(', ', $columns);
+
+        $this->assertTrue(
+            Schema::hasColumns($table, $columns),
+            "The table \"{$table}\" must contain the columns: {$cols}."
         );
     }
 }

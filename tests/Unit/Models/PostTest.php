@@ -23,27 +23,26 @@ class PostTest extends TestCase
     /** @test  */
     public function posts_database_has_expected_columns()
     {
-        $this->assertTrue(
-            Schema::hasColumns('posts', [
-                'title',
-                'slug',
-                'description',
-                'body',
-                'status',
-                'user_id',
-                'category_id',
-                'options',
-                'created_at',
-                'updated_at',
-                'deleted_at',
-            ])
-        );
+        $this->assertDatabaseHasColumns('posts', [
+            'id',
+            'title',
+            'slug',
+            'description',
+            'body',
+            'status',
+            'user_id',
+            'category_id',
+            'options',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+        ]);
     }
 
     /** @test */
     public function the_post_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Post::class, Base::class));
+        $this->assertSubclassOf(Post::class, Base::class);
     }
 
     /** @test */

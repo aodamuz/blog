@@ -1,12 +1,28 @@
 {
-    "name": "laravel/laravel",
+    "name": "aodamuz/blog",
+    "description": "An administrator for bloggers, with a beautiful design, powerful features and the freedom to create whatever you want.",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": [
-        "framework",
-        "laravel"
-    ],
     "license": "MIT",
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "Mauricio Mendoza",
+            "email": "aodamuz@gmail.com"
+        }
+    ],
+    "keywords": [
+        "advanced",
+        "authentication",
+        "authorization",
+        "blog",
+        "categories",
+        "framework",
+        "laravel",
+        "login",
+        "register",
+        "secure",
+        "user management"
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",

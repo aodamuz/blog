@@ -13,6 +13,19 @@ class CategoryTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** @test  */
+    public function categories_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('categories', [
+            'id',
+            'title',
+            'slug',
+            'description',
+            'created_at',
+            'updated_at',
+        ]);
+    }
+
     /** @test */
     public function the_category_model_must_be_a_subclass_of_the_base_model()
     {

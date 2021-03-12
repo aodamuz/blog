@@ -8,7 +8,6 @@ use App\Models\User;
 use App\Models\Country;
 use App\Traits\HasSlug;
 use App\Traits\HasOptions;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CountryTest extends TestCase
@@ -18,19 +17,18 @@ class CountryTest extends TestCase
     /** @test  */
     public function countries_database_has_expected_columns()
     {
-        $this->assertTrue(
-            Schema::hasColumns('countries', [
-                'title',
-                'slug',
-                'options',
-            ])
-        );
+        $this->assertDatabaseHasColumns('countries', [
+            'id',
+            'title',
+            'slug',
+            'options',
+        ]);
     }
 
     /** @test */
     public function the_country_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Country::class, Base::class));
+        $this->assertSubclassOf(Country::class, Base::class);
     }
 
     /** @test */

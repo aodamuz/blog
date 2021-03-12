@@ -14,10 +14,33 @@ class TagTest extends TestCase
 {
     use RefreshDatabase, Assertion;
 
+    /** @test  */
+    public function tags_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('tags', [
+            'id',
+            'title',
+            'slug',
+            'description',
+            'created_at',
+            'updated_at',
+        ]);
+    }
+
+    /** @test  */
+    public function taggables_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('taggables', [
+            'tag_id',
+            'taggable_id',
+            'taggable_type',
+        ]);
+    }
+
     /** @test */
     public function the_tag_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Tag::class, Base::class));
+        $this->assertSubclassOf(Tag::class, Base::class);
     }
 
     /** @test */

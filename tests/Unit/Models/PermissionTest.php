@@ -14,10 +14,30 @@ class PermissionTest extends TestCase
 {
     use RefreshDatabase;
 
+    /** @test  */
+    public function permissions_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('permissions', [
+            'id',
+            'title',
+            'slug',
+            'description',
+        ]);
+    }
+
+    /** @test  */
+    public function permission_role_database_has_expected_columns()
+    {
+        $this->assertDatabaseHasColumns('permission_role', [
+            'permission_id',
+            'role_id',
+        ]);
+    }
+
     /** @test */
     public function the_permission_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Permission::class, Base::class));
+        $this->assertSubclassOf(Permission::class, Base::class);
     }
 
     /** @test */
