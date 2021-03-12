@@ -4,7 +4,7 @@ namespace Tests\Unit\Models;
 
 use Tests\TestCase;
 use App\Models\Base;
-use ReflectionClass;
+use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,12 +12,13 @@ class BaseTest extends TestCase
 {
     /** @test */
     public function the_base_model_must_be_an_abstract_class() {
-        $class = new ReflectionClass(Base::class);
+        $this->assertAbstractClass(Base::class);
+    }
 
-        $this->assertTrue(
-            $class->isAbstract(),
-            'The base model must be an abstract class.'
-        );
+    /** @test */
+    public function the_base_model_must_be_a_subclass_of_the_model_class()
+    {
+        $this->assertSubclassOf(Base::class, Model::class);
     }
 
     /** @test */

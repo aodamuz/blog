@@ -16,7 +16,7 @@ class CategoryTest extends TestCase
     /** @test */
     public function the_category_model_must_be_a_subclass_of_the_base_model()
     {
-        $this->assertTrue(is_subclass_of(Category::class, Base::class));
+        $this->assertSubclassOf(Category::class, Base::class);
     }
 
     /** @test */
