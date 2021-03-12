@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Base extends Model
+abstract class Base extends Model
 {
     use Cachable, HasFactory;
 

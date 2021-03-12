@@ -2,14 +2,11 @@
 	"folders":
 	[
 		{
-			"name": "Blog",
-			"path": "."
-		},
-		{
 			"path": "C:\\Users\\Johan\\Documents\\References"
 		},
 		{
-			"path": "C:\\Users\\Johan\\Documents\\References\\fortify"
+			"name": "Blog",
+			"path": "."
 		}
 	]
 }
