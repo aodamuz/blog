@@ -12,7 +12,6 @@ use App\Traits\HasSlug;
 use App\Models\Category;
 use App\Traits\HasOptions;
 use App\Traits\HasPostStatus;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

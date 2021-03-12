@@ -11,7 +11,6 @@ use App\Traits\HasRole;
 use App\Traits\HasCountry;
 use App\Traits\HasOptions;
 use Database\Seeders\RoleSeeder;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -27,19 +26,18 @@ class UserTest extends TestCase
     /** @test  */
     public function users_database_has_expected_columns()
     {
-        $this->assertTrue(
-            Schema::hasColumns('users', [
-                'email',
-                'email_verified_at',
-                'password',
-                'remember_token',
-                'options',
-                'role_id',
-                'created_at',
-                'updated_at',
-                'deleted_at',
-            ])
-        );
+        $this->assertDatabaseHasColumns('users', [
+            'id',
+            'email',
+            'email_verified_at',
+            'password',
+            'remember_token',
+            'options',
+            'role_id',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+        ]);
     }
 
     /** @test */
