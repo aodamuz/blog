@@ -38,7 +38,11 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     protected function clearLogs() {
-        if ($this->app->runningInConsole() && $this->app->runningUnitTests()) {
+        if (
+            $this->app->isLocal() &&
+            $this->app->runningInConsole() &&
+            $this->app->runningUnitTests()
+        ) {
             $path = storage_path('logs/.gitignore');
 
             if ($this->files->exists($path)) {
