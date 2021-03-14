@@ -4,10 +4,13 @@ namespace App\Providers;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Blade;
+use App\Traits\InteractsWithFilesystem;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    use InteractsWithFilesystem;
+
     /**
      * Register any application services.
      *
@@ -35,15 +38,14 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     protected function clearLogs() {
-        if ($this->app->environment('testing')) {
-            $files = new Filesystem;
-            $path  = storage_path('logs/.gitignore');
+        if ($this->app->runningInConsole() && $this->app->runningUnitTests()) {
+            $path = storage_path('logs/.gitignore');
 
-            if ($files->exists($path)) {
-                $gitignore = $files->get($path);
+            if ($this->files->exists($path)) {
+                $gitignore = $this->files->get($path);
 
-                $files->cleanDirectory(dirname($path));
-                $files->put($path, $gitignore);
+                $this->files->cleanDirectory(dirname($path));
+                $this->files->put($path, $gitignore);
             }
         }
     }

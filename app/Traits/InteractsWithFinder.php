@@ -15,4 +15,22 @@ trait InteractsWithFinder
     {
         return new Finder;
     }
+
+    /**
+     * Call the finder property with magic method.
+     *
+     * @param string $property
+     *
+     * @return mixed
+     */
+    public function __get($property)
+    {
+        if (property_exists($this, 'finder') && $property === 'finder') {
+            return $this->finder;
+        }
+
+        if ($property === 'finder') {
+            return $this->finder();
+        }
+    }
 }

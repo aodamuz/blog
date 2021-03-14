@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   laravel:
-    name: Testing Laravel with PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
+    name: Testing with PHP${{ matrix.php-versions }} on ${{ matrix.operating-system }}
     runs-on: ${{ matrix.operating-system }}
     strategy:
       fail-fast: false

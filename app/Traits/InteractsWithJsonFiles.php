@@ -17,7 +17,7 @@ trait InteractsWithJsonFiles
      * @throws \InvalidArgumentException
      * @return Illuminate\Support\Collection
      */
-    public function readJson($path, bool $collection = true)
+    public function readJson(string $path, bool $collection = true)
     {
         $contents = [];
 
@@ -52,12 +52,12 @@ trait InteractsWithJsonFiles
      *
      * @param string $path
      * @param array $data
-     * @param boolean $sort
+     * @param bool $sort
      *
      * @throws \RuntimeException
-     * @return boolean
+     * @return bool
      */
-    public function storeJson($path, $data, $sort = false)
+    public function storeJson(string $path, array $data, bool $sort = false)
     {
         if ($data instanceof Collection)
             $data = $data->toArray();
