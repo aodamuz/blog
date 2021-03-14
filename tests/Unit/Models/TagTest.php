@@ -15,7 +15,7 @@ class TagTest extends TestCase
     use RefreshDatabase, Assertion;
 
     /** @test  */
-    public function tags_database_has_expected_columns()
+    public function tags_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('tags', [
             'id',
@@ -28,7 +28,7 @@ class TagTest extends TestCase
     }
 
     /** @test  */
-    public function taggables_database_has_expected_columns()
+    public function taggables_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('taggables', [
             'tag_id',
@@ -54,5 +54,45 @@ class TagTest extends TestCase
         $tag = Tag::factory()->hasPosts()->create();
 
         $this->assertInstanceOf(Post::class, $tag->posts->first());
+    }
+
+    /** @test */
+    public function the_relationship_between_a_tag_and_a_post_must_be_removed_when_one_of_the_two_is_removed() {
+        $post = Post::factory()->create();
+        $tag = Tag::factory()->create();
+
+        $post->assignTags($tag);
+
+        $this->assertDatabaseHas('taggables', [
+            'tag_id' => $tag->id,
+            'taggable_type' => Post::class,
+            'taggable_id' => $post->id,
+        ]);
+
+        $post->delete();
+
+        $this->assertDatabaseMissing('taggables', [
+            'tag_id' => $tag->id,
+            'taggable_type' => Post::class,
+            'taggable_id' => $post->id,
+        ]);
+
+        $post = Post::factory()->create();
+
+        $post->assignTags($tag);
+
+        $this->assertDatabaseHas('taggables', [
+            'tag_id' => $tag->id,
+            'taggable_type' => Post::class,
+            'taggable_id' => $post->id,
+        ]);
+
+        $tag->delete();
+
+        $this->assertDatabaseMissing('taggables', [
+            'tag_id' => $tag->id,
+            'taggable_type' => Post::class,
+            'taggable_id' => $post->id,
+        ]);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Observers;
 
 use App\Models\Role;
 
-class RoleObserver extends Observer
+class RoleObserver
 {
     /**
      * Handle the role "deleting" event.

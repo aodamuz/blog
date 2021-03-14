@@ -80,6 +80,7 @@ trait Assertion
     protected function assertAbstractClass($class)
     {
         $reflection = new ReflectionClass($class);
+        $class = is_object($class) ? get_class($class) : $class;
 
         $this->assertTrue(
             $reflection->isAbstract(),

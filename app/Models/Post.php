@@ -5,12 +5,13 @@ namespace App\Models;
 use App\Traits\HasSlug;
 use App\Traits\HasOptions;
 use App\Traits\HasPostStatus;
+use App\Traits\ConvertToModels;
 use App\Presenters\PostPresenter;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Base
 {
-    use HasSlug, HasOptions, HasPostStatus, SoftDeletes;
+    use HasSlug, HasOptions, ConvertToModels, HasPostStatus, SoftDeletes;
 
     /*
     |-------------------------------------------------------------------------
@@ -88,6 +89,26 @@ class Post extends Base
     | Helpers
     |-------------------------------------------------------------------------
     */
+
+    /**
+     * Assign tags to a post.
+     *
+     * @param array|string|\App\Models\Tag $tag
+     *
+     * @return $this
+     */
+    public function assignTags($tags)
+    {
+        $this->tags()->sync(
+            $this->convertToModels($tags, new Tag)
+                ->map(function($tag) {
+                    return $tag->id;
+                })
+                ->all()
+        );
+
+        return $this;
+    }
 
     /**
      * Present the logic in the views.

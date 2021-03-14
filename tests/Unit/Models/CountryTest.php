@@ -15,7 +15,7 @@ class CountryTest extends TestCase
     use RefreshDatabase;
 
     /** @test  */
-    public function countries_database_has_expected_columns()
+    public function countries_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('countries', [
             'id',
@@ -44,9 +44,9 @@ class CountryTest extends TestCase
 
     /** @test */
     public function the_casts_property_must_define_the_options_as_an_array() {
-        $value = $this->getClassProperty(new Country, 'casts');
+        $casts = $this->getClassProperty(new Country, 'casts');
 
-        $this->assertTrue($value['options'] == 'array');
+        $this->assertTrue($casts['options'] == 'array');
     }
 
     /** @test */

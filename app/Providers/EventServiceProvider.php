@@ -27,5 +27,7 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         \App\Models\Role::observe(\App\Observers\RoleObserver::class);
+        \App\Models\Tag::observe(\App\Observers\TagObserver::class);
+        \App\Models\Post::observe(\App\Observers\PostObserver::class);
     }
 }

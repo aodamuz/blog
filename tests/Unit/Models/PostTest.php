@@ -12,6 +12,7 @@ use App\Traits\HasSlug;
 use App\Models\Category;
 use App\Traits\HasOptions;
 use App\Traits\HasPostStatus;
+use App\Traits\ConvertToModels;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -20,7 +21,7 @@ class PostTest extends TestCase
     use RefreshDatabase, Assertion;
 
     /** @test  */
-    public function posts_database_has_expected_columns()
+    public function posts_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('posts', [
             'id',
@@ -64,6 +65,11 @@ class PostTest extends TestCase
     public function the_post_model_must_use_the_has_options_trait()
     {
         $this->assertClassUsesTrait(HasOptions::class, Post::class);
+    }
+
+    /** @test */
+    public function the_post_model_must_use_the_convert_to_models_trait() {
+        $this->assertClassUsesTrait(ConvertToModels::class, Post::class);
     }
 
     /** @test */
@@ -142,8 +148,11 @@ class PostTest extends TestCase
     public function the_review_method_should_return_the_posts_under_review()
     {
         $posts = Post::factory()->times(3)->review()->create();
+        $all = Post::review()->get();
 
-        Post::review()->get()->map(function($post) use ($posts) {
+        $this->assertCount(3, $all);
+
+        $all->map(function($post) use ($posts) {
             $this->assertTrue($posts->contains($post->id));
         });
     }
@@ -152,8 +161,11 @@ class PostTest extends TestCase
     public function the_hidden_method_should_return_the_hidden_posts()
     {
         $posts = Post::factory()->times(3)->hidden()->create();
+        $all = Post::hidden()->get();
 
-        Post::hidden()->get()->map(function($post) use ($posts) {
+        $this->assertCount(3, $all);
+
+        $all->map(function($post) use ($posts) {
             $this->assertTrue($posts->contains($post->id));
         });
     }
@@ -162,8 +174,11 @@ class PostTest extends TestCase
     public function the_published_method_should_return_the_public_posts()
     {
         $posts = Post::factory()->times(3)->published()->create();
+        $all = Post::published()->get();
 
-        Post::published()->get()->map(function($post) use ($posts) {
+        $this->assertCount(3, $all);
+
+        $all->map(function($post) use ($posts) {
             $this->assertTrue($posts->contains($post->id));
         });
     }

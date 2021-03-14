@@ -37,6 +37,7 @@ class CreatePermissionsTable extends Migration
                 ->foreign('permission_id')
                 ->references('id')
                 ->on('permissions')
+                ->onUpdate('cascade')
                 ->onDelete('cascade')
             ;
 
@@ -44,6 +45,7 @@ class CreatePermissionsTable extends Migration
                 ->foreign('role_id')
                 ->references('id')
                 ->on('roles')
+                ->onUpdate('cascade')
                 ->onDelete('cascade')
             ;
 

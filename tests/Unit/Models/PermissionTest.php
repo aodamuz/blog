@@ -15,7 +15,7 @@ class PermissionTest extends TestCase
     use RefreshDatabase;
 
     /** @test  */
-    public function permissions_database_has_expected_columns()
+    public function permissions_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('permissions', [
             'id',
@@ -26,7 +26,7 @@ class PermissionTest extends TestCase
     }
 
     /** @test  */
-    public function permission_role_database_has_expected_columns()
+    public function permission_role_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('permission_role', [
             'permission_id',
@@ -53,5 +53,41 @@ class PermissionTest extends TestCase
         $role->assignPermissions($permission);
 
         $this->assertInstanceOf(Role::class, $permission->roles->first());
+    }
+
+    /** @test */
+    public function the_relationship_between_a_permission_and_a_role_must_be_removed_when_one_of_the_two_is_removed() {
+        $role = Role::factory()->create();
+        $permission = Permission::factory()->create();
+
+        $role->assignPermissions($permission);
+
+        $this->assertDatabaseHas('permission_role', [
+            'role_id' => $role->id,
+            'permission_id' => $permission->id,
+        ]);
+
+        $role->delete();
+
+        $this->assertDatabaseMissing('permission_role', [
+            'role_id' => $role->id,
+            'permission_id' => $permission->id,
+        ]);
+
+        $role = Role::factory()->create();
+
+        $role->assignPermissions($permission);
+
+        $this->assertDatabaseHas('permission_role', [
+            'role_id' => $role->id,
+            'permission_id' => $permission->id,
+        ]);
+
+        $permission->delete();
+
+        $this->assertDatabaseMissing('permission_role', [
+            'role_id' => $role->id,
+            'permission_id' => $permission->id,
+        ]);
     }
 }

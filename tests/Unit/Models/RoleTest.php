@@ -15,7 +15,7 @@ class RoleTest extends TestCase {
     use RefreshDatabase;
 
     /** @test  */
-    public function roles_database_has_expected_columns()
+    public function roles_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('roles', [
             'id',

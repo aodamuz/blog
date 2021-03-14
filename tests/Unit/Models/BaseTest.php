@@ -38,8 +38,8 @@ class BaseTest extends TestCase
     public function the_guarded_property_must_be_an_empty_array() {
         // The Category model is an extended class of the Base classes.
         // The Category class is tested because the Base class is abstract.
-        $value = $this->getClassProperty(new Category, 'guarded');
+        $guarded = $this->getClassProperty(new Category, 'guarded');
 
-        $this->assertEquals([], $value);
+        $this->assertEquals([], $guarded);
     }
 }

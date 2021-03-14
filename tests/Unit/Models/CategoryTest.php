@@ -14,7 +14,7 @@ class CategoryTest extends TestCase
     use RefreshDatabase;
 
     /** @test  */
-    public function categories_database_has_expected_columns()
+    public function categories_table_has_expected_columns()
     {
         $this->assertDatabaseHasColumns('categories', [
             'id',
