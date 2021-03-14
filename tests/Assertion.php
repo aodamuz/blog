@@ -17,7 +17,7 @@ trait Assertion
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      */
-    public function assertClassUsesInterface(string $interface, $object)
+    protected function assertClassUsesInterface(string $interface, $object)
     {
         $object = is_object($object) ? get_class($object) : $object;
 
@@ -38,7 +38,7 @@ trait Assertion
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
      */
-    public function assertClassUsesTrait(string $trait, $object)
+    protected function assertClassUsesTrait(string $trait, $object)
     {
         $object = is_object($object) ? get_class($object) : $object;
 
@@ -58,7 +58,7 @@ trait Assertion
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
      */
-    public function assertSubclassOf($child, $parent)
+    protected function assertSubclassOf($child, $parent)
     {
         $child = is_object($child) ? get_class($child) : $child;
         $parent = is_object($parent) ? get_class($parent) : $parent;
@@ -77,7 +77,7 @@ trait Assertion
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
      */
-    public function assertAbstractClass($class)
+    protected function assertAbstractClass($class)
     {
         $reflection = new ReflectionClass($class);
 
@@ -96,7 +96,7 @@ trait Assertion
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws ExpectationFailedException
      */
-    public function assertDatabaseHasColumns(string $table, array $columns)
+    protected function assertDatabaseHasColumns(string $table, array $columns)
     {
         $cols = implode(', ', $columns);
 
@@ -104,5 +104,22 @@ trait Assertion
             Schema::hasColumns($table, $columns),
             "The table \"{$table}\" must contain the columns: {$cols}."
         );
+    }
+
+    /**
+     * Get the value of a protected or private property of a given class.
+     *
+     * @param object $object
+     * @param string $property
+     *
+     * @return mixed
+     */
+    protected static function getClassProperty(object $object, string $property)
+    {
+        $reflection = (new \ReflectionClass($object))->getProperty($property);
+
+        $reflection->setAccessible(true);
+
+        return $reflection->getValue($object);
     }
 }

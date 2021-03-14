@@ -26,18 +26,13 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->all());
         $id = $this->route('post')->id;
-        $msg = 'You do not have permission to assign the status of this post.';
 
         return [
             'title'       => 'required|string|min:3|max:60',
-            'slug'        => "required|string|min:1|max:60|unique:posts,{$id}",
+            'slug'        => "required|string|min:1|max:60|unique:posts,slug,{$id}",
             'body'        => 'required|string|min:10',
             'description' => 'required|string|min:10|max:160',
-            // The category assigned by default in a publication is null.
-            // The system assumes that a post without the identifier will
-            // be an uncategorized post.
             'category_id' => 'nullable|integer|exists:categories,id',
             'tags'        => 'nullable|array|exists:tags,id',
             'user_id'     => 'nullable|integer|exists:users,id',

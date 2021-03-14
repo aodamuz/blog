@@ -1,0 +1,101 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Resources;
+
+use App\Models\Tag;
+use App\Models\Post;
+use App\Models\Category;
+use App\Support\Response\Messages;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Posts\CreateRequest;
+use App\Http\Requests\Posts\UpdateRequest;
+
+class PostController extends Controller
+{
+    /**
+     * Create the controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $posts = Post::latest()->paginate()->onEachSide(2);
+
+        return view('admin.posts.index', compact('posts'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $post = new Post;
+
+        return view('admin.posts.create-edit', compact('post'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\Posts\CreateRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CreateRequest $request)
+    {
+        $request->process();
+
+        return redirect()
+            ->route('admin.posts.index')
+            ->withSuccess(__(Messages::POST_CREATED));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        // $post = $post->load(['category', 'user', 'tags']);
+
+        return view('admin.posts.create-edit', compact('post'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\Posts\UpdateRequest  $request
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateRequest $request, Post $post)
+    {
+        $request->process();
+
+        return back()->withSuccess(__(Messages::POST_UPDATED));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        //
+    }
+}

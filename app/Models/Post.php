@@ -33,19 +33,31 @@ class Post extends Base
     |-------------------------------------------------------------------------
     */
 
+    /**
+     * User relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
     /**
-     * Get all the tags for the post.
+     * Tags relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
+    /**
+     * Category relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -57,9 +69,18 @@ class Post extends Base
     |-------------------------------------------------------------------------
     */
 
-    public function setBodyAttribute($value)
+    /**
+     * Set the post's category_id.
+     *
+     * @param  int $value
+     *
+     * @return void
+     */
+    public function setCategoryIdAttribute($value)
     {
-        $this->attributes['body'] = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $value);
+        // If a category is not selected, we will
+        // force the model to set category 1.
+        $this->attributes['category_id'] = $value ?? 1;
     }
 
     /*
@@ -68,6 +89,11 @@ class Post extends Base
     |-------------------------------------------------------------------------
     */
 
+    /**
+     * Present the logic in the views.
+     *
+     * @return \App\Presenters\PostPresenter
+     */
     public function present()
     {
         return new PostPresenter($this);

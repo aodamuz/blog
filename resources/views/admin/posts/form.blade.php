@@ -1,6 +1,10 @@
 <div class="grid grid-cols-6 gap-6">
 	<x-form-input :label="__('Title')" name="title" :value="old('title', $post->title)" container-class="col-span-6 lg:col-span-5" autofocus/>
 
+	@if ($post->id)
+		<x-form-input :label="__('URL')" name="slug" :value="old('slug', $post->slug)" container-class="col-span-6 lg:col-span-5"/>
+	@endif
+
 	<x-form-textarea :label="__('Description')" name="description" :value="old('description', $post->description)" rows="5" container-class="col-span-6 lg:col-span-5"/>
 
 	<input type="hidden" id="body" name="body" value="{{ old('body', $post->body) }}" />

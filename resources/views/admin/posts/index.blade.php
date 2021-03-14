@@ -1,5 +1,7 @@
 <x-admin-layout>
-	<div class="w-full overflow-hidden rounded-lg shadow-xs">
+	<div class="w-full overflow-hidden rounded-lg shadow-xs mb-6">
+		{{ $posts->links() }}
+
 		<div class="w-full overflow-x-auto">
 			<table class="w-full whitespace-no-wrap">
 				<thead>
@@ -30,7 +32,15 @@
 									</div>
 
 									<div>
-										<p class="font-semibold">{{ $post->title }}</p>
+										<p class="font-semibold">
+											@can('update', $post)
+											    <a href="{{ route('admin.posts.edit', $post) }}" class="hover:underline text-primary-600 dark:text-primary-400">
+											    	{{ $post->title }}
+											    </a>
+											@else
+												{{ $post->title }}
+											@endcan
+										</p>
 										<p class="text-xs text-gray-600 dark:text-gray-400">
 											{{ Str::limit($post->description, 25) }}
 										</p>

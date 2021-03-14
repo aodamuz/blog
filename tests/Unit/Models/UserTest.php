@@ -98,6 +98,20 @@ class UserTest extends TestCase
     }
 
     /** @test */
+    public function the_role_relation_must_be_preloaded() {
+        $value = $this->getClassProperty(new User, 'with');
+
+        $this->assertTrue($value[0] == 'role');
+    }
+
+    /** @test */
+    public function the_casts_property_must_define_the_options_as_an_array() {
+        $value = $this->getClassProperty(new User, 'casts');
+
+        $this->assertTrue($value['options'] == 'array');
+    }
+
+    /** @test */
     public function a_user_must_return_their_full_name()
     {
         $user = User::factory()->create([

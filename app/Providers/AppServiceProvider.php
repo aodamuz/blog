@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
             if ($files->exists($path)) {
                 $gitignore = $files->get($path);
 
-                $files->cleanDirectory($path);
+                $files->cleanDirectory(dirname($path));
                 $files->put($path, $gitignore);
             }
         }

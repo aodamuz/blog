@@ -67,6 +67,13 @@ class PostTest extends TestCase
     }
 
     /** @test */
+    public function the_casts_property_must_define_the_options_as_an_array() {
+        $value = $this->getClassProperty(new Post, 'casts');
+
+        $this->assertTrue($value['options'] == 'array');
+    }
+
+    /** @test */
     public function a_post_morph_many_tags() {
         $post = Post::factory()->hasTags()->create();
 
@@ -112,7 +119,7 @@ class PostTest extends TestCase
     /** @test */
     public function a_post_can_have_different_statuses()
     {
-        $post = Post::factory()->private()->create();
+        $post = Post::factory()->hidden()->create();
 
         $this->assertFalse($post->isPublished());
         $this->assertFalse($post->isReview());
@@ -142,11 +149,11 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function the_private_method_should_return_the_private_posts()
+    public function the_hidden_method_should_return_the_hidden_posts()
     {
-        $posts = Post::factory()->times(3)->private()->create();
+        $posts = Post::factory()->times(3)->hidden()->create();
 
-        Post::private()->get()->map(function($post) use ($posts) {
+        Post::hidden()->get()->map(function($post) use ($posts) {
             $this->assertTrue($posts->contains($post->id));
         });
     }
@@ -174,7 +181,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function a_post_can_be_marked_as_private() {
+    public function a_post_can_be_marked_as_hidden() {
         $post = Post::factory()->review()->create();
 
         $this->assertTrue($post->isReview());

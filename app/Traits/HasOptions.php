@@ -19,8 +19,6 @@ trait HasOptions
      */
     public function option($key = null, $default = null)
     {
-        $this->makeSureTheOptionsAreArray();
-
         $options = Arr::wrap($this->options);
 
         if (is_array($key)) {
@@ -51,8 +49,6 @@ trait HasOptions
     public function forgetOption($key)
     {
         if ((is_array($key) || is_string($key)) && !empty($key)) {
-            $this->makeSureTheOptionsAreArray();
-
             if ($key === '*') {
                 $this->options = [];
             } else {
@@ -77,25 +73,5 @@ trait HasOptions
     public function flushOptions()
     {
         return $this->forgetOption('*');
-    }
-
-    public function makeSureTheOptionsAreArray()
-    {
-        if (
-            !isset($this->casts['options']) ||
-            $this->casts['options'] !== 'array'
-        ) {
-            throw new InvalidArgumentException(
-                'The options attribute must be converted to an array.'
-            );
-        }
-
-        if (!Schema::hasColumns($this->getTable(), ['options'])) {
-            $model = get_class($this);
-
-            throw new InvalidArgumentException(
-                "The {$model} model does not have a column named options."
-            );
-        }
     }
 }

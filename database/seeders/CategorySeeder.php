@@ -14,6 +14,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        Category::create([
+            'title' => 'Uncategorized',
+            'description' => 'Default category.',
+        ]);
+
         Category::factory(5)->create();
     }
 }

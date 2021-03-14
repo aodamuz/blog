@@ -59,6 +59,18 @@ class PostPolicy
     }
 
     /**
+     * Determine if the user can set the state of the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
+     * @return mixed
+     */
+    public function setStatus(User $user, Post $post)
+    {
+        return $user->hasPermission('set-post-status') && $user->isAuthorOf($post);
+    }
+
+    /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
@@ -80,18 +92,6 @@ class PostPolicy
     public function delete(User $user, Post $post)
     {
         return $user->hasPermission('delete-posts') || $user->isAuthorOf($post);
-    }
-
-    /**
-     * Determine if the user can set the state of the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
-     * @return mixed
-     */
-    public function setStatus(User $user, Post $post)
-    {
-        return $user->hasPermission('set-post-status') && $user->isAuthorOf($post);
     }
 
     /**

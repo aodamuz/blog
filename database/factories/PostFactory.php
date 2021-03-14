@@ -44,7 +44,7 @@ class PostFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function private()
+    public function hidden()
     {
         return $this->state(function (array $attributes) {
             return [

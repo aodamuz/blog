@@ -28,7 +28,7 @@ class CreatePostsTable extends Migration
             ])->default(PostStatus::DEFAULT);
 
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('category_id')->default(1);
 
             $table->longText('options')->nullable();
 

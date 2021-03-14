@@ -79,6 +79,7 @@ class RoleSeeder extends Seeder
             'post-manager',
             'category-manager',
             'tag-manager',
+            'set-post-status',
         ], true);
 
         Role::whereSlug('author')

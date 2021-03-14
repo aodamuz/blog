@@ -26,16 +26,10 @@ class CreateRequest extends FormRequest
      */
     public function rules()
     {
-        // dd($this->all());
-        $msg = 'You do not have permission to assign the status of this post.';
-
         return [
             'title'       => 'required|string|min:3|max:60',
             'body'        => 'required|string|min:10',
             'description' => 'required|string|min:10|max:160',
-            // The category assigned by default in a publication is null.
-            // The system assumes that a post without the identifier will
-            // be an uncategorized post.
             'category_id' => 'nullable|integer|exists:categories,id',
             'tags'        => 'nullable|array|exists:tags,id',
             'status'      => [

@@ -78,6 +78,11 @@ return [
             ],
 
             [
+                'title' => 'Set Post Status',
+                'description' => 'Permission to set the status of a post.',
+            ],
+
+            [
                 'title' => 'Delete Posts',
                 'description' => 'Permission to delete posts.',
             ],

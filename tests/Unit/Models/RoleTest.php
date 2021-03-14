@@ -45,6 +45,20 @@ class RoleTest extends TestCase {
     }
 
     /** @test */
+    public function the_casts_property_must_define_the_removable_column_as_a_boolean() {
+        $value = $this->getClassProperty(new Role, 'casts');
+
+        $this->assertTrue($value['removable'] == 'boolean');
+    }
+
+    /** @test */
+    public function the_permissions_relation_must_be_preloaded() {
+        $value = $this->getClassProperty(new Role, 'with');
+
+        $this->assertTrue($value[0] == 'permissions');
+    }
+
+    /** @test */
     public function a_role_has_many_users() {
         $user = User::factory()
             ->forRole([

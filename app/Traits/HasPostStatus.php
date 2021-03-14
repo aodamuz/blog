@@ -23,7 +23,7 @@ trait HasPostStatus
      * @param  \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopePrivate($query)
+    public function scopeHidden($query)
     {
         return $query->where('status', PostStatus::HIDDEN);
     }
