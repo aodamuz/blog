@@ -44,7 +44,10 @@ class AppServiceProvider extends ServiceProvider
         ) {
             $path = storage_path('logs/.gitignore');
 
-            if ($this->files->exists($path)) {
+            if ($this->files->exists($path) &&
+                $this->files->isReadable($path) &&
+                $this->files->isWritable(dirname($path))
+            ) {
                 $gitignore = $this->files->get($path);
 
                 $this->files->cleanDirectory(dirname($path));
