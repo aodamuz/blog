@@ -51,7 +51,7 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
-          APP_ENV: production
+          APP_ENV: testing
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
           BCRYPT_ROUNDS: 4

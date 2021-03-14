@@ -39,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function clearLogs() {
         if (
-            $this->app->isLocal() &&
             $this->app->runningInConsole() &&
             $this->app->runningUnitTests()
         ) {
