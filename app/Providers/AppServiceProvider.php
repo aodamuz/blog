@@ -39,18 +39,20 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function clearLogs() {
         if (
+            env('CLEAN_LOGS_WHEN_RUNNING_UNIT_TESTS') &&
             $this->app->runningInConsole() &&
             $this->app->runningUnitTests()
         ) {
             $path = storage_path('logs/.gitignore');
+            $dirname = dirname($path);
 
             if ($this->files->exists($path) &&
                 $this->files->isReadable($path) &&
-                $this->files->isWritable(dirname($path))
+                $this->files->isWritable($dirname)
             ) {
                 $gitignore = $this->files->get($path);
 
-                $this->files->cleanDirectory(dirname($path));
+                $this->files->cleanDirectory($dirname);
                 $this->files->put($path, $gitignore);
             }
         }
