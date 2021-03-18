@@ -4,9 +4,12 @@ namespace Tests;
 
 use ReflectionClass;
 use Illuminate\Support\Facades\Schema;
+use JMac\Testing\Traits\AdditionalAssertions;
 
 trait Assertion
 {
+    use AdditionalAssertions;
+
     /**
      * Asserts that a class uses a interface.
      *

@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class IndexRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class CreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('create', new Post);
+        return Gate::allows('viewAny', new Post);
     }
 
     /**

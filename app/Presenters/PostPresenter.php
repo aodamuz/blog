@@ -36,7 +36,7 @@ class PostPresenter extends Presenter
 
     public function selectedStatus($key)
     {
-        return old('status', $this->defaultStatus) == $key ? 'selected' : '';
+        return old('status', $this->defaultStatus()) == $key ? 'selected' : '';
     }
 
     public function statusClass()

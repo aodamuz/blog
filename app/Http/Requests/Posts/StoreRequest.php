@@ -9,7 +9,7 @@ use App\Support\Enum\PostStatus;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,9 +18,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        $id = $this->route('post');
-
-        return Gate::allows('update', Post::findOrFail($id));
+        return Gate::allows('create', new Post);
     }
 
     /**
@@ -30,25 +28,12 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('post');
-
         return [
             'title'       => 'required|string|min:3|max:60',
-            'slug'        => "required|string|min:1|max:60|unique:posts,slug,{$id}",
             'body'        => 'required|string|min:10',
             'description' => 'required|string|min:10|max:160',
             'category_id' => 'nullable|integer|exists:categories,id',
             'tags'        => 'nullable|array|exists:tags,id',
-            'user_id'     => 'nullable|integer|exists:users,id',
-            'user_id'     => [
-                function ($attribute, $value, $fail) {
-                    if ($this->user()->can('post-manager', new Post) && empty($value)) {
-                        $fail(__('validation.required', compact('attribute')));
-                    }
-                },
-                'integer',
-                'exists:users,id',
-            ],
             'status'      => [
                 'nullable',
                 new PostStatusRule($this->user()),
@@ -67,10 +52,6 @@ class UpdateRequest extends FormRequest
         $data = parent::validated();
 
         unset($data['tags']);
-
-        if (empty($data['user_id'])) {
-            unset($data['user_id']);
-        }
 
         return $data;
     }

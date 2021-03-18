@@ -6,9 +6,23 @@ use App\Models\Post;
 use App\Models\User;
 use Database\Seeders\RoleSeeder;
 use App\Support\Response\Messages;
+use App\Http\Requests\Posts\UpdateRequest;
+use App\Http\Controllers\Admin\Resources\PostController;
 
-class UpdatePostTest extends TestCase
+class UpdateTest extends TestCase
 {
+    /**
+     * @test
+     */
+    public function the_update_method_uses_update_request(): void
+    {
+        $this->assertActionUsesFormRequest(
+            PostController::class,
+            'update',
+            UpdateRequest::class
+        );
+    }
+
     /** @test */
     public function a_user_with_permissions_can_update_posts()
     {
@@ -19,7 +33,6 @@ class UpdatePostTest extends TestCase
 
         $this
             ->actingAs($user)
-            ->from(route('admin.posts.edit', $post))
             ->put(route('admin.posts.update', $post), $this->data())
             ->assertRedirect(route('admin.posts.edit', $post))
             ->assertSessionHas('success', __(Messages::POST_UPDATED))
@@ -28,6 +41,26 @@ class UpdatePostTest extends TestCase
         $this->assertDatabaseHas('posts', $this->data([
             'user_id' => $user->id
         ]));
+    }
+
+    /** @test */
+    public function a_user_without_permissions_cannot_update_posts()
+    {
+        $this->actingAs(
+            $this->userWithAccess()
+        );
+
+        $this->get(
+            route('admin.dashboard')
+        )->assertOk();
+
+        $post = Post::factory()->create();
+
+        $this->from(
+            route('admin.posts.edit', $post)
+        )->put(
+            route('admin.posts.update', $post, $this->data())
+        )->assertForbidden();
     }
 
     /** @test */
@@ -55,7 +88,7 @@ class UpdatePostTest extends TestCase
         $this->seed(RoleSeeder::class);
 
         $user = User::factory()->create();
-        $post = Post::factory()->create(['user_id' => $user->id]);
+        $post = Post::factory()->for($user)->create();
 
         $this->assertEquals($user->id, $post->user->id);
 
@@ -63,18 +96,18 @@ class UpdatePostTest extends TestCase
         // =====================================
 
         // This is the new author.
-        $user = User::factory()->create();
+        $author = User::factory()->create();
 
         $postManager = User::factory()->create()->assignRole('admin');
 
         $this
             ->actingAs($postManager)
             ->put(route('admin.posts.update', $post), $this->data([
-                'user_id' => $user->id
+                'user_id' => $author->id
             ]))
             ->assertSessionHasNoErrors()
         ;
 
-        $this->assertEquals($user->id, $post->fresh()->user->id);
+        $this->assertEquals($author->id, $post->fresh()->user->id);
     }
 }

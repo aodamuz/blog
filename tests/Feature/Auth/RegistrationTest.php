@@ -233,7 +233,7 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
-            'country_id' => Country::factory()->create()->id,
+            'country_id' => Country::factory()->create()->getRouteKey(),
             'options' => [
                 'first_name' => 'FIRST',
                 'last_name' => 'LAST',

@@ -57,13 +57,27 @@ trait HasRole
     /**
      * Assign the permissions given to the model.
      *
-     * @param array|string|\App\Models\Permission $permission
+     * @param array|string|\App\Models\Permission $permissions
      *
      * @return $this
      */
     public function assignPermissions($permissions)
     {
         $this->role->assignPermissions($permissions);
+
+        return $this->fresh();
+    }
+
+    /**
+     * Remove permissions granted.
+     *
+     * @param array|string|\App\Models\Permission $permissions
+     *
+     * @return $this
+     */
+    public function removePermissions($permissions)
+    {
+        $this->role->removePermissions($permissions);
 
         return $this->fresh();
     }

@@ -73,6 +73,19 @@ class Role extends Base
     */
 
     /**
+     * Scope a query to include only authors users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthors($query)
+    {
+        return optional(
+            $query->where('slug', 'author')->first()
+        )->users ?? colect([]);
+    }
+
+    /**
      * Assign permissions to a role.
      *
      * @param array|string|\App\Models\Permission $permission
@@ -82,6 +95,26 @@ class Role extends Base
     public function assignPermissions($permissions)
     {
         $this->permissions()->sync(
+            $this->convertToModels($permissions, new Permission)
+                ->map(function($permission) {
+                    return $permission->id;
+                })
+                ->all()
+        );
+
+        return $this;
+    }
+
+    /**
+     * Remove permissions granted.
+     *
+     * @param array|string|\App\Models\Permission $permission
+     *
+     * @return $this
+     */
+    public function removePermissions($permissions)
+    {
+        $this->permissions()->detach(
             $this->convertToModels($permissions, new Permission)
                 ->map(function($permission) {
                     return $permission->id;

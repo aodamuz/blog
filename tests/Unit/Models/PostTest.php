@@ -101,7 +101,7 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(Category::class, $post->category);
 
-        $this->assertEquals($category->id, $post->category->id);
+        $this->assertEquals($category->getRouteKey(), $post->category->getRouteKey());
     }
 
     /** @test */
@@ -119,7 +119,7 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(User::class, $post->user);
 
-        $this->assertEquals($user->id, $post->user->id);
+        $this->assertEquals($user->getRouteKey(), $post->user->getRouteKey());
     }
 
     /** @test */
@@ -153,7 +153,7 @@ class PostTest extends TestCase
         $this->assertCount(3, $all);
 
         $all->map(function($post) use ($posts) {
-            $this->assertTrue($posts->contains($post->id));
+            $this->assertTrue($posts->contains($post->getRouteKey()));
         });
     }
 
@@ -166,7 +166,7 @@ class PostTest extends TestCase
         $this->assertCount(3, $all);
 
         $all->map(function($post) use ($posts) {
-            $this->assertTrue($posts->contains($post->id));
+            $this->assertTrue($posts->contains($post->getRouteKey()));
         });
     }
 
@@ -179,7 +179,7 @@ class PostTest extends TestCase
         $this->assertCount(3, $all);
 
         $all->map(function($post) use ($posts) {
-            $this->assertTrue($posts->contains($post->id));
+            $this->assertTrue($posts->contains($post->getRouteKey()));
         });
     }
 

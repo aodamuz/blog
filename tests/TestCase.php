@@ -11,6 +11,11 @@ abstract class TestCase extends BaseTestCase
 {
     use Assertion, CreatesApplication;
 
+    public function userWithAccess(array $attributes = [])
+    {
+        return $this->user($attributes)->assignPermissions('access');
+    }
+
     public function user(array $attributes = [])
     {
         return $this->newUser('user', $attributes);

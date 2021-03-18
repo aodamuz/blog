@@ -1,6 +1,28 @@
+@php
+    $classList = [
+        'bg-primary-600',
+        'border',
+        'border-transparent',
+        'focus:outline-none',
+        'focus:ring-2',
+        'focus:ring-offset-2',
+        'focus:ring-primary-500',
+        'font-medium',
+        'hover:bg-primary-700',
+        'inline-flex',
+        'justify-center',
+        'px-4',
+        'py-2',
+        'rounded-md',
+        'shadow-sm',
+        'text-sm',
+        'text-white',
+    ];
+@endphp
+
 <button {{ $attributes->merge([
     'type' => 'submit',
-    'class' => 'inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500'
+    'class' => implode(' ', $classList)
 ]) }}>
     {{ $slot }}
 </button>

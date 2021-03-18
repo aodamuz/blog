@@ -151,7 +151,7 @@ class UserTest extends TestCase
         $country = Country::factory()->create();
         $user = $this->user(['country_id' => $country->id]);
 
-        $this->assertEquals($country->id, $user->id);
+        $this->assertEquals($country->getRouteKey(), $user->getRouteKey());
         $this->assertInstanceOf(Country::class, $user->country);
     }
 

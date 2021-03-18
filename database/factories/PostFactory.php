@@ -26,17 +26,33 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'title'       => $this->faker->name,
-            'body'        => $this->faker->text(),
+            'title'       => $this->faker->sentence(4),
+            'body'        => $this->faker->text,
             'description' => $this->faker->text(155),
-            'user_id'     => User::factory()->create(),
-            'options'     => [],
-            'status'      => Arr::random([
+            'user_id'     => User::factory(),
+            'category_id' => Category::factory(),
+            'created_at'  => $this->faker->dateTime(),
+            'updated_at'  => $this->faker->dateTime(),
+            'status'      => $this->faker->randomElement([
                 PostStatus::REVIEW,
                 PostStatus::HIDDEN,
                 PostStatus::PUBLISHED,
             ]),
         ];
+    }
+
+    /**
+     * Mark the post as trashed.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function trashed()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'deleted_at' => now(),
+            ];
+        });
     }
 
     /**

@@ -21,7 +21,7 @@ class RoleSeeder extends Seeder
 
         $this->assignAccessPermissions();
         $this->assignPermissionsToTheAdminRole();
-        $this->assignPermissionsToTheWriterRole();
+        $this->assignPermissionsToTheAuthorRole();
     }
 
     protected function createRoles()
@@ -69,7 +69,7 @@ class RoleSeeder extends Seeder
         ;
     }
 
-    protected function assignPermissionsToTheWriterRole()
+    protected function assignPermissionsToTheAuthorRole()
     {
         $permissions = $this->filterPermissions([
             "tags",

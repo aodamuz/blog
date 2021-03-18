@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'force_https' => env('FORCE_HTTPS', false),
+
     'asset_url' => env('ASSET_URL', null),
 
     /*
@@ -234,6 +236,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'ConfigKeys' => App\Support\Config\ConfigKeys::class,
+        'Messages' => App\Support\Response\Messages::class,
 
     ],
 

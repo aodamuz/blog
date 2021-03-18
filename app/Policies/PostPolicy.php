@@ -91,7 +91,11 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->hasPermission('delete-posts') || $user->isAuthorOf($post);
+        if ($post->trashed()) {
+            return false;
+        }
+
+        return $user->hasPermission('delete-posts') && $user->isAuthorOf($post);
     }
 
     /**
@@ -103,7 +107,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return $user->isAnyAdmin();
+        return $user->isAnyAdmin() && $post->trashed();
     }
 
     /**

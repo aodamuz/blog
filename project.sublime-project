@@ -7,6 +7,10 @@
 		{
 			"name": "Blog",
 			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\laragon\\www\\blog\\tests"
 		}
 	]
 }
