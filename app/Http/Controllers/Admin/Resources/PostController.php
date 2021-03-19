@@ -44,7 +44,7 @@ class PostController extends Controller
     public function index(IndexRequest $request)
     {
         $posts = $this->repository->paginate(
-            $request->get('size', 25),
+            $request->get('size'),
             $request->get('search'),
             $request->get('status'),
             $request->get('sort', 'id'),

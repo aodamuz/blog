@@ -14,7 +14,7 @@ class UpdateTest extends TestCase
     /**
      * @test
      */
-    public function the_update_method_uses_update_request(): void
+    public function the_update_method_uses_update_request()
     {
         $this->assertActionUsesFormRequest(
             PostController::class,

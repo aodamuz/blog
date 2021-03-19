@@ -130,6 +130,16 @@ trait HasRole
     }
 
     /**
+     * Verify if the user is any of the administrators.
+     *
+     * @return bool
+     */
+    public function isAnyAdmin()
+    {
+        return $this->isAdmin() || $this->isSuperAdmin();
+    }
+
+    /**
      * Verify if the user is an administrator.
      *
      * @return bool
@@ -147,15 +157,5 @@ trait HasRole
     public function isSuperAdmin()
     {
         return $this->hasRole('global');
-    }
-
-    /**
-     * Verify if the user is any of the administrators.
-     *
-     * @return bool
-     */
-    public function isAnyAdmin()
-    {
-        return $this->hasRole(['admin', 'global']);
     }
 }

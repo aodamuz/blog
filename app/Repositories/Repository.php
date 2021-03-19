@@ -20,7 +20,7 @@ abstract class Repository
     }
 
     /**
-     * Get the model name Post.
+     * Get the model name.
      *
      * @return string
      */

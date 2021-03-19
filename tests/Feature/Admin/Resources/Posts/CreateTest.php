@@ -10,7 +10,7 @@ class CreateTest extends TestCase
     /**
      * @test
      */
-    public function the_create_method_uses_create_request(): void
+    public function the_create_method_uses_create_request()
     {
         $this->assertActionUsesFormRequest(
             PostController::class,

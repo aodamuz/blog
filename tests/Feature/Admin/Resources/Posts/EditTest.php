@@ -11,7 +11,7 @@ class EditTest extends TestCase
     /**
      * @test
      */
-    public function the_edit_method_uses_edit_request(): void
+    public function the_edit_method_uses_edit_request()
     {
         $this->assertActionUsesFormRequest(
             PostController::class,

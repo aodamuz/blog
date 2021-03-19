@@ -13,7 +13,7 @@ class DestroyTest extends TestCase
     /**
      * @test
      */
-    public function the_destroy_method_uses_destroy_request(): void
+    public function the_destroy_method_uses_destroy_request()
     {
         $this->assertActionUsesFormRequest(
             PostController::class,

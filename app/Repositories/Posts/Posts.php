@@ -12,8 +12,8 @@ interface Posts
      * @param string|int $size
      * @param string|null $search
      * @param string|null $status
-     * @param string|null $sort
-     * @param string|null $direction
+     * @param string $sort
+     * @param string $direction
      * @param string|null $trashed
      * @param array $appends
      *

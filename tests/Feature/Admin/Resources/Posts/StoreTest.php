@@ -18,7 +18,7 @@ class StoreTest extends TestCase
     /**
      * @test
      */
-    public function the_store_method_uses_store_request(): void
+    public function the_store_method_uses_store_request()
     {
         $this->assertActionUsesFormRequest(
             PostController::class,

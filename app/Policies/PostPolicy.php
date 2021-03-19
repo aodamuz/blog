@@ -11,20 +11,6 @@ class PostPolicy
     use HandlesAuthorization;
 
     /**
-     * Perform pre-authorization checks.
-     *
-     * @param  \App\Models\User  $user
-     * @param  string  $ability
-     * @return void|bool
-     */
-    public function before(User $user, $ability)
-    {
-        if ($user->hasPermission('post-manager')) {
-            return true;
-        }
-    }
-
-    /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -32,7 +18,10 @@ class PostPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermission('view-posts');
+        return $user->hasPermission([
+            'post-manager',
+            'view-posts',
+        ]);
     }
 
     /**
@@ -55,7 +44,10 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermission('create-posts');
+        return $user->hasPermission([
+            'post-manager',
+            'create-posts',
+        ]);
     }
 
     /**
@@ -67,6 +59,10 @@ class PostPolicy
      */
     public function setStatus(User $user, Post $post)
     {
+        if ($user->hasPermission('post-manager')) {
+            return true;
+        }
+
         return $user->hasPermission('set-post-status') && $user->isAuthorOf($post);
     }
 
@@ -79,7 +75,14 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->hasPermission('edit-posts') || $user->isAuthorOf($post);
+        if ($post->trashed()) {
+            return false;
+        }
+
+        return $user->hasPermission([
+            'post-manager',
+            'edit-posts',
+        ]) || $user->isAuthorOf($post);
     }
 
     /**
@@ -93,6 +96,10 @@ class PostPolicy
     {
         if ($post->trashed()) {
             return false;
+        }
+
+        if ($user->hasPermission('post-manager')) {
+            return true;
         }
 
         return $user->hasPermission('delete-posts') && $user->isAuthorOf($post);
